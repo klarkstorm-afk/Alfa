@@ -643,6 +643,12 @@ body{overflow-x:clip;max-width:100%;overscroll-behavior-x:none}
 /* v5b: no blue frame / blue backing around tour cards */
 .cf-it{border:0;background:transparent;box-shadow:0 22px 44px rgba(3,14,22,.32);outline:1px solid transparent}
 .cf-img{border-radius:inherit;overflow:hidden}
+
+/* number of travellers stepper in the booking sheet */
+.stp{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--well);border:1px solid var(--stroke);border-radius:999px;padding:5px}
+.stp b{font-weight:500;font-size:1.4rem;min-width:2ch;text-align:center;font-variant-numeric:tabular-nums}
+.stp .ibtn{width:48px;height:48px;font-size:26px;line-height:1;display:inline-flex;align-items:center;justify-content:center;touch-action:manipulation}
+.stp .ibtn:disabled{opacity:.35}
 </style>
 </head>
 <body>
@@ -750,6 +756,7 @@ m_title:['Заявка на бронирование','Booking request','Zgłosz
 m_hi_tour:['Здравствуйте! Хочу заказать тур. Данные заявки ниже, подскажите, пожалуйста, детали и как оформить.','Hello! I would like to book a tour. My request details are below — please tell me the details and how to proceed.','Dzień dobry! Chcę zamówić wycieczkę. Dane zgłoszenia poniżej — proszę o szczegóły i informację, jak ją zamówić.','Саламатсызбы! Тур буюртма кылгым келет. Өтүнүчтүн маалыматы төмөндө — майда-чүйдөсүн жана кантип расмийлештирүүнү айтып бериңиз.'],
 m_hi_hotel:['Здравствуйте! Хочу забронировать отель. Данные заявки ниже, подскажите, пожалуйста, детали и как оформить.','Hello! I would like to book a hotel. My request details are below — please tell me the details and how to proceed.','Dzień dobry! Chcę zarezerwować hotel. Dane zgłoszenia poniżej — proszę o szczegóły i informację, jak dokonać rezerwacji.','Саламатсызбы! Мейманкана брондогум келет. Өтүнүчтүн маалыматы төмөндө — майда-чүйдөсүн жана кантип расмийлештирүүнү айтып бериңиз.'],
 m_hi_gen:['Здравствуйте! Хочу заказать тур и уточнить детали.','Hello! I would like to book a tour and ask about the details.','Dzień dobry! Chcę zamówić wycieczkę i dopytać o szczegóły.','Саламатсызбы! Тур буюртма кылгым келет, чоо-жайын тактагым келет.'],
+m_pax:['Количество туристов','Number of travellers','Liczba osób','Туристтердин саны'],
 m_name:['Имя','Name','Imię','Аты'],
 m_contact:['Телефон или мессенджер','Phone or messenger','Telefon lub komunikator','Телефон же мессенджер'],
 m_email:['Email (необязательно)','Email (optional)','E-mail (opcjonalnie)','Email (милдеттүү эмес)'],
@@ -1442,7 +1449,19 @@ function openBook(type,id){
     lines=[[t('nav_hotels'),h.name+' ('+L(CITY[h.city])+')'],[t('b_room'),L(RN[r[0]])],[t('b_in'),fd(b.inn)+' → '+fd(addDays(b.inn,b.n))+' ('+b.n+' '+nW(b.n)+')'],[t('b_pax'),String(b.pax)],[t('b_total'),fm(r[3]*b.n)]];
   }
   S.m={type:type,id:id,lines:lines,step:1,f:{name:'',contact:'',email:'',comment:''},err:false};
+  if(type==='tour'){S.m.pi=3;S.m.ti=4;S.m.pax=pax;S.m.unit=depPrice(x,d)}
+  else if(type==='hotel'){S.m.pi=3;S.m.pax=b.pax}
   touch();renderModal(true);
+}
+function modalPax(dv){
+  var m=S.m;if(!m||m.pi===undefined)return;
+  [['m_n','name'],['m_c','contact'],['m_e','email'],['m_m','comment']].forEach(function(p){var e=document.getElementById(p[0]);if(e)m.f[p[1]]=e.value});
+  m.pax=Math.max(1,Math.min(20,(+m.pax||1)+dv));
+  m.lines[m.pi][1]=String(m.pax);
+  if(m.ti!==undefined)m.lines[m.ti][1]=fm(m.unit*m.pax);
+  var o=document.querySelector('.ov'),st=o?o.scrollTop:0;
+  renderModal();
+  o=document.querySelector('.ov');if(o)o.scrollTop=st;
 }
 function closeModal(){
   var ov=document.querySelector('.ov');
@@ -1492,7 +1511,7 @@ function renderModal(first){
   if(m.step===1&&m.type==='rev'){body=revForm(m)}
   else if(m.step===3){body='<div class="rv-ok"><span class="stars" aria-hidden="true">'+starRow(m.f.r)+'</span><p>'+t('rev_sent')+'</p></div><button class="btn big full" data-act="closem">'+t('close')+'</button>'}
   else if(m.step===1){
-    body=sum+'<form id="bk" style="display:grid;gap:12px"><div class="fld"><label for="m_n">'+t('m_name')+'</label><input type="text" id="m_n" name="name" autocomplete="name" value="'+esc(m.f.name)+'"></div>'+
+    body=sum+'<form id="bk" style="display:grid;gap:12px">'+(m.pi!==undefined?'<div class="fld"><span class="l">'+t('m_pax')+'</span><div class="stp" role="group" aria-label="'+t('m_pax')+'"><button type="button" class="ibtn" data-act="mpax" data-v="-1" aria-label="−"'+(m.pax<=1?' disabled':'')+'>−</button><b aria-live="polite">'+m.pax+'</b><button type="button" class="ibtn" data-act="mpax" data-v="1" aria-label="+"'+(m.pax>=20?' disabled':'')+'>+</button></div></div>':'')+'<div class="fld"><label for="m_n">'+t('m_name')+'</label><input type="text" id="m_n" name="name" autocomplete="name" value="'+esc(m.f.name)+'"></div>'+
     '<div class="fld"><label for="m_c">'+t('m_contact')+'</label><input type="text" id="m_c" name="contact" autocomplete="tel" value="'+esc(m.f.contact)+'"></div>'+
     '<div class="fld"><label for="m_e">'+t('m_email')+'</label><input type="email" id="m_e" name="email" autocomplete="email" value="'+esc(m.f.email)+'"></div>'+
     '<div class="fld"><label for="m_m">'+t('m_comment')+'</label><textarea id="m_m" name="comment">'+esc(m.f.comment)+'</textarea></div>'+
@@ -1597,6 +1616,7 @@ document.addEventListener('click',function(e){
     case 'book':openBook(a.type,a.id);break;
     case 'closem':closeModal();break;
     case 'mback':S.m.step=1;renderModal();break;
+    case 'mpax':modalPax(+a.v);break;
     case 'revopen':openRev(S.view==='tour'||S.view==='hotel'?S.id:'');break;
     case 'revstar':{S.m.f.r=+a.v;document.querySelectorAll('.rate button').forEach(function(b){var on=+b.dataset.v<=S.m.f.r;b.classList.toggle('on',on);b.setAttribute('aria-checked',String(+b.dataset.v===S.m.f.r))})}break;
     case 'copy':copyText(buildMsg(),el);break;
