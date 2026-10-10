@@ -701,6 +701,9 @@ b_n:['Ночей','Nights','Nocy','Түндөр'],
 b_room:['Номер','Room','Pokój','Бөлмө'],
 b_note:['Заявка уходит менеджеру в WhatsApp или Telegram. Бронь подтверждается после ответа менеджера.','Your request goes to a manager on WhatsApp or Telegram. The booking is confirmed once the manager replies.','Zgłoszenie trafia do menedżera na WhatsApp lub Telegram. Rezerwacja jest potwierdzana po odpowiedzi menedżera.','Өтүнүч менеджерге WhatsApp же Telegram аркылуу жөнөтүлөт. Брондоо менеджер жооп бергенден кийин ырасталат.'],
 m_title:['Заявка на бронирование','Booking request','Zgłoszenie rezerwacji','Брондоо өтүнүчү'],
+m_hi_tour:['Здравствуйте! Хочу заказать тур. Данные заявки ниже, подскажите, пожалуйста, детали и как оформить.','Hello! I would like to book a tour. My request details are below — please tell me the details and how to proceed.','Dzień dobry! Chcę zamówić wycieczkę. Dane zgłoszenia poniżej — proszę o szczegóły i informację, jak ją zamówić.','Саламатсызбы! Тур буюртма кылгым келет. Өтүнүчтүн маалыматы төмөндө — майда-чүйдөсүн жана кантип расмийлештирүүнү айтып бериңиз.'],
+m_hi_hotel:['Здравствуйте! Хочу забронировать отель. Данные заявки ниже, подскажите, пожалуйста, детали и как оформить.','Hello! I would like to book a hotel. My request details are below — please tell me the details and how to proceed.','Dzień dobry! Chcę zarezerwować hotel. Dane zgłoszenia poniżej — proszę o szczegóły i informację, jak dokonać rezerwacji.','Саламатсызбы! Мейманкана брондогум келет. Өтүнүчтүн маалыматы төмөндө — майда-чүйдөсүн жана кантип расмийлештирүүнү айтып бериңиз.'],
+m_hi_gen:['Здравствуйте! Хочу заказать тур и уточнить детали.','Hello! I would like to book a tour and ask about the details.','Dzień dobry! Chcę zamówić wycieczkę i dopytać o szczegóły.','Саламатсызбы! Тур буюртма кылгым келет, чоо-жайын тактагым келет.'],
 m_name:['Имя','Name','Imię','Аты'],
 m_contact:['Телефон или мессенджер','Phone or messenger','Telefon lub komunikator','Телефон же мессенджер'],
 m_email:['Email (необязательно)','Email (optional)','E-mail (opcjonalnie)','Email (милдеттүү эмес)'],
@@ -1427,7 +1430,7 @@ function revForm(m){
 }
 function buildMsg(){
   if(S.m&&S.m.type==='rev')return revMsg();
-  var m=S.m,o=[CFG.name+' — '+t('m_title')];
+  var m=S.m,o=[t(m.type==='hotel'?'m_hi_hotel':m.type==='tour'?'m_hi_tour':'m_hi_gen'),'',CFG.name+' — '+t('m_title')];
   m.lines.forEach(function(l){o.push(l[0]+': '+l[1])});
   o.push(t('m_name')+': '+m.f.name,t('m_contact')+': '+m.f.contact);
   if(m.f.email)o.push('Email: '+m.f.email);
