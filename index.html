@@ -29,7 +29,7 @@
 }
 *{box-sizing:border-box}
 html{background:#10161b;transition:background-color 1.3s ease}body{transition:background-color 1.3s ease}
-body{background:#10161b;color:var(--text);font-family:var(--f-body);font-size:16px;line-height:1.55;-webkit-text-size-adjust:100%;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{background:#10161b;color:var(--text);font-family:var(--f-body);font-size:16px;line-height:1.55;-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased}
 h1,h2,h3{font-family:var(--f-body);font-weight:500;line-height:1.1;margin:0;text-wrap:balance;letter-spacing:-.015em}
 p{margin:0}
 a{color:var(--rock)}
@@ -598,8 +598,8 @@ html.lock,html.lock body{overflow:hidden}
 .lead.st-done{opacity:.72}
 
 /* v3: no page wobble / no focus zoom, softer tour caption, centered single review */
-html{overflow-x:clip;overscroll-behavior-x:none}
-body{overflow-x:clip;max-width:100%;overscroll-behavior-x:none}
+html,body{touch-action:pan-y}
+body{max-width:100%}
 @media (max-width:900px){select,input,textarea,input[type=date],input[type=number],input[type=text],input[type=email],input[type=password]{font-size:16px!important}}
 .cf-cap{background:rgba(10,49,73,.24);-webkit-backdrop-filter:blur(7px) saturate(130%);backdrop-filter:blur(7px) saturate(130%);border-color:rgba(245,238,221,.14);text-shadow:0 1px 10px rgba(4,18,28,.6)}
 .revs.one .blk-h{justify-content:center;text-align:center}
