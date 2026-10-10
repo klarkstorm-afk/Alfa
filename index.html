@@ -87,7 +87,7 @@ svg{display:block}
 .seg{display:flex;background:var(--well);border-radius:999px;padding:4px}
 .seg button{border:0;background:none;color:var(--text2);font:600 12.5px var(--f-body);letter-spacing:.06em;height:34px;min-width:38px;padding:0 8px;border-radius:999px;cursor:pointer;transition:background-color .25s,color .25s}
 .seg button.on{background:var(--merino);color:var(--venice)}
-select,input[type=date],input[type=number],input[type=text],input[type=email],textarea{-webkit-appearance:none;appearance:none;display:block;font:500 15.5px var(--f-body);color:var(--text);background-color:var(--well);border:1px solid var(--stroke);border-radius:var(--r-sm);padding:0 14px;width:100%;min-width:0;height:48px;transition:border-color .2s,background-color .2s}
+select,input[type=date],input[type=number],input[type=text],input[type=email],input[type=tel],textarea{-webkit-appearance:none;appearance:none;display:block;font:500 15.5px var(--f-body);color:var(--text);background-color:var(--well);border:1px solid var(--stroke);border-radius:var(--r-sm);padding:0 14px;width:100%;min-width:0;height:48px;transition:border-color .2s,background-color .2s}
 input::placeholder,textarea::placeholder{color:var(--text3)}
 textarea{height:auto;padding:12px 14px;resize:vertical;min-height:96px}
 select{padding-right:38px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F5EEDD' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;background-size:18px;cursor:pointer}
@@ -651,6 +651,60 @@ body{max-width:100%}
 .stp b{font-weight:500;font-size:1.4rem;min-width:2ch;text-align:center;font-variant-numeric:tabular-nums}
 .stp .ibtn{width:48px;height:48px;font-size:26px;line-height:1;display:inline-flex;align-items:center;justify-content:center;touch-action:manipulation}
 .stp .ibtn:disabled{opacity:.35}
+/* v6: contact method, location, cheaper, custom tour */
+.cmg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.cmc{width:100%;white-space:nowrap;display:flex;align-items:center;justify-content:center;height:42px;padding:0 6px;border-radius:999px;border:1px solid var(--stroke);background:var(--well);color:var(--text);font:500 14.5px var(--f-body);cursor:pointer;touch-action:manipulation;transition:background-color .2s,color .2s,border-color .2s}
+.cmc.on{background:var(--merino);border-color:var(--merino);color:var(--venice)}
+.geo{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media (max-width:440px){.geo{grid-template-columns:1fr}}
+.chb{display:grid;gap:12px;background:var(--well);border:1px solid var(--stroke);border-radius:var(--r-md);padding:14px 16px}
+.xlink{background:none;border:0;color:var(--text2);text-decoration:underline;text-underline-offset:3px;font:500 14.5px var(--f-body);cursor:pointer;padding:8px 0;justify-self:center}
+.cu2{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
+.cuctl .dsec .cu2>.fld{margin-top:0!important}
+.cuctl{display:flex;flex-direction:column;gap:20px}
+.cuctl .dsec .fld+.fld,.cuctl .dsec .fld+.cu2,.cuctl .dsec .cu2+.fld{margin-top:16px}
+.cu-rows{display:grid;gap:7px;font-size:14.5px}
+.cu-rows>div{display:flex;justify-content:space-between;gap:12px}
+.cu-rows span{color:var(--text2)}
+.cu-rows b{font-weight:500;font-variant-numeric:tabular-nums}
+.cusum-in{display:flex;flex-direction:column;gap:14px}
+.cutips{display:grid;gap:12px;border-top:1px solid var(--stroke);padding-top:14px}
+.cufit{display:grid;grid-template-columns:1fr;gap:8px}
+.cupromo{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:20px}
+.cupromo h2{font-size:1.6rem}
+.cupromo p{color:var(--text2);margin-top:6px;max-width:34em}
+@media (min-width:981px){.cusum2{display:none}}
+.dchip:disabled{opacity:.4}
+/* v7: sideways ribbons */
+.hrail{display:flex;gap:16px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;padding:6px 2px 18px;margin-inline:-2px;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;scroll-padding-inline:2px;outline:none}
+.hrail::-webkit-scrollbar{display:none}
+.hrail>*{flex:0 0 min(84vw,340px);scroll-snap-align:start;min-width:0;width:auto}
+.hrail>.dc{flex-basis:min(74vw,300px)}
+@media (min-width:700px){.hrail>*{flex-basis:340px}.hrail>.dc{flex-basis:300px}}
+.hrail>.tc{align-self:stretch}
+.blk-h .hh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+/* v8: coverflow sections */
+.cv{--cw:min(330px,72vw);margin-top:6px;width:100vw;margin-left:calc(50% - 50vw)}
+html,body{overflow-x:clip}
+.cv-ctl{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:6px}
+.cv-ctl .dots{margin:0}
+/* v9: photo viewer */
+.lb{position:fixed;inset:0;z-index:400;background:rgba(5,9,13,.95);display:flex;align-items:center;justify-content:center;animation:fadeIn .25s ease both}
+.lbr{display:flex;width:100%;height:80vh;height:80dvh;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.lbr::-webkit-scrollbar{display:none}
+.lbs{flex:0 0 100%;scroll-snap-align:center;scroll-snap-stop:always;display:flex;align-items:center;justify-content:center;padding:0 14px;box-sizing:border-box}
+.lbs img{max-width:100%;max-height:100%;border-radius:18px;object-fit:contain;display:block;-webkit-user-drag:none}
+.lbs svg{width:min(94vw,680px);height:auto;border-radius:18px;display:block}
+.lbx{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:14px;z-index:2}
+.lbp,.lbn{position:absolute;top:50%;transform:translateY(-50%);z-index:2}
+.lbp{left:10px}.lbn{right:10px}
+.lbc{position:absolute;top:calc(24px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);font-size:14px;font-weight:600;color:var(--text2);font-variant-numeric:tabular-nums}
+.lbt{position:absolute;left:0;right:0;bottom:calc(20px + env(safe-area-inset-bottom,0px));text-align:center;color:var(--text);font-size:15px;padding:0 70px}
+@media (max-width:700px){.lbp,.lbn{display:none}}
+.mth{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:2px}
+.mth::-webkit-scrollbar{display:none}
+.mth button{flex:0 0 84px;height:84px;border-radius:14px;overflow:hidden;border:1px solid var(--stroke);padding:0;background:var(--well);cursor:pointer}
+.mth img,.mth svg{width:100%;height:100%;object-fit:cover;display:block}
 </style>
 </head>
 <body>
@@ -1064,7 +1118,7 @@ function fromLbl(){return t('from_p',{p:''}).trim()}
 /* ===== chrome ===== */
 function segH(){return '<div class="seg" role="group" aria-label="'+t('lang_l')+'">'+['en','ru','pl','ky'].map(function(l){return '<button data-act="lang" data-v="'+l+'" class="'+(l===lang?'on':'')+'" aria-pressed="'+(l===lang)+'">'+l.toUpperCase()+'</button>'}).join('')+'</div>'}
 function curH(){return '<select class="pillsel" data-cur="1" aria-label="'+t('cur_l')+'">'+Object.keys(RATES).map(function(c){return '<option value="'+c+'"'+(c===cur?' selected':'')+'>'+c+'</option>'}).join('')+'</select>'}
-var NAV=[['tours','nav_tours'],['dests','nav_dest'],['hotels','nav_hotels'],['about','nav_about'],['contacts','nav_contacts']];
+var NAV=[['tours','nav_tours'],['dests','nav_dest'],['hotels','nav_hotels'],['custom','nav_custom'],['about','nav_about'],['contacts','nav_contacts']];
 function curNav(){return S.view==='tour'?'tours':S.view==='dest'?'dests':S.view==='hotel'?'hotels':S.view}
 function header(){
   var cv=curNav();
@@ -1287,14 +1341,11 @@ function home(){
   '<div class="tabs" role="group" style="grid-template-columns:minmax(0,.72fr) repeat('+DK().length+',minmax(0,1fr))"><span class="ind" aria-hidden="true"></span>'+[['',t('all_c')]].concat(DK().map(function(k){return [k,L(D[k].name)]})).map(function(c){return '<button class="tab'+(S.cfc===c[0]?' on':'')+'" data-act="cfc" data-v="'+c[0]+'" aria-pressed="'+(S.cfc===c[0])+'">'+esc(c[1])+'</button>'}).join('')+'</div></div>'+
   '<div class="cf" id="cf" tabindex="0" aria-roledescription="carousel" aria-label="'+t('pop')+'">'+cfStage()+'</div>'+
   '<div class="wrap cf-ctl"><div class="cf-pill glass"><button class="ibtn" data-act="cfprev" aria-label="'+t('prev')+'">'+ic('chevl')+'</button><div class="cf-th" id="cfTh"></div><div class="cf-tx" id="cfTx"></div><button class="ibtn" data-act="cfnext" aria-label="'+t('next')+'">'+ic('chevr')+'</button></div><div class="dots" id="cfDots"></div></div></section>'+
-  '<div class="wrap">'+revBlock()+'<form class="panel glass search" id="sf"><h2>'+t('cta_pick')+'</h2><div class="sgrid">'+
-  '<div class="fld"><label for="s_c">'+t('s_where')+'</label><select id="s_c" data-s="c"><option value="">'+t('s_all')+'</option>'+DK().map(function(c){return '<option value="'+c+'"'+(S.f.c===c?' selected':'')+'>'+esc(L(D[c].name))+'</option>'}).join('')+'</select></div>'+
-  '<div class="fld dates"><span class="l">'+t('s_dates')+'</span><div class="two">'+dateIn('s_from','data-s="from"',S.f.from,t('s_from'))+''+dateIn('s_to','data-s="to"',S.f.to,t('s_to'))+'</div></div>'+
-  '<div class="fld"><span class="l">'+t('s_pax')+'</span><div class="step"><button type="button" data-act="pax" data-w="f" data-d="-1" aria-label="−">−</button><b id="s_pax">'+S.f.pax+'</b><button type="button" data-act="pax" data-w="f" data-d="1" aria-label="+">+</button></div></div>'+
-  '<div class="fld"><label for="s_b">'+t('s_budget')+', '+cur+'</label><input type="number" min="0" step="50" inputmode="numeric" id="s_b" data-s="budget" placeholder="'+t('s_budget_ph')+'" value="'+esc(S.budget)+'"></div>'+
-  '<button class="btn" type="submit">'+t('cta_pick')+'</button></div></form>'+
-  '<section class="blk" data-bg="'+BGV('home_pop')+'"><div class="blk-h"><h2>'+t('pop')+'</h2><button class="btn gl" data-go="tours">'+t('all_tours')+ic('arrow')+'</button></div><div class="grid">'+feat.map(tourCard).join('')+'</div></section>'+
-  '<section class="blk" data-bg="'+BGV('home_dests')+'"><div class="blk-h"><div><h2>'+t('nav_dest')+'</h2><p>'+t('dest_s')+'</p></div></div><div class="grid">'+destCards()+'</div></section>'+
+  '<div class="wrap">'+revBlock()+cuPromo()+
+  cvSection('cv_pop',BGV('home_pop'),'<div class="blk-h"><h2>'+t('pop')+'</h2><button class="btn gl" data-go="tours">'+t('all_tours')+ic('arrow')+'</button></div>',feat.map(function(o,i){return cfItem(o.x,i,feat.length)}))+
+  (MERCH.length?cvSection('cv_shop',BGV('home_pop'),'<div class="blk-h"><div><h2>'+t('shop_t')+'</h2><p>'+t('shop_s')+'</p></div></div>',MERCH.map(function(p,i){return merchCv(p,i,MERCH.length)})):'')+
+  cvSection('cv_dest',BGV('home_dests'),'<div class="blk-h"><div><h2>'+t('nav_dest')+'</h2><p>'+t('dest_s')+'</p></div></div>',DK().map(function(c,i){return destCv(c,i,DK().length)}))+
+  cvSection('cv_hot',BGV('home_dests'),'<div class="blk-h"><h2>'+t('nav_hotels')+'</h2><button class="btn gl" data-go="hotels">'+t('all_hot')+ic('arrow')+'</button></div>',HOTELS.map(function(h,i){return hotCv(h,i,HOTELS.length)}))+
   '<section class="blk" data-bg="'+BGV('home_pts')+'"><div class="pts" style="margin-top:0">'+['1','2','3'].map(function(i,k){return '<div class="pad glass rv" style="--i:'+k+'"><h3>'+t('a_p'+i+'t')+'</h3><p>'+t('a_p'+i)+'</p></div>'}).join('')+'</div></section></div>';
 }
 function sel(id,key,opts,val){
@@ -1362,7 +1413,7 @@ function tourBook(x){
   '<div class="fld"><label for="b_dep">'+t('b_dep')+'</label><select id="b_dep" data-b="dep">'+x.dep.map(function(dd){return '<option value="'+dd+'"'+(dd===d?' selected':'')+'>'+fd(dd)+' — '+fm(depPrice(x,dd))+'</option>'}).join('')+'</select></div>'+
   '<div class="fld"><span class="l">'+t('b_pax')+'</span><div class="step"><button type="button" data-act="pax" data-w="b" data-d="-1" aria-label="−">−</button><b>'+S.pax+'</b><button type="button" data-act="pax" data-w="b" data-d="1" aria-label="+">+</button></div></div>'+
   '<div class="tot"><span>'+t('b_total')+'</span><b>'+fm(p*S.pax)+'</b></div>'+
-  '<button class="btn big full" data-act="book" data-type="tour" data-id="'+x.id+'">'+t('cta_book')+'</button><p class="note">'+t('b_note')+'</p>';
+  '<button class="btn big full" data-act="book" data-type="tour" data-id="'+x.id+'">'+t('cta_book')+'</button><button class="btn gl full" data-act="cheap" data-type="tour" data-id="'+x.id+'">'+t('ch_btn')+'</button><p class="note">'+t('b_note')+'</p>';
 }
 function hotelBook(h){
   var b=S.hb,r=h.rooms[b.room],tot=r[3]*b.n;
@@ -1372,9 +1423,10 @@ function hotelBook(h){
   '<div class="fld"><label for="hb_room">'+t('b_room')+'</label><select id="hb_room" data-h="room">'+h.rooms.map(function(r,i){return '<option value="'+i+'"'+(i===b.room?' selected':'')+'>'+L(RN[r[0]])+' — '+fm(r[3])+'</option>'}).join('')+'</select></div>'+
   '<div class="fld"><span class="l">'+t('b_pax')+'</span><div class="step"><button type="button" data-act="hp" data-d="-1" aria-label="−">−</button><b>'+b.pax+'</b><button type="button" data-act="hp" data-d="1" aria-label="+">+</button></div></div>'+
   '<div class="tot"><span>'+t('b_total')+'</span><b>'+fm(tot)+'</b></div>'+
-  '<button class="btn big full" data-act="book" data-type="hotel" data-id="'+h.id+'">'+t('cta_book')+'</button><p class="note">'+t('b_note')+'</p>';
+  '<button class="btn big full" data-act="book" data-type="hotel" data-id="'+h.id+'">'+t('cta_book')+'</button><button class="btn gl full" data-act="cheap" data-type="hotel" data-id="'+h.id+'">'+t('ch_btn')+'</button><p class="note">'+t('b_note')+'</p>';
 }
 function mbarHTML(){
+  if(S.view==='custom')return '<div class="pr"><small>'+t('cu_est')+'</small><b>'+fm(cuCalc().tot)+'</b></div><button class="btn" data-act="cuorder">'+t('cta_book')+'</button>';
   if(S.view==='tour'){var x=TOUR[S.id];return '<div class="pr"><small>'+fromLbl()+'</small><b>'+fm(depPrice(x,S.dep))+'</b></div><button class="btn" data-act="book" data-type="tour" data-id="'+x.id+'">'+t('cta_book')+'</button>'}
   var h=HOT[S.id];return '<div class="pr"><small>'+fromLbl()+'</small><b>'+fm(Math.min.apply(null,h.rooms.map(function(r){return r[3]})))+'</b></div><button class="btn" data-act="book" data-type="hotel" data-id="'+h.id+'">'+t('cta_book')+'</button>';
 }
@@ -1385,7 +1437,7 @@ function refreshBook(){
   if(m)m.innerHTML=mbarHTML();
 }
 function dchips(x){return x.dep.map(function(d){return '<button class="dchip'+(d===S.dep?' on':'')+'" data-act="dep" data-v="'+d+'">'+fd(d)+'<small>'+fm(depPrice(x,d))+'</small></button>'}).join('')}
-function bottomBand(type,id){return '<div class="band glass"><div><h2>'+t('d_book')+'</h2><p class="note" style="margin-top:6px;font-size:14.5px">'+t('b_note')+'</p></div><button class="btn big" data-act="book" data-type="'+type+'" data-id="'+id+'">'+t('cta_book')+'</button></div>'}
+function bottomBand(type,id){return '<div class="band glass"><div><h2>'+t('d_book')+'</h2><p class="note" style="margin-top:6px;font-size:14.5px">'+t('b_note')+'</p></div><div style="display:grid;gap:10px"><button class="btn big" data-act="book" data-type="'+type+'" data-id="'+id+'">'+t('cta_book')+'</button><button class="btn gl" data-act="cheap" data-type="'+type+'" data-id="'+id+'">'+t('ch_btn')+'</button></div></div>'}
 function sec(title,body){return '<section class="dsec glass"><h2>'+title+'</h2>'+body+'</section>'}
 function tourPage(x){
   if(!S.dep||x.dep.indexOf(S.dep)<0)S.dep=x.dep[0];
@@ -1436,17 +1488,17 @@ function contacts(){
 function view(){
   switch(S.view){
     case 'tours':return tours();case 'dests':return dests();case 'dest':return destPage(S.id);case 'hotels':return hotelsPage();
-    case 'tour':return tourPage(TOUR[S.id]);case 'hotel':return hotelPage(HOT[S.id]);case 'about':return about();case 'contacts':return contacts();
+    case 'tour':return tourPage(TOUR[S.id]);case 'hotel':return hotelPage(HOT[S.id]);case 'custom':return customPage();case 'about':return about();case 'contacts':return contacts();
     default:return home();
   }
 }
 function render(anim){
   document.documentElement.lang=lang;
   if(S.view==='admin'){rvStop();document.documentElement.lang='ru';$('#app').innerHTML=adminHTML();$('#modal').innerHTML='';if(bgObs){bgObs.disconnect();bgObs=null}bgShow(BGV('home_pop'));return}
-  $('#app').innerHTML=(S.preview?'<div class="pvbar glass strong"><span>Предпросмотр черновика. Посетители его не видят.</span><button type="button" class="btn sm" data-aa="open">Вернуться в админку</button></div>':'')+header()+'<main id="main" class="'+(anim?'pg ':'')+((S.view==='tour'||S.view==='hotel')?'hasbar':'')+'">'+view()+'</main>'+footer();
+  $('#app').innerHTML=(S.preview?'<div class="pvbar glass strong"><span>Предпросмотр черновика. Посетители его не видят.</span><button type="button" class="btn sm" data-aa="open">Вернуться в админку</button></div>':'')+header()+'<main id="main" class="'+(anim?'pg ':'')+((S.view==='tour'||S.view==='hotel'||S.view==='custom')?'hasbar':'')+'">'+view()+'</main>'+footer();
   renderModal();
   if(S.view==='tours')updateResults();
-  if(S.view==='home'){cfLayout();startAuto();rvInit()}else{stopAuto();rvStop()}
+  if(S.view==='home'){cfLayout();cvInitAll();startAuto();rvInit()}else{stopAuto();rvStop()}
   bgSync(0);bgWatch();
 }
 function go(v,id){S.view=v;S.id=id||null;S.img=0;S.menu=false;if(v==='tour'){S.dep=null;S.pax=S.f.pax||2}if(v==='hotel'){S.hb.room=0}render(true);try{window.scrollTo({top:0,behavior:'instant'})}catch(e){try{window.scrollTo(0,0)}catch(_){}}}
@@ -1456,8 +1508,455 @@ function setMenu(open){
   if(b){b.innerHTML=ic(open?'x':'menu');b.setAttribute('aria-expanded',String(open))}
 }
 
+/* ===== v6: contact method, auto location, "too expensive", custom tour ===== */
+function UX(o){for(var k in o)U[k]=o[k]}
+UX({
+nav_custom:['Свой тур','Custom tour','Własna trasa','Өз турум'],
+cm_t:['Как с вами связаться','How should we contact you','Jak się z Tobą skontaktować','Сиз менен кантип байланышабыз'],
+cm_via:['Связь','Contact via','Kontakt','Байланыш'],
+cm_ph:['Телефон','Phone','Telefon','Телефон'],
+cm_l_ph:['Номер телефона','Phone number','Numer telefonu','Телефон номери'],
+cm_l_wa:['Номер WhatsApp','WhatsApp number','Numer WhatsApp','WhatsApp номери'],
+cm_l_tg:['Telegram: @имя или номер','Telegram: @username or number','Telegram: @nazwa lub numer','Telegram: @аты же номери'],
+cm_l_fb:['Facebook: ссылка на профиль или имя','Facebook: profile link or name','Facebook: link do profilu lub nazwa','Facebook: профиль шилтемеси же аты'],
+cm_l_ig:['Instagram: @ник','Instagram: @username','Instagram: @nazwa','Instagram: @ник'],
+cm_l_sc:['Snapchat: ник','Snapchat: username','Snapchat: nazwa użytkownika','Snapchat: ник'],
+cm_fbph:['facebook.com/… или имя','facebook.com/… or name','facebook.com/… lub nazwa','facebook.com/… же аты'],
+m_loc:['Ваша страна и город','Your country and city','Twój kraj i miasto','Өлкөңүз жана шаарыңыз'],
+m_country:['Страна','Country','Kraj','Өлкө'],
+m_city:['Город','City','Miasto','Шаар'],
+m_geo_auto:['Определили автоматически. Если не так, просто измените.','Detected automatically. Change it if it is wrong.','Wykryto automatycznie. Jeśli to błąd, zmień.','Автоматтык аныкталды. Туура эмес болсо, өзгөртүңүз.'],
+m_from:['Откуда','From','Skąd','Кайдан'],
+m_hi_cheap:['Здравствуйте! Тур мне понравился, но цена высокая. Подберите, пожалуйста, вариант дешевле.','Hello! I like the tour, but the price is too high. Could you suggest a cheaper option?','Dzień dobry! Wycieczka mi się podoba, ale cena jest za wysoka. Proszę o tańszy wariant.','Саламатсызбы! Тур жакты, бирок баасы кымбат. Арзаныраак вариант сунуштаңызбы.'],
+m_hi_custom:['Здравствуйте! Хочу заказать индивидуальный тур по своей программе.','Hello! I would like to book an individual tour based on my own programme.','Dzień dobry! Chcę zamówić indywidualną wycieczkę według własnego programu.','Саламатсызбы! Өз программам боюнча жеке тур заказ кылгым келет.'],
+ch_btn:['Слишком дорого?','Too expensive?','Za drogo?','Өтө кымбатпы?'],
+ch_title:['Подберём дешевле','Let us find a cheaper option','Znajdziemy taniej','Арзаныраак тандайбыз'],
+ch_sub:['Выберите вариант ниже или укажите бюджет — менеджер подберёт и пересчитает.','Pick an option below or tell us your budget — the manager will adjust and recalculate.','Wybierz wariant poniżej lub podaj budżet — menedżer dopasuje i przeliczy.','Төмөндөн тандаңыз же бюджетиңизди жазыңыз — менеджер эсептеп берет.'],
+ch_dates:['Другие даты — дешевле','Cheaper dates','Tańsze terminy','Арзаныраак күндөр'],
+ch_tours:['Туры дешевле','Cheaper tours','Tańsze wycieczki','Арзаныраак турлар'],
+ch_rooms:['Номера дешевле','Cheaper rooms','Tańsze pokoje','Арзаныраак бөлмөлөр'],
+ch_none:['Готовых вариантов дешевле нет — подберём вручную. Напишите бюджет.','No ready cheaper options — we will tailor one by hand. Tell us your budget.','Brak gotowych tańszych opcji — dopasujemy ręcznie. Podaj budżet.','Даяр арзаныраак вариант жок — өзүбүз тандайбыз. Бюджетти жазыңыз.'],
+ch_budget:['Ваш бюджет, {c}','Your budget, {c}','Twój budżet, {c}','Бюджетиңиз, {c}'],
+ch_line:['Запрос','Request','Prośba','Өтүнүч'],
+ch_val:['Слишком дорого — подобрать дешевле','Too expensive — find a cheaper option','Za drogo — znaleźć taniej','Өтө кымбат — арзаныраак тандоо'],
+ch_bud:['Бюджет','Budget','Budżet','Бюджет'],
+ch_back:['Обычная заявка','Regular request','Zwykłe zgłoszenie','Кадимки өтүнүч'],
+ch_pp:['с человека','per person','za osobę','бир адамга'],
+ch_night:['за ночь','per night','za noc','бир түнгө'],
+cu_t:['Индивидуальный тур','Build your own tour','Wycieczka na miarę','Жеке тур'],
+cu_s:['Выберите страны, ночи, отель и опции — цена пересчитывается сразу.','Pick countries, nights, hotel and extras — the price updates instantly.','Wybierz kraje, noce, hotel i dodatki — cena przelicza się od razu.','Өлкөлөрдү, түндөрдү, мейманкананы жана кошумчаларды тандаңыз — баа дароо эсептелет.'],
+cu_promo_p:['Соберите поездку сами: страны, ночи, отель, экскурсии — и сразу увидите примерную цену.','Put the trip together yourself: countries, nights, hotel, excursions — and see the approximate price at once.','Złóż podróż samodzielnie: kraje, noce, hotel, wycieczki — i od razu zobacz orientacyjną cenę.','Сапарды өзүңүз түзүңүз: өлкөлөр, түндөр, мейманкана, экскурсиялар — болжолдуу баа дароо көрүнөт.'],
+cu_promo_b:['Собрать свой тур','Build my tour','Złóż własną wycieczkę','Турду өзүм түзөм'],
+cu_sec1:['Куда и на сколько','Where and for how long','Dokąd i na jak długo','Кайда жана канча убакытка'],
+cu_c:['Страны','Countries','Kraje','Өлкөлөр'],
+cu_n:['Ночей','Nights','Nocy','Түн саны'],
+cu_dph:['Выберите дату','Choose a date','Wybierz datę','Күндү тандаңыз'],
+cu_when:['Примерная дата начала (необязательно)','Approximate start date (optional)','Przybliżona data startu (opcjonalnie)','Болжолдуу башталыш күнү (милдеттүү эмес)'],
+cu_sec2:['Проживание и питание','Stay and meals','Nocleg i wyżywienie','Жашоо жана тамак'],
+cu_hot:['Категория отеля','Hotel category','Kategoria hotelu','Мейманкана классы'],
+cu_meal:['Питание','Meals','Wyżywienie','Тамак'],
+cu_m_ro:['Без питания','No meals','Bez posiłków','Тамаксыз'],
+cu_m_bb:['Завтраки','Breakfast','Śniadania','Эртең мененки'],
+cu_m_hb:['Завтрак и ужин','Half board','Śniadanie i kolacja','Эртең мененки жана кечки'],
+cu_m_fb:['Три раза в день','Full board','Pełne wyżywienie','Күнүнө үч маал'],
+cu_sec3:['Переезды и гид','Transport and guide','Transport i przewodnik','Транспорт жана гид'],
+cu_tr:['Транспорт','Transport','Transport','Транспорт'],
+cu_tr_sh:['Групповой','Shared','Grupowy','Топтук'],
+cu_tr_pr:['Личный авто с водителем','Private car with driver','Prywatny samochód z kierowcą','Айдоочусу бар жеке унаа'],
+cu_gd:['Гид','Guide','Przewodnik','Гид'],
+cu_gd_0:['Без гида','No guide','Bez przewodnika','Гидсиз'],
+cu_gd_1:['Гид на русском или английском','Russian or English-speaking guide','Przewodnik po rosyjsku lub angielsku','Орусча же англисче гид'],
+cu_sec4:['Экскурсии и впечатления','Excursions and experiences','Wycieczki i atrakcje','Экскурсиялар жана таасирлер'],
+cu_sec5:['Дополнительно','Extras','Dodatki','Кошумча'],
+cu_fl:['Авиабилеты из Польши','Flights from Poland','Loty z Polski','Польшадан авиабилеттер'],
+cu_ins:['Страховка','Insurance','Ubezpieczenie','Камсыздандыруу'],
+cu_trf:['Трансфер из аэропорта и обратно','Airport transfers','Transfery z lotniska i na lotnisko','Аэропорттон жана аэропортко трансфер'],
+cu_dnote:['Цифры на кнопках — как изменится итог для всей группы.','The figures on the buttons show how the total for the whole group changes.','Kwoty na przyciskach pokazują, jak zmieni się suma dla całej grupy.','Баскычтардагы сандар — бүт топ үчүн жыйынтык кандай өзгөрөрүн көрсөтөт.'],
+cu_est:['Примерно','Approx.','Około','Болжол менен'],
+cu_pp:['на человека','per person','na osobę','бир адамга'],
+cu_note:['Цена ориентировочная. Точную сумму менеджер назовёт после заявки.','The price is approximate. The manager will confirm the exact amount after your request.','Cena jest orientacyjna. Dokładną kwotę poda menedżer po zgłoszeniu.','Баасы болжолдуу. Так сумманы менеджер өтүнүчтөн кийин айтат.'],
+cu_single:['Для одного туриста проживание дороже: нет второго человека в номере.','For one traveller the stay costs more: nobody to share the room.','Dla jednej osoby nocleg jest droższy: nie ma współlokatora.','Бир турист үчүн жашоо кымбатыраак: бөлмөдө экинчи киши жок.'],
+cu_peak:['Выбран высокий сезон — цены выше.','High season selected — prices are higher.','Wybrano wysoki sezon — ceny są wyższe.','Жогорку сезон тандалды — баа жогору.'],
+cu_order:['Заказать этот тур','Request this tour','Zamów tę wycieczkę','Бул турга заказ берүү'],
+cu_r_lod:['Проживание','Accommodation','Zakwaterowanie','Жашоо'],
+cu_r_meal:['Питание','Meals','Wyżywienie','Тамак'],
+cu_r_tr:['Транспорт','Transport','Transport','Транспорт'],
+cu_r_gd:['Гид','Guide','Przewodnik','Гид'],
+cu_r_x:['Переезд между странами','Travel between countries','Przejazd między krajami','Өлкөлөр ортосундагы жол'],
+cu_r_ac:['Экскурсии','Excursions','Wycieczki','Экскурсиялар'],
+cu_r_trf:['Трансферы','Transfers','Transfery','Трансферлер'],
+cu_r_ins:['Страховка','Insurance','Ubezpieczenie','Камсыздандыруу'],
+cu_r_fl:['Авиабилеты','Flights','Loty','Авиабилеттер'],
+cu_tips:['Как сделать дешевле','How to make it cheaper','Jak obniżyć cenę','Кантип арзандатса болот'],
+cu_nomore:['Дешевле в конструкторе уже некуда — отправьте запрос, подберём вручную.','Nothing cheaper left in the builder — send a request and we will tailor it by hand.','W kreatorze taniej już się nie da — wyślij zgłoszenie, dopasujemy ręcznie.','Конструкторда андан арзан болбойт — өтүнүч жөнөтүңүз, өзүбүз тандайбыз.'],
+cu_fit:['Подогнать под бюджет','Fit to my budget','Dopasuj do budżetu','Бюджетке тууралоо'],
+cu_fit_ok:['Уложились: итого ≈ {p}','Done: total ≈ {p}','Udało się: razem ≈ {p}','Жетти: жалпы ≈ {p}'],
+cu_fit_no:['Ниже {p} конструктор не опустится — отправьте запрос, подберём вручную.','The builder cannot go below {p} — send a request and we will tailor it by hand.','Poniżej {p} kreator nie zejdzie — wyślij zgłoszenie, dopasujemy ręcznie.','Конструктор {p} ден төмөн түшүрө албайт — өтүнүч жөнөтүңүз, өзүбүз тандайбыз.'],
+cu_send:['Отправить запрос на подбор','Send a request to tailor it','Wyślij prośbę o dopasowanie','Тандоо өтүнүчүн жөнөтүү'],
+cu_t_hot:['Отель {s}★ вместо {o}★','{s}★ hotel instead of {o}★','Hotel {s}★ zamiast {o}★','{o}★ ордуна {s}★ мейманкана'],
+cu_t_meal:['Питание: {s}','Meals: {s}','Wyżywienie: {s}','Тамак: {s}'],
+cu_t_tr:['Групповой транспорт вместо личного','Shared transport instead of private','Transport grupowy zamiast prywatnego','Жеке унаанын ордуна топтук'],
+cu_t_gd:['Без гида','Without a guide','Bez przewodnika','Гидсиз'],
+cu_t_n:['На {k} ноч. меньше','{k} night(s) fewer','O {k} nocy mniej','{k} түнгө кыскараак'],
+cu_t_ac:['Без: {s}','Skip: {s}','Bez: {s}','Албай: {s}'],
+cu_t_fl:['Без авиабилетов (куплю сам)','Without flights (I book myself)','Bez lotów (kupię sam)','Авиабилетсиз (өзүм алам)'],
+cu_t_peak:['Поехать вне сезона ({m})','Travel off-season ({m})','Pojechać poza sezonem ({m})','Сезондон тышкары барыңыз ({m})']
+});
+
+/* ----- contact method ----- */
+var CM=[['wa','WhatsApp'],['tg','Telegram'],['fb','Facebook'],['ig','Instagram'],['sc','Snapchat'],['ph',null]];
+function cmName(id){if(id==='ph')return t('cm_ph');for(var i=0;i<CM.length;i++)if(CM[i][0]===id)return CM[i][1];return id}
+function cmPh(id){return id==='tg'||id==='ig'?'@username':id==='sc'?'username':id==='fb'?t('cm_fbph'):'+48 500 000 000'}
+function contactStr(m){return cmName(m.f.cm)+': '+(m.f.contact||'')}
+function cmBlock(m){
+  var cm=m.f.cm||'wa',tel=(cm==='wa'||cm==='ph');
+  return '<div class="fld"><span class="l">'+t('cm_t')+'</span><div class="cmg" role="radiogroup" aria-label="'+t('cm_t')+'">'+CM.map(function(c){return '<button type="button" role="radio" aria-checked="'+(c[0]===cm)+'" class="cmc'+(c[0]===cm?' on':'')+'" data-act="mcm" data-v="'+c[0]+'">'+esc(cmName(c[0]))+'</button>'}).join('')+'</div></div>'+
+  '<div class="fld"><label for="m_c">'+t('cm_l_'+cm)+'</label><input type="'+(tel?'tel':'text')+'" id="m_c" name="contact" inputmode="'+(tel?'tel':'text')+'" autocomplete="off" autocapitalize="none" autocorrect="off" placeholder="'+esc(cmPh(cm))+'" value="'+esc(m.f.contact||'')+'"></div>';
+}
+
+/* ----- location (auto, editable) ----- */
+var COUNTRIES='AD AE AF AG AL AM AO AR AT AU AZ BA BB BD BE BF BG BH BI BJ BN BO BR BS BT BW BY BZ CA CD CF CG CH CI CL CM CN CO CR CU CV CY CZ DE DJ DK DM DO DZ EC EE EG ER ES ET FI FJ FR GA GB GD GE GH GM GN GQ GR GT GW GY HN HR HT HU ID IE IL IN IQ IR IS IT JM JO JP KE KG KH KM KN KP KR KW KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MG MK ML MM MN MR MT MU MV MW MX MY MZ NA NE NG NI NL NO NP NZ OM PA PE PG PH PK PL PT PY QA RO RS RU RW SA SB SC SD SE SG SI SK SL SM SN SO SR SS ST SV SY SZ TD TG TH TJ TM TN TO TR TT TZ UA UG US UY UZ VA VC VE VN VU WS XK YE ZA ZM ZW'.split(' ');
+var COSORT={};
+function regionName(c){try{return new Intl.DisplayNames([LOC[lang]],{type:'region'}).of(c)||c}catch(e){return c}}
+function coOpts(sel){
+  if(!COSORT[lang])COSORT[lang]=COUNTRIES.map(function(c){return [c,regionName(c)]}).sort(function(a,b){return a[1].localeCompare(b[1],LOC[lang])});
+  return '<option value="">—</option>'+COSORT[lang].map(function(c){return '<option value="'+c[0]+'"'+(c[0]===sel?' selected':'')+'>'+esc(c[1])+'</option>'}).join('');
+}
+var TZC={'Europe/Warsaw':'PL','Europe/Berlin':'DE','Europe/London':'GB','Europe/Paris':'FR','Europe/Madrid':'ES','Europe/Rome':'IT','Europe/Prague':'CZ','Europe/Vilnius':'LT','Europe/Riga':'LV','Europe/Tallinn':'EE','Europe/Kyiv':'UA','Europe/Kiev':'UA','Europe/Minsk':'BY','Europe/Moscow':'RU','Europe/Amsterdam':'NL','Europe/Brussels':'BE','Europe/Vienna':'AT','Europe/Zurich':'CH','Europe/Stockholm':'SE','Europe/Oslo':'NO','Europe/Copenhagen':'DK','Europe/Helsinki':'FI','Europe/Dublin':'IE','Europe/Lisbon':'PT','Europe/Athens':'GR','Europe/Bucharest':'RO','Europe/Sofia':'BG','Europe/Budapest':'HU','Europe/Bratislava':'SK','Europe/Belgrade':'RS','Europe/Zagreb':'HR','Europe/Istanbul':'TR','Asia/Bishkek':'KG','Asia/Almaty':'KZ','Asia/Tashkent':'UZ','Asia/Dushanbe':'TJ','Asia/Ashgabat':'TM','Asia/Baku':'AZ','Asia/Yerevan':'AM','Asia/Tbilisi':'GE','Asia/Dubai':'AE','Asia/Tokyo':'JP','Asia/Seoul':'KR','Asia/Shanghai':'CN','Asia/Kolkata':'IN','America/New_York':'US','America/Chicago':'US','America/Denver':'US','America/Los_Angeles':'US','America/Toronto':'CA','Australia/Sydney':'AU'};
+function geoGuess(){
+  var co='',ci='';
+  try{var tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'',p=tz.split('/');if(p.length>1)ci=p[p.length-1].replace(/_/g,' ');co=TZC[tz]||''}catch(e){}
+  if(!co)try{var l=(navigator.languages&&navigator.languages[0])||navigator.language||'',mm=l.match(/[-_]([A-Za-z]{2})$/);if(mm)co=mm[1].toUpperCase()}catch(e){}
+  return {co:co,ci:ci};
+}
+function geoFetch(){
+  if(S.geo&&S.geo.ip)return Promise.resolve(S.geo);
+  if(S.geoP)return S.geoP;
+  var one=function(u){return new Promise(function(res,rej){
+    var ctl=window.AbortController?new AbortController():null,tm=setTimeout(function(){if(ctl)ctl.abort();rej(0)},5000);
+    fetch(u,ctl?{signal:ctl.signal}:{}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){
+      clearTimeout(tm);var co=String(j.country_code||j.countryCode||'').toUpperCase();
+      if(co){res({co:co,ci:String(j.city||''),ip:1})}else rej(0)
+    }).catch(function(){clearTimeout(tm);rej(0)})
+  })};
+  S.geoP=one('https://get.geojs.io/v1/ip/geo.json').catch(function(){return one('https://ipapi.co/json/')}).then(function(g){S.geo=g;return g},function(){S.geoP=null;return null});
+  return S.geoP;
+}
+function geoLoad(m){
+  geoFetch().then(function(g){
+    if(!g||S.m!==m||m.geoEdited)return;
+    m.f.co=g.co;if(g.ci)m.f.ci=g.ci;m.geoAuto=true;
+    var a=document.getElementById('m_co'),b=document.getElementById('m_ci'),h=document.getElementById('m_geoh');
+    if(a)a.value=g.co;if(b&&g.ci)b.value=g.ci;if(h){h.hidden=false;h.textContent=t('m_geo_auto')}
+  });
+}
+function geoBlock(m){
+  return '<div class="fld"><span class="l">'+t('m_loc')+'</span><div class="geo"><select id="m_co" name="country" aria-label="'+t('m_country')+'" autocomplete="off">'+coOpts(m.f.co)+'</select><input type="text" id="m_ci" name="city" aria-label="'+t('m_city')+'" placeholder="'+t('m_city')+'" autocomplete="off" value="'+esc(m.f.ci||'')+'"></div><small class="note" id="m_geoh"'+(m.geoAuto?'':' hidden')+'>'+t('m_geo_auto')+'</small></div>';
+}
+function mf0(){var g=S.geo||geoGuess();return {name:'',contact:'',email:'',comment:'',cm:'wa',cts:{},co:g.co||'',ci:g.ci||'',budget:''}}
+
+/* ----- read form back into state, re-render keeping scroll ----- */
+function mRead(){
+  var m=S.m;if(!m||m.type==='rev'||m.step!==1)return;
+  var g=function(i){var e=document.getElementById(i);return e?e.value:null},v;
+  if((v=g('m_n'))!==null)m.f.name=v;
+  if((v=g('m_c'))!==null){m.f.contact=v;m.f.cts[m.f.cm]=v}
+  if((v=g('m_e'))!==null)m.f.email=v;
+  if((v=g('m_m'))!==null)m.f.comment=v;
+  if((v=g('m_co'))!==null)m.f.co=v;
+  if((v=g('m_ci'))!==null)m.f.ci=v;
+  if((v=g('m_b'))!==null)m.f.budget=v;
+}
+function mRefresh(focusId){
+  var o=document.querySelector('.ov'),st=o?o.scrollTop:0;
+  mRead();renderModal();
+  o=document.querySelector('.ov');if(o)o.scrollTop=st;
+  if(focusId){var e=document.getElementById(focusId);if(e)try{e.focus({preventScroll:true})}catch(_){}}
+}
+function leadLines(m){
+  var o=m.lines.slice();
+  if(m.cheap)o.unshift([t('ch_line'),t('ch_val')]);
+  if(m.cheap&&m.f.budget)o.push([t('ch_bud'),m.f.budget+' '+cur]);
+  var w=[m.f.co?regionName(m.f.co):'',m.f.ci].filter(Boolean).join(', ');
+  if(w)o.push([t('m_from'),w]);
+  return o;
+}
+
+/* ----- "too expensive" suggestions ----- */
+function cheapBlock(m){
+  var h='',any=false;
+  if(m.type==='tour'){
+    var x=TOUR[m.id];
+    var ds=x.dep.filter(function(d){return d!==m.d&&depPrice(x,d)<m.unit}).sort(function(a,b){return depPrice(x,a)-depPrice(x,b)}).slice(0,4);
+    if(ds.length){any=true;h+='<div class="fld"><span class="l">'+t('ch_dates')+'</span><div class="dchips">'+ds.map(function(d){var p=depPrice(x,d);return '<button type="button" class="dchip" data-act="mdate" data-v="'+d+'">'+fd(d)+'<small>'+fm(p)+' · −'+fm(m.unit-p)+'</small></button>'}).join('')+'</div></div>'}
+    var ts=TOURS.filter(function(y){return y.id!==x.id&&y.base<m.unit}).sort(function(a,b){return ((b.c===x.c)-(a.c===x.c))||(b.base-a.base)}).slice(0,3);
+    if(ts.length){any=true;h+='<div class="fld"><span class="l">'+t('ch_tours')+'</span><div class="dchips">'+ts.map(function(y){return '<button type="button" class="dchip" data-go="tour" data-id="'+y.id+'">'+esc(L(y.name))+'<small>'+fm(y.base)+' · '+y.n+' '+nW(y.n)+'</small></button>'}).join('')+'</div></div>'}
+  }else if(m.type==='hotel'){
+    var hh=HOT[m.id],cur0=hh.rooms[m.hroom][3];
+    var rs=hh.rooms.map(function(r,i){return {r:r,i:i}}).filter(function(o){return o.r[3]<cur0}).sort(function(a,b){return a.r[3]-b.r[3]});
+    if(rs.length){any=true;h+='<div class="fld"><span class="l">'+t('ch_rooms')+'</span><div class="dchips">'+rs.map(function(o){return '<button type="button" class="dchip" data-act="mroom" data-v="'+o.i+'">'+esc(L(RN[o.r[0]]))+'<small>'+fm(o.r[3])+' '+t('ch_night')+'</small></button>'}).join('')+'</div></div>'}
+  }else if(m.type==='custom'){any=true}
+  if(!any)h+='<p class="note">'+t('ch_none')+'</p>';
+  return '<div class="chb"><p class="note">'+t('ch_sub')+'</p>'+h+'</div>';
+}
+
+/* ----- custom tour ----- */
+var CU={
+  base:{kg:30,kz:38,uz:34},
+  hot:{3:1,4:1.5,5:2.3},
+  meal:{ro:0,bb:5,hb:14,fb:24},
+  shr:8,prv:70,gd:60,cross:60,trf:40,ins:2,
+  acts:[
+    {id:'k_horse',c:'kg',p:35,n:['Конная прогулка (день)','Horse riding (full day)','Przejażdżka konna (cały dzień)','Атта сейилдөө (бир күн)']},
+    {id:'k_yurt',c:'kg',p:32,n:['Ночь в юрточном лагере с ужином','Night in a yurt camp with dinner','Noc w obozie jurt z kolacją','Боз үйдө түнөө жана кечки тамак']},
+    {id:'k_skazka',c:'kg',p:25,n:['Каньон Сказка и петроглифы','Skazka Canyon and petroglyphs','Kanion Skazka i petroglify','Жомок каньону жана петроглифтер']},
+    {id:'k_alaarcha',c:'kg',p:28,n:['Ала-Арча: поход с пикником','Ala-Archa: hike with a picnic','Ała-Archa: wędrówka z piknikiem','Ала-Арча: пикник менен жөө жүрүш']},
+    {id:'k_eagle',c:'kg',p:30,n:['Шоу с беркутами','Eagle hunting show','Pokaz z orłami','Бүркүт менен көрсөтмө']},
+    {id:'z_charyn',c:'kz',p:42,n:['Каньон Чарын','Charyn Canyon','Kanion Czaryn','Чарын каньону']},
+    {id:'z_kolsai',c:'kz',p:90,n:['Озёра Кольсай и Кайынды (2 дня)','Kolsai and Kaindy lakes (2 days)','Jeziora Kolsaj i Kaindy (2 dni)','Көлсай жана Кайынды көлдөрү (2 күн)']},
+    {id:'z_shym',c:'kz',p:34,n:['Шымбулак: канатная дорога и ужин','Shymbulak: cable car and dinner','Szymbułak: kolejka i kolacja','Шымбулак: аткан жана кечки тамак']},
+    {id:'z_bao',c:'kz',p:24,n:['Большое Алматинское озеро','Big Almaty Lake','Jezioro Wielkie Ałmaty','Чоң Алматы көлү']},
+    {id:'u_train',c:'uz',p:36,n:['Скоростной поезд Самарканд — Бухара','High-speed train Samarkand — Bukhara','Pociąg ekspresowy Samarkanda — Buchara','Самарканд — Бухара ылдам поезди']},
+    {id:'u_plov',c:'uz',p:24,n:['Мастер-класс по плову','Plov cooking class','Warsztaty gotowania plovu','Палоо бышыруу сабагы']},
+    {id:'u_registan',c:'uz',p:22,n:['Вечернее шоу на Регистане','Evening show at Registan','Wieczorny pokaz na Registanie','Регистандагы кечки шоу']},
+    {id:'u_khiva',c:'uz',p:24,n:['Хива: экскурсия по старому городу','Khiva: old town tour','Chiwa: zwiedzanie starego miasta','Хива: эски шаар боюнча экскурсия']}
+  ]
+};
+var PEAKM=[6,7,8],CU_T=[];
+S.cu=S.cu||{cs:['kg'],n:7,pax:2,hot:3,meal:'bb',tr:'sh',gd:0,ac:{},fl:0,ins:1,trf:1,date:''};
+S.cuTip=false;S.cuB='';S.cuMsg='';
+function r5(v){return Math.round(v/5)*5}
+function cuCalc(c){
+  c=c||S.cu;var cs=c.cs,n=c.n,p=c.pax,k=cs.length,base=0;
+  cs.forEach(function(x){base+=CU.base[x]||30});base/=k;
+  var pk=c.date&&PEAKM.indexOf(+c.date.slice(5,7))>-1?PEAK:1;
+  var lod=n*base*CU.hot[c.hot]*(p===1?1.7:1)*pk;
+  var ml=n*CU.meal[c.meal]*pk;
+  var tr=(c.tr==='pr'?n*CU.prv/p:n*CU.shr)*pk;
+  var gd=c.gd?n*CU.gd/p*pk:0;
+  var xb=(k-1)*CU.cross;
+  var acts=CU.acts.filter(function(a){return c.ac[a.id]&&cs.indexOf(a.c)>-1}),ac=0;
+  acts.forEach(function(a){ac+=a.p});
+  var trf=c.trf?Math.ceil(p/4)*CU.trf*2/p:0;
+  var ins=c.ins?n*CU.ins:0;
+  var fl=c.fl?FLIGHT_FROM:0;
+  var rows=[['cu_r_lod',lod],['cu_r_meal',ml],['cu_r_tr',tr],['cu_r_gd',gd],['cu_r_x',xb],['cu_r_ac',ac],['cu_r_trf',trf],['cu_r_ins',ins],['cu_r_fl',fl]]
+    .map(function(r){return [r[0],r5(r[1])]}).filter(function(r){return r[1]>0});
+  var pp=0;rows.forEach(function(r){pp+=r[1]});
+  return {rows:rows,pp:pp,tot:pp*p,acts:acts,pk:pk};
+}
+function cuD(patch){
+  var d=cuCalc(Object.assign({},S.cu,patch)).tot-cuCalc().tot;
+  return d===0?'':(d>0?'+':'−')+fm(Math.abs(d));
+}
+function cuChip(act,v,label,on,patch){
+  var d=on?'':cuD(patch);
+  return '<button type="button" class="dchip'+(on?' on':'')+'" data-act="'+act+'" data-v="'+v+'" aria-pressed="'+on+'">'+label+'<small>'+(d||' ')+'</small></button>';
+}
+function cuStep(act,val){
+  return '<div class="step"><button type="button" data-act="'+act+'" data-v="-1" aria-label="−">−</button><b>'+val+'</b><button type="button" data-act="'+act+'" data-v="1" aria-label="+">+</button></div>';
+}
+function cuCtl(){
+  var c=S.cu;
+  var keys=DK().filter(function(k){return CU.base[k]});
+  var s1='<div class="fld"><span class="l">'+t('cu_c')+'</span><div class="dchips">'+keys.map(function(k){var on=c.cs.indexOf(k)>-1;return '<button type="button" class="dchip'+(on?' on':'')+'" data-act="cuc" data-v="'+k+'" aria-pressed="'+on+'">'+esc(L(D[k].name))+'</button>'}).join('')+'</div></div>'+
+   '<div class="cu2"><div class="fld"><span class="l">'+t('cu_n')+'</span>'+cuStep('cun',c.n)+'</div><div class="fld"><span class="l">'+t('b_pax')+'</span>'+cuStep('cup',c.pax)+'</div></div>'+
+   '<div class="fld"><span class="l">'+t('cu_when')+'</span>'+dateIn('cu_d','data-cu="date"',c.date,t('cu_dph'))+'</div>';
+  var s2='<div class="fld"><span class="l">'+t('cu_hot')+'</span><div class="dchips">'+[3,4,5].map(function(h){return cuChip('cuh',h,h+'★',c.hot===h,{hot:h})}).join('')+'</div></div>'+
+   '<div class="fld"><span class="l">'+t('cu_meal')+'</span><div class="dchips">'+['ro','bb','hb','fb'].map(function(m){return cuChip('cum',m,t('cu_m_'+m),c.meal===m,{meal:m})}).join('')+'</div></div>';
+  var s3='<div class="fld"><span class="l">'+t('cu_tr')+'</span><div class="dchips">'+[['sh','cu_tr_sh'],['pr','cu_tr_pr']].map(function(o){return cuChip('cut',o[0],t(o[1]),c.tr===o[0],{tr:o[0]})}).join('')+'</div></div>'+
+   '<div class="fld"><span class="l">'+t('cu_gd')+'</span><div class="dchips">'+[[0,'cu_gd_0'],[1,'cu_gd_1']].map(function(o){return cuChip('cug',o[0],t(o[1]),c.gd===o[0],{gd:o[0]})}).join('')+'</div></div>';
+  var s4=c.cs.map(function(k){
+    return '<h3 style="margin-top:0">'+esc(L(D[k].name))+'</h3><div class="dchips">'+CU.acts.filter(function(a){return a.c===k}).map(function(a){
+      var on=!!c.ac[a.id],ac2=Object.assign({},c.ac);ac2[a.id]=!on;
+      return cuChip('cuac',a.id,esc(L(a.n)),on,{ac:ac2});
+    }).join('')+'</div>';
+  }).join('<div style="height:14px"></div>');
+  var ex=[['fl','cu_fl'],['ins','cu_ins'],['trf','cu_trf']];
+  var s5='<div class="dchips">'+ex.map(function(o){var on=!!c[o[0]],p={};p[o[0]]=on?0:1;return cuChip('cuo',o[0],t(o[1]),on,p)}).join('')+'</div><p class="note" style="margin-top:12px">'+t('cu_dnote')+'</p>';
+  return sec(t('cu_sec1'),s1)+sec(t('cu_sec2'),s2)+sec(t('cu_sec3'),s3)+sec(t('cu_sec4'),s4)+sec(t('cu_sec5'),s5);
+}
+function cuTips(){
+  var c=S.cu,r0=cuCalc(),base=r0.tot,out=[];
+  function add(l,patch){var s=base-cuCalc(Object.assign({},c,patch)).tot;if(s>0)out.push({l:l,s:s,p:patch})}
+  if(c.hot>3)add(t('cu_t_hot',{s:c.hot-1,o:c.hot}),{hot:c.hot-1});
+  var mo=['fb','hb','bb','ro'],mi=mo.indexOf(c.meal);if(mi>-1&&mi<3)add(t('cu_t_meal',{s:t('cu_m_'+mo[mi+1])}),{meal:mo[mi+1]});
+  if(c.tr==='pr')add(t('cu_t_tr'),{tr:'sh'});
+  if(c.gd)add(t('cu_t_gd'),{gd:0});
+  [1,2].forEach(function(k){if(c.n-k>=2*c.cs.length)add(t('cu_t_n',{k:k}),{n:c.n-k})});
+  r0.acts.forEach(function(a){var ac=Object.assign({},c.ac);ac[a.id]=false;add(t('cu_t_ac',{s:L(a.n)}),{ac:ac})});
+  if(c.fl)add(t('cu_t_fl'),{fl:0});
+  if(r0.pk>1&&c.date){
+    var mn='';try{mn=new Date(Date.UTC(2027,8,1)).toLocaleDateString(LOC[lang],{month:'long',timeZone:'UTC'})}catch(e){mn='09'}
+    add(t('cu_t_peak',{m:mn}),{date:c.date.slice(0,4)+'-09-15'});
+  }
+  out.sort(function(a,b){return b.s-a.s});
+  return out.slice(0,6);
+}
+function cuTipsHTML(){
+  var tips=cuTips();CU_T=tips;
+  var h='<div class="cutips"><b>'+t('cu_tips')+'</b>';
+  if(!tips.length)h+='<p class="note">'+t('cu_nomore')+'</p>';
+  else h+='<div class="dchips">'+tips.map(function(x,i){return '<button type="button" class="dchip" data-act="cuapply" data-i="'+i+'">'+esc(x.l)+'<small>−'+fm(x.s)+'</small></button>'}).join('')+'</div>';
+  h+='<div class="fld"><label>'+t('ch_budget',{c:cur})+'</label><div class="cufit"><input type="number" min="0" step="50" inputmode="numeric" data-cub="1" value="'+esc(S.cuB)+'"><button type="button" class="btn gl" data-act="cufit">'+t('cu_fit')+'</button></div></div>';
+  if(S.cuMsg)h+='<p class="note">'+esc(S.cuMsg)+'</p>';
+  return h+'<button type="button" class="btn full" data-act="cuask">'+t('cu_send')+'</button></div>';
+}
+function cuSum(){
+  var c=S.cu,r=cuCalc();
+  var h='<div class="pr"><small>'+t('cu_est')+'</small><b>'+fm(r.tot)+'</b><small>'+fm(r.pp)+' '+t('cu_pp')+'</small></div>'+
+   '<div class="cu-rows">'+r.rows.map(function(x){return '<div><span>'+t(x[0])+'</span><b>'+fm(x[1]*c.pax)+'</b></div>'}).join('')+'</div>';
+  if(c.pax===1)h+='<p class="note">'+t('cu_single')+'</p>';
+  if(r.pk>1)h+='<p class="note">'+t('cu_peak')+'</p>';
+  h+='<button type="button" class="btn big full" data-act="cuorder">'+t('cu_order')+'</button>'+
+   '<button type="button" class="btn gl full" data-act="cutip" aria-expanded="'+S.cuTip+'">'+t('ch_btn')+'</button>'+(S.cuTip?cuTipsHTML():'')+
+   '<p class="note">'+t('cu_note')+'</p>';
+  return h;
+}
+function cuRender(full){
+  var a=document.getElementById('cuctl');if(a&&full!==false)a.innerHTML=cuCtl();
+  ['cusum','cusum2'].forEach(function(id){var e=document.getElementById(id);if(e)e.innerHTML=cuSum()});
+  var m=document.getElementById('mbar');if(m)m.innerHTML=mbarHTML();
+}
+function cuFit(){
+  var b=parseFloat(S.cuB);if(!(b>0)){S.cuMsg='';return}
+  var eur=b/RATES[cur],g=0;
+  while(cuCalc().tot>eur&&g++<14){
+    var tips=cuTips();if(!tips.length)break;
+    var cur0=cuCalc().tot,ok=tips.filter(function(x){return cur0-x.s<=eur}).sort(function(a,b2){return a.s-b2.s});
+    Object.assign(S.cu,(ok.length?ok[0]:tips[0]).p);
+  }
+  var tot=cuCalc().tot;
+  S.cuMsg=t(tot<=eur?'cu_fit_ok':'cu_fit_no',{p:fm(tot)});
+}
+function customPage(){
+  return '<div class="wrap page"><div class="blk-h"><div><h1 class="h1">'+t('cu_t')+'</h1><p class="big-p" style="margin-top:10px">'+t('cu_s')+'</p></div></div>'+
+  '<div class="dgrid"><div class="dmain"><div id="cuctl" class="cuctl">'+cuCtl()+'</div><section class="dsec glass cusum2"><div id="cusum2" class="cusum-in">'+cuSum()+'</div></section></div>'+
+  '<aside class="dside"><div class="bcard glass" id="cusum">'+cuSum()+'</div></aside></div></div><div class="mbar glass strong" id="mbar">'+mbarHTML()+'</div>';
+}
+function cuPromo(){
+  return '<section class="panel glass cupromo"><div><h2>'+t('cu_t')+'</h2><p>'+t('cu_promo_p')+'</p></div><button class="btn big" data-go="custom">'+t('cu_promo_b')+ic('arrow')+'</button></section>';
+}
+function openCustom(cheap){
+  var c=S.cu,r=cuCalc();
+  var lines=[[t('cu_c'),c.cs.map(function(k){return L(D[k].name)}).join(' + ')],[t('cu_n'),c.n+' '+nW(c.n)],[t('b_dep'),c.date?fd(c.date):'—'],[t('b_pax'),String(c.pax)],
+    [t('cu_hot'),c.hot+'★'],[t('cu_meal'),t('cu_m_'+c.meal)],[t('cu_tr'),t(c.tr==='pr'?'cu_tr_pr':'cu_tr_sh')],[t('cu_gd'),t(c.gd?'cu_gd_1':'cu_gd_0')]];
+  if(r.acts.length)lines.push([t('cu_r_ac'),r.acts.map(function(a){return L(a.n)}).join('; ')]);
+  var ex=[];if(c.fl)ex.push(t('cu_r_fl'));if(c.ins)ex.push(t('cu_r_ins'));if(c.trf)ex.push(t('cu_r_trf'));
+  if(ex.length)lines.push([t('cu_sec5'),ex.join(', ')]);
+  lines.push([t('cu_est')+', '+t('cu_pp'),'≈ '+fm(r.pp)],[t('b_total'),'≈ '+fm(r.tot)]);
+  S.m={type:'custom',id:'',lines:lines,step:1,f:mf0(),err:false,cheap:!!cheap};
+  S.m.geoAuto=!!(S.m.f.co||S.m.f.ci);
+  renderModal(true);geoLoad(S.m);
+}
+
+/* ===== v7: merch shop + sideways ribbons ===== */
+UX({
+shop_t:['Магазин мерча','Merch shop','Sklep z gadżetami','Мерч дүкөнү'],
+shop_s:['Фирменные вещи Alpha Travel — возьмите с собой в путешествие.','Alpha Travel gear to take along on your trip.','Gadżety Alpha Travel — zabierz je w podróż.','Alpha Travel буюмдары — сапарга алып кетиңиз.'],
+shop_order:['Заказать','Order','Zamów','Заказ кылуу'],
+shop_ot:['Заказ мерча','Merch order','Zamówienie gadżetów','Мерч заказы'],
+shop_item:['Товар','Item','Produkt','Товар'],
+shop_size:['Размер','Size','Rozmiar','Өлчөмү'],
+shop_qty:['Количество','Quantity','Ilość','Саны'],
+shop_unit:['Цена за штуку','Price each','Cena za sztukę','Бирдиктин баасы'],
+shop_note:['Доставку и оплату согласует менеджер после заявки.','The manager will agree delivery and payment after your request.','Dostawę i płatność uzgodni menedżer po zgłoszeniu.','Жеткирүүнү жана төлөмдү менеджер өтүнүчтөн кийин макулдашат.'],
+m_hi_merch:['Здравствуйте! Хочу заказать мерч Alpha Travel.','Hello! I would like to order Alpha Travel merch.','Dzień dobry! Chcę zamówić gadżety Alpha Travel.','Саламатсызбы! Alpha Travel мерчин заказ кылгым келет.'],
+all_hot:['Все отели','All hotels','Wszystkie hotele','Бардык мейманканалар']
+});
+var MERCH=[
+ {id:'m_tee',art:'tee',p:25,sz:['S','M','L','XL','XXL'],n:['Футболка Alpha Travel','Alpha Travel T-shirt','Koszulka Alpha Travel','Alpha Travel футболкасы'],d:['Плотный хлопок, принт с горами.','Heavy cotton with a mountain print.','Gruba bawełna z nadrukiem gór.','Коюу пахта, тоо басмасы менен.']},
+ {id:'m_hoodie',art:'hoodie',p:55,sz:['S','M','L','XL','XXL'],n:['Худи «Шёлковый путь»','"Silk Road" hoodie','Bluza „Jedwabny Szlak”','«Улуу Жибек жолу» худиси'],d:['Тёплое, с капюшоном и карманом-кенгуру.','Warm, with a hood and kangaroo pocket.','Ciepła, z kapturem i kieszenią kangurką.','Жылуу, капюшону жана чөнтөгү менен.']},
+ {id:'m_cap',art:'cap',p:18,sz:null,n:['Кепка Alpha','Alpha cap','Czapka Alpha','Alpha кепкасы'],d:['Регулируемый размер, вышитый логотип.','Adjustable size, embroidered logo.','Regulowany rozmiar, haftowane logo.','Көлөмү жөнгө салынат, саймаланган логотип.']},
+ {id:'m_tote',art:'tote',p:14,sz:null,n:['Шоппер из хлопка','Cotton tote bag','Torba bawełniana','Пахта сумка'],d:['Для рынков, базаров и дороги.','For markets, bazaars and the road.','Na targ, bazar i w drogę.','Базарга жана жолго.']},
+ {id:'m_mug',art:'mug',p:20,sz:null,n:['Термокружка','Travel mug','Kubek termiczny','Термокружка'],d:['Держит тепло до 6 часов, 350 мл.','Keeps drinks hot for up to 6 hours, 350 ml.','Utrzymuje ciepło do 6 godzin, 350 ml.','6 саатка чейин жылуу, 350 мл.']},
+ {id:'m_pack',art:'pack',p:9,sz:null,n:['Набор открыток и стикеров','Postcards and stickers set','Zestaw pocztówek i naklejek','Открытка жана стикер топтому'],d:['6 открыток и 10 стикеров с видами Центральной Азии.','6 postcards and 10 stickers with Central Asian views.','6 pocztówek i 10 naklejek z widokami Azji Środkowej.','Борбор Азия көрүнүштөрү менен 6 открытка жана 10 стикер.']}
+];
+var MERCH0=MERCH.slice();
+var MP={};MERCH.forEach(function(p){MP[p.id]=p});
+function merchArt(k){
+  var g='mg_'+k,F='font-family="Georgia,serif" font-weight="600" text-anchor="middle"';
+  var bg='<defs><linearGradient id="'+g+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#11506F"/><stop offset="1" stop-color="#07202F"/></linearGradient></defs><rect width="320" height="220" fill="url(#'+g+')"/><circle cx="264" cy="44" r="20" fill="#F2D08A" opacity=".92"/><path d="M0 220 L70 150 L120 190 L180 130 L250 200 L320 160 V220Z" fill="#0A3149" opacity=".55"/>';
+  var sh={
+   tee:'<path d="M112 40 L68 62 L82 98 L104 90 L104 192 L216 192 L216 90 L238 98 L252 62 L208 40 Q160 70 112 40Z" fill="#F5EEDD"/><path d="M126 41 Q160 62 194 41" fill="none" stroke="#D9CDB0" stroke-width="5"/><text x="160" y="124" '+F+' font-size="22" fill="#0A3149" letter-spacing="3">ALPHA</text><text x="160" y="144" '+F+' font-size="11" fill="#B58A32" letter-spacing="5">TRAVEL</text>',
+   hoodie:'<path d="M110 46 L64 68 L56 170 L84 174 L98 102 L98 194 L222 194 L222 102 L236 174 L264 170 L256 68 L210 46 Q160 90 110 46Z" fill="#E9C77A"/><path d="M124 42 Q160 14 196 42 Q160 80 124 42Z" fill="#C9A45A"/><path d="M128 150 H192 L200 188 H120Z" fill="#D2AE63"/><text x="160" y="120" '+F+' font-size="18" fill="#0A3149" letter-spacing="3">ALPHA</text>',
+   cap:'<path d="M82 140 Q82 70 160 66 Q238 70 238 140Z" fill="#F5EEDD"/><path d="M70 140 Q160 126 272 150 Q250 172 160 162 Q100 160 70 140Z" fill="#E9C77A"/><circle cx="160" cy="68" r="6" fill="#E9C77A"/><text x="160" y="118" '+F+' font-size="15" fill="#0A3149" letter-spacing="3">ALPHA</text>',
+   tote:'<path d="M126 82 Q126 34 160 34 Q194 34 194 82" fill="none" stroke="#F5EEDD" stroke-width="7" stroke-linecap="round"/><path d="M96 80 H224 L232 198 H88Z" fill="#F5EEDD"/><text x="160" y="140" '+F+' font-size="22" fill="#0A3149" letter-spacing="3">ALPHA</text><text x="160" y="160" '+F+' font-size="11" fill="#B58A32" letter-spacing="5">TRAVEL</text>',
+   mug:'<path d="M212 92 Q254 92 254 126 Q254 160 212 160" fill="none" stroke="#F5EEDD" stroke-width="12" stroke-linecap="round"/><path d="M108 66 H212 V172 Q212 192 192 192 H128 Q108 192 108 172Z" fill="#F5EEDD"/><rect x="104" y="58" width="112" height="14" rx="6" fill="#E9C77A"/><path d="M132 160 L160 112 L188 160Z" fill="#0A3149"/><circle cx="176" cy="102" r="7" fill="#E9C77A"/>',
+   pack:'<g transform="rotate(-9 130 120)"><rect x="70" y="62" width="120" height="86" rx="8" fill="#F5EEDD"/><path d="M82 136 L112 98 L134 124 L150 108 L178 136Z" fill="#11506F"/><circle cx="160" cy="80" r="8" fill="#E9C77A"/></g><g transform="rotate(7 200 130)"><rect x="150" y="84" width="112" height="82" rx="8" fill="#E9C77A"/><text x="206" y="132" '+F+' font-size="16" fill="#0A3149" letter-spacing="2">ALPHA</text></g><circle cx="96" cy="176" r="16" fill="#F5EEDD"/><circle cx="96" cy="176" r="7" fill="#11506F"/>'
+  };
+  return '<svg viewBox="0 0 320 220" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;display:block" aria-hidden="true">'+bg+(sh[k]||'')+'</svg>';
+}
+function merchCard(p,i){
+  return '<article class="tc glass rv" style="--i:'+i+'"><div class="th">'+merchVis(p)+'</div><div class="tb"><h3>'+esc(L(p.n))+'</h3><p style="color:var(--text2);font-size:14.5px">'+esc(L(p.d))+'</p>'+
+  '<div class="tf"><div class="pr"><b>'+fm(p.p)+'</b>'+(p.sz?'<small>'+p.sz[0]+'–'+p.sz[p.sz.length-1]+'</small>':'')+'</div><div class="acts"><button class="btn sm" data-act="merch" data-id="'+p.id+'">'+t('shop_order')+'</button></div></div></div></article>';
+}
+function railNav(id){return '<div class="rv-nav"><button class="ibtn" data-act="rl" data-t="'+id+'" data-v="-1" aria-label="'+t('prev')+'">'+ic('chevl')+'</button><button class="ibtn" data-act="rl" data-t="'+id+'" data-v="1" aria-label="'+t('next')+'">'+ic('chevr')+'</button></div>'}
+function rail(id,cards){return '<div class="hrail" id="'+id+'" tabindex="0">'+cards+'</div>'}
+function merchLines(m){
+  var p=MP[m.id],l=[[t('shop_item'),L(p.n)]];
+  if(p.sz)l.push([t('shop_size'),m.size]);
+  l.push([t('shop_qty'),String(m.qty)],[t('shop_unit'),fm(p.p)],[t('b_total'),fm(p.p*m.qty)]);
+  return l;
+}
+function openMerch(id){
+  var p=MP[id];if(!p)return;
+  S.m={type:'merch',id:id,lines:[],step:1,f:mf0(),err:false,size:p.sz?p.sz[Math.min(2,p.sz.length-1)]:'',qty:1};
+  S.m.lines=merchLines(S.m);S.m.geoAuto=!!(S.m.f.co||S.m.f.ci);
+  renderModal(true);geoLoad(S.m);
+}
+function merchBlock(m){
+  var p=MP[m.id];
+  return merchThumbs(m)+(p.sz?'<div class="fld"><span class="l">'+t('shop_size')+'</span><div class="dchips">'+p.sz.map(function(s){return '<button type="button" class="dchip'+(s===m.size?' on':'')+'" data-act="msize" data-v="'+s+'" aria-pressed="'+(s===m.size)+'">'+s+'</button>'}).join('')+'</div></div>':'')+
+  '<div class="fld"><span class="l">'+t('shop_qty')+'</span><div class="stp" role="group"><button type="button" class="ibtn" data-act="mqty" data-v="-1" aria-label="−"'+(m.qty<=1?' disabled':'')+'>−</button><b aria-live="polite">'+m.qty+'</b><button type="button" class="ibtn" data-act="mqty" data-v="1" aria-label="+"'+(m.qty>=20?' disabled':'')+'>+</button></div></div><p class="note">'+t('shop_note')+'</p>';
+}
+
+/* ===== v9: merch from admin model + photo viewer ===== */
+UX({
+shop_photos:['Фото','Photos','Zdjęcia','Сүрөттөр']
+});
+var MERCH_KINDS=[['tee','Футболка'],['hoodie','Худи'],['cap','Кепка'],['tote','Сумка'],['mug','Кружка'],['pack','Открытки и стикеры']];
+function merchVis(p){
+  return p.ph&&p.ph.length?'<img class="phimg" src="'+esc(imgURL(p.ph[0]))+'" alt="" loading="lazy" draggable="false">':merchArt(p.art);
+}
+function lbItems(id){
+  var p=MP[id];if(!p)return [];
+  return p.ph&&p.ph.length?p.ph.map(function(s){return '<img src="'+esc(imgURL(s))+'" alt="" draggable="false">'}):[merchArt(p.art)];
+}
+function openLb(id,idx){
+  var its=lbItems(id),p=MP[id];if(!its.length)return;closeLb();
+  var n=its.length,el=document.createElement('div');el.id='lb';el.className='lb';el.setAttribute('role','dialog');el.setAttribute('aria-modal','true');el.dataset.act='lbbg';
+  el.innerHTML='<button type="button" class="ibtn lbx" data-act="lbclose" aria-label="'+t('close')+'">'+ic('x')+'</button>'+
+   '<div class="lbr" id="lbr">'+its.map(function(h){return '<div class="lbs">'+h+'</div>'}).join('')+'</div>'+
+   (n>1?'<button type="button" class="ibtn lbp" data-act="lbp" aria-label="'+t('prev')+'">'+ic('chevl')+'</button><button type="button" class="ibtn lbn" data-act="lbn" aria-label="'+t('next')+'">'+ic('chevr')+'</button><div class="lbc" id="lbc">1 / '+n+'</div>':'')+
+   '<div class="lbt">'+esc(L(p.n))+' · '+fm(p.p)+'</div>';
+  document.body.appendChild(el);
+  var r=document.getElementById('lbr'),c=document.getElementById('lbc');
+  r.scrollLeft=(+idx||0)*r.clientWidth;
+  if(c)r.addEventListener('scroll',function(){var i=Math.round(r.scrollLeft/Math.max(1,r.clientWidth));c.textContent=(Math.min(n-1,Math.max(0,i))+1)+' / '+n},{passive:true});
+}
+function closeLb(){var e=document.getElementById('lb');if(e)e.parentNode.removeChild(e)}
+function lbStep(d){var r=document.getElementById('lbr');if(r)try{r.scrollBy({left:d*r.clientWidth,behavior:'smooth'})}catch(_){r.scrollLeft+=d*r.clientWidth}}
+function merchThumbs(m){
+  var p=MP[m.id],its=p.ph&&p.ph.length?p.ph.map(function(s){return '<img src="'+esc(imgURL(s))+'" alt="" loading="lazy">'}):[merchArt(p.art)];
+  return '<div class="mth">'+its.map(function(h,i){return '<button type="button" data-act="lb" data-id="'+m.id+'" data-i="'+i+'" aria-label="'+t('shop_photos')+' '+(i+1)+'">'+h+'</button>'}).join('')+'</div>';
+}
+/* admin */
+function merchRow(x,i,n){
+  var e=errFor(x.id);
+  return '<div class="arow glass'+(e.length?' bad':'')+'"><div class="ath">'+(x.photos&&x.photos.length?'<img src="'+ae(imgURL(x.photos[0]))+'" alt="" loading="lazy">':merchArt(x.art))+'</div><div class="ati"><b>'+ae(ru(x.name)||'Без названия')+'</b><small>'+(+x.price||0)+' € · '+(x.sizes?'размеры: '+ae(x.sizes):'без размеров')+' · фото: '+(x.photos||[]).length+'</small><div class="bdg">'+(x.hidden?'<span class="off">Скрыт</span>':'<span>На сайте</span>')+(e.length?'<span class="warn">'+ae(e[0][2])+'</span>':'')+'</div></div>'+rowActs('merch',x.id,i,n)+'</div>';
+}
+function merchEd(i){
+  var x=A.d.merch[i],p='merch.'+i;
+  return edHead('merch',ru(x.name)||'Новый товар')+errBox(x.id)+
+  card('Название и описание',fML('Название товара',p+'.name')+fML('Описание (1–2 предложения)',p+'.desc',true,'Если язык не заполнен, на сайте покажется русский вариант.'))+
+  card('Цена и размеры','<div class="g3">'+fI('Цена, € за штуку',p+'.price','num')+fI('Размеры через запятую',p+'.sizes','str','Например: S, M, L, XL. Для товара без размеров оставьте пустым.')+fS('Рисунок, если нет фото',p+'.art',MERCH_KINDS,true)+'</div>')+
+  card('Фото товара',photos(p+'.photos')+'<p class="anote">Первое фото — обложка в ленте. Посетитель может открыть все фото крупно и листать их пальцем. Без фото показывается рисунок.</p><div class="arow2"><div class="mini">'+merchArt(x.art)+'</div></div>')+
+  card('Показ на сайте',fB('Скрыть товар с сайта',p+'.hidden'));
+}
+
 /* ===== booking modal ===== */
-function openBook(type,id){
+function openBook(type,id,cheap){
   var lines=[];
   if(type==='tour'){
     var x=TOUR[id],same=S.view==='tour'&&S.id===id,d=same&&S.dep?S.dep:x.dep[0],pax=same?S.pax:(S.f.pax||2);
@@ -1466,20 +1965,18 @@ function openBook(type,id){
     var h=HOT[id],b=S.hb,r=h.rooms[b.room];
     lines=[[t('nav_hotels'),h.name+' ('+L(CITY[h.city])+')'],[t('b_room'),L(RN[r[0]])],[t('b_in'),fd(b.inn)+' → '+fd(addDays(b.inn,b.n))+' ('+b.n+' '+nW(b.n)+')'],[t('b_pax'),String(b.pax)],[t('b_total'),fm(r[3]*b.n)]];
   }
-  S.m={type:type,id:id,lines:lines,step:1,f:{name:'',contact:'',email:'',comment:''},err:false};
-  if(type==='tour'){S.m.pi=3;S.m.ti=4;S.m.pax=pax;S.m.unit=depPrice(x,d)}
-  else if(type==='hotel'){S.m.pi=3;S.m.pax=b.pax}
-  touch();renderModal(true);
+  S.m={type:type,id:id,lines:lines,step:1,f:mf0(),err:false,cheap:!!cheap};S.m.geoAuto=!!(S.m.f.co||S.m.f.ci);
+  if(type==='tour'){S.m.pi=3;S.m.ti=4;S.m.pax=pax;S.m.unit=depPrice(x,d);S.m.d=d}
+  else if(type==='hotel'){S.m.pi=3;S.m.pax=b.pax;S.m.hroom=b.room;S.m.hn=b.n}
+  touch();renderModal(true);geoLoad(S.m);
 }
 function modalPax(dv){
   var m=S.m;if(!m||m.pi===undefined)return;
-  [['m_n','name'],['m_c','contact'],['m_e','email'],['m_m','comment']].forEach(function(p){var e=document.getElementById(p[0]);if(e)m.f[p[1]]=e.value});
+  mRead();
   m.pax=Math.max(1,Math.min(20,(+m.pax||1)+dv));
   m.lines[m.pi][1]=String(m.pax);
   if(m.ti!==undefined)m.lines[m.ti][1]=fm(m.unit*m.pax);
-  var o=document.querySelector('.ov'),st=o?o.scrollTop:0;
-  renderModal();
-  o=document.querySelector('.ov');if(o)o.scrollTop=st;
+  mRefresh();
 }
 function closeModal(){
   var ov=document.querySelector('.ov');
@@ -1495,9 +1992,9 @@ function revMsg(){
 }
 function saveLead(){
   var m=S.m;if(!m||m.type==='rev'||m.saved)return;
-  if(HOSTED){netForm('booking',{type:m.type,summary:m.lines.map(function(l){return l[0]+': '+l[1]}).join('\n'),name:m.f.name.slice(0,80),contact:m.f.contact.slice(0,80),email:(m.f.email||'').slice(0,120),comment:(m.f.comment||'').slice(0,1500),lang:lang}).then(function(){if(S.m===m){m.saved=true;renderModal()}},function(){});return}
+  if(HOSTED){netForm('booking',{type:m.type,summary:leadLines(m).map(function(l){return l[0]+': '+l[1]}).join('\n'),name:m.f.name.slice(0,80),contact:contactStr(m).slice(0,80),email:(m.f.email||'').slice(0,120),comment:(m.f.comment||'').slice(0,1500),lang:lang}).then(function(){if(S.m===m){m.saved=true;renderModal()}},function(){});return}
   if(!DB||!UID)return;
-  var now=new Date(),it={id:uid('l'),at:now.toISOString(),type:m.type,ref:m.id||'',lines:m.lines.map(function(l){return [String(l[0]),String(l[1])]}),name:m.f.name.slice(0,80),contact:m.f.contact.slice(0,80),email:(m.f.email||'').slice(0,120),comment:(m.f.comment||'').slice(0,1500),lang:lang,st:'new'};
+  var now=new Date(),it={id:uid('l'),at:now.toISOString(),type:m.type,ref:m.id||'',lines:leadLines(m).map(function(l){return [String(l[0]),String(l[1])]}),name:m.f.name.slice(0,80),contact:contactStr(m).slice(0,80),email:(m.f.email||'').slice(0,120),comment:(m.f.comment||'').slice(0,1500),lang:lang,st:'new'};
   var ref=DB.doc('leads/'+UID);
   ref.get().then(function(s){var d=s.exists?s.data():null,items=d&&Array.isArray(d.items)?d.items.slice():[];items.push(it);if(items.length>30)items=items.slice(-30);return ref.set({items:items,updated:Date.now()})})
     .then(function(){if(S.m===m){m.saved=true;renderModal()}},function(){});
@@ -1513,9 +2010,9 @@ function revForm(m){
 }
 function buildMsg(){
   if(S.m&&S.m.type==='rev')return revMsg();
-  var m=S.m,o=[t(m.type==='hotel'?'m_hi_hotel':m.type==='tour'?'m_hi_tour':'m_hi_gen'),'',CFG.name+' — '+t('m_title')];
-  m.lines.forEach(function(l){o.push(l[0]+': '+l[1])});
-  o.push(t('m_name')+': '+m.f.name,t('m_contact')+': '+m.f.contact);
+  var m=S.m,o=[t(m.cheap?'m_hi_cheap':m.type==='merch'?'m_hi_merch':m.type==='custom'?'m_hi_custom':m.type==='hotel'?'m_hi_hotel':m.type==='tour'?'m_hi_tour':'m_hi_gen'),'',CFG.name+' — '+t(m.type==='merch'?'shop_ot':'m_title')];
+  leadLines(m).forEach(function(l){o.push(l[0]+': '+l[1])});
+  o.push(t('m_name')+': '+m.f.name,t('cm_via')+': '+cmName(m.f.cm)+' — '+m.f.contact);
   if(m.f.email)o.push('Email: '+m.f.email);
   if(m.f.comment)o.push(t('m_comment')+': '+m.f.comment);
   return o.join('\n');
@@ -1529,11 +2026,15 @@ function renderModal(first){
   if(m.step===1&&m.type==='rev'){body=revForm(m)}
   else if(m.step===3){body='<div class="rv-ok"><span class="stars" aria-hidden="true">'+starRow(m.f.r)+'</span><p>'+t('rev_sent')+'</p></div><button class="btn big full" data-act="closem">'+t('close')+'</button>'}
   else if(m.step===1){
-    body=sum+'<form id="bk" style="display:grid;gap:12px">'+(m.pi!==undefined?'<div class="fld"><span class="l">'+t('m_pax')+'</span><div class="stp" role="group" aria-label="'+t('m_pax')+'"><button type="button" class="ibtn" data-act="mpax" data-v="-1" aria-label="−"'+(m.pax<=1?' disabled':'')+'>−</button><b aria-live="polite">'+m.pax+'</b><button type="button" class="ibtn" data-act="mpax" data-v="1" aria-label="+"'+(m.pax>=20?' disabled':'')+'>+</button></div></div>':'')+'<div class="fld"><label for="m_n">'+t('m_name')+'</label><input type="text" id="m_n" name="name" autocomplete="name" value="'+esc(m.f.name)+'"></div>'+
-    '<div class="fld"><label for="m_c">'+t('m_contact')+'</label><input type="text" id="m_c" name="contact" autocomplete="tel" value="'+esc(m.f.contact)+'"></div>'+
+    body=sum+(m.cheap?cheapBlock(m):'')+'<form id="bk" style="display:grid;gap:12px">'+(m.pi!==undefined?'<div class="fld"><span class="l">'+t('m_pax')+'</span><div class="stp" role="group" aria-label="'+t('m_pax')+'"><button type="button" class="ibtn" data-act="mpax" data-v="-1" aria-label="−"'+(m.pax<=1?' disabled':'')+'>−</button><b aria-live="polite">'+m.pax+'</b><button type="button" class="ibtn" data-act="mpax" data-v="1" aria-label="+"'+(m.pax>=20?' disabled':'')+'>+</button></div></div>':'')+
+    (m.type==='merch'?merchBlock(m):'')+
+    (m.cheap?'<div class="fld"><label for="m_b">'+t('ch_budget',{c:cur})+'</label><input type="number" id="m_b" name="budget" inputmode="numeric" min="0" step="50" value="'+esc(m.f.budget||'')+'"></div>':'')+
+    '<div class="fld"><label for="m_n">'+t('m_name')+'</label><input type="text" id="m_n" name="name" autocomplete="name" value="'+esc(m.f.name)+'"></div>'+
+    cmBlock(m)+
     '<div class="fld"><label for="m_e">'+t('m_email')+'</label><input type="email" id="m_e" name="email" autocomplete="email" value="'+esc(m.f.email)+'"></div>'+
+    geoBlock(m)+
     '<div class="fld"><label for="m_m">'+t('m_comment')+'</label><textarea id="m_m" name="comment">'+esc(m.f.comment)+'</textarea></div>'+
-    (m.err?'<p class="err">'+t('m_req')+'</p>':'')+'<button class="btn big full" type="submit">'+t('m_next')+'</button></form>';
+    (m.err?'<p class="err">'+t('m_req')+'</p>':'')+'<button class="btn big full" type="submit">'+t('m_next')+'</button>'+(m.type!=='gen'&&m.type!=='merch'?'<button type="button" class="xlink" data-act="mcheap">'+t(m.cheap?'ch_back':'ch_btn')+'</button>':'')+'</form>';
   }else{
     var msg=buildMsg(),enc=encodeURIComponent(msg);
     body='<p style="color:var(--text2)">'+(m.type==='rev'?t('rev_alt'):t('m_check'))+'</p><textarea id="m_msg" readonly style="min-height:170px">'+esc(msg)+'</textarea>'+
@@ -1545,7 +2046,7 @@ function renderModal(first){
   }
   var animate=first||!el.firstChild;
   if(m.bgsrc===undefined){var bl=(BGS||[]).filter(function(b){return b&&b.src});m.bgsrc=bl.length?imgURL(bl[Math.floor(Math.random()*bl.length)].src):''}
-  el.innerHTML='<div class="ov'+(animate?'':' still')+'" data-act="ovl"><div class="mod glass strong" role="dialog" aria-modal="true" aria-label="'+t(m.type==='rev'?'rev_form_t':'m_title')+'"><div class="mbg" aria-hidden="true"><i></i></div><div class="mh"><h2>'+t(m.type==='rev'?'rev_form_t':'m_title')+'</h2><button class="ibtn" data-act="closem" aria-label="'+t('close')+'">'+ic('x')+'</button></div>'+body+'</div></div>';
+  el.innerHTML='<div class="ov'+(animate?'':' still')+'" data-act="ovl"><div class="mod glass strong" role="dialog" aria-modal="true" aria-label="'+t(m.type==='rev'?'rev_form_t':m.cheap?'ch_title':m.type==='merch'?'shop_ot':'m_title')+'"><div class="mbg" aria-hidden="true"><i></i></div><div class="mh"><h2>'+t(m.type==='rev'?'rev_form_t':m.cheap?'ch_title':m.type==='merch'?'shop_ot':'m_title')+'</h2><button class="ibtn" data-act="closem" aria-label="'+t('close')+'">'+ic('x')+'</button></div>'+body+'</div></div>';
   if(!animate){var ov=el.firstChild;ov.style.animation='none';ov.firstChild.style.animation='none'}
   (function(){
     var mi=el.querySelector('.mbg i');if(!mi||!m.bgsrc)return;
@@ -1605,6 +2106,114 @@ function dragEnd(e){
 }
 document.addEventListener('pointerup',dragEnd);
 document.addEventListener('pointercancel',dragEnd);
+/* ===== v8: coverflow for every home section ===== */
+function cvItem(o,i,n){
+  return '<article class="cf-it" data-cf="'+i+'" aria-roledescription="slide" aria-label="'+(i+1)+' / '+n+'">'+
+  '<div class="cf-img">'+o.img+'</div>'+
+  '<div class="cf-top">'+(o.top||'')+'<span class="cf-n chipg">'+(i+1)+' / '+n+'</span></div>'+
+  '<div class="cf-cap"><span class="k">'+o.k+'</span><h3>'+o.h+'</h3><div class="c">'+(o.c||'')+'</div>'+
+  '<div class="cf-more"><div><p>'+o.p+'</p><div class="cf-buy">'+o.buy+'</div></div></div></div></article>';
+}
+function goBtn(v,id){return '<button class="cf-x chipg" data-go="'+v+'" data-id="'+id+'" tabindex="-1">'+ic('expand')+t('more')+'</button>'}
+function merchCv(p,i,n){
+  return cvItem({img:merchVis(p),top:'<button class="cf-x chipg" data-act="lb" data-id="'+p.id+'" tabindex="-1">'+ic('expand')+t('shop_photos')+(p.ph&&p.ph.length>1?' · '+p.ph.length:'')+'</button>',k:esc(t('shop_t')),h:esc(L(p.n)),c:p.sz?esc(t('shop_size')+': '+p.sz[0]+'–'+p.sz[p.sz.length-1]):'',p:esc(L(p.d)),
+    buy:'<div class="pr"><b>'+fm(p.p)+'</b></div><button class="btn sm" data-act="merch" data-id="'+p.id+'" tabindex="-1">'+t('shop_order')+'</button>'},i,n);
+}
+function destCv(c,i,n){
+  var cnt=TOURS.filter(function(x){return x.c===c}).length,o=offer(c);
+  return cvItem({img:visD(c,i%2?3:0),top:goBtn('dest',c),k:esc(t('d_tours_n',{n:cnt})),h:esc(L(D[c].name)),c:o.t?esc(t('from_p',{p:fm(o.p)})):'',p:esc(L(D[c].intro)),
+    buy:'<div class="pr"><small>'+fromLbl()+'</small><b>'+(o.t?fm(o.p):'—')+'</b></div><button class="btn sm" data-go="dest" data-id="'+c+'" tabindex="-1">'+t('more')+'</button>'},i,n);
+}
+function hotCv(h,i,n){
+  var from=Math.min.apply(null,h.rooms.map(function(r){return r[3]}));
+  return cvItem({img:vis(h,h.kind,h.seed,i%2?3:0,0),top:goBtn('hotel',h.id),k:esc(L(D[h.c].name))+' · '+stars(h.stars),h:esc(h.name),c:esc(L(CITY[h.city])),p:esc(L(h.desc)),
+    buy:'<div class="pr"><small>'+fromLbl()+'</small><b>'+fm(from)+'</b><small>'+t('per_n')+'</small></div><button class="btn sm" data-act="book" data-type="hotel" data-id="'+h.id+'" tabindex="-1">'+t('cta_book')+'</button>'},i,n);
+}
+function cvSection(id,bg,head,items){
+  return '<section class="blk cvs" id="sec_'+id+'" data-bg="'+bg+'">'+head+
+  '<div class="cf cv" id="'+id+'" tabindex="0" aria-roledescription="carousel">'+items.join('')+'</div>'+
+  '<div class="cv-ctl"><button class="ibtn" data-act="cvp" data-t="'+id+'" aria-label="'+t('prev')+'">'+ic('chevl')+'</button><div class="dots" id="'+id+'_d"></div><button class="ibtn" data-act="cvn" data-t="'+id+'" aria-label="'+t('next')+'">'+ic('chevr')+'</button></div></section>';
+}
+S.cvi=S.cvi||{};
+function cvGeo(st){
+  var it=st.querySelector('.cf-it');if(!it)return null;
+  var W=st.clientWidth,cw=it.offsetWidth,gap=(W-cw)/2,s1=Math.max(gap*.74,cw*.5);
+  st.__g={s1:s1,s2:s1+Math.max(gap*.42,cw*.3),cw:cw};return st.__g;
+}
+function cvPlace(st,pos,drag){
+  var g=st.__g||cvGeo(st);if(!g)return;
+  var items=st.querySelectorAll('.cf-it'),n=items.length;if(!n)return;
+  items.forEach(function(el,i){
+    var d=((i-pos)%n+n)%n;if(d>n/2)d-=n;
+    var a=Math.abs(d),sg=d<0?-1:1;
+    var x=a<=1?a*g.s1:a<=2?g.s1+(a-1)*(g.s2-g.s1):g.s2+(a-2)*g.cw*.4;
+    var z=a<=1?-170*a:a<=2?-170-(a-1)*190:-360-(a-2)*160;
+    var r=a<=1?20*a:Math.min(28,20+(a-1)*8);
+    var o=a<=2?1:Math.max(0,1-(a-2)*1.4);
+    var dim=a<=1?.38*a:Math.min(.6,.38+(a-1)*.22);
+    var s=el.style;
+    s.setProperty('--x',(sg*x).toFixed(3)+'px');s.setProperty('--z',z.toFixed(3)+'px');s.setProperty('--r',(sg*r).toFixed(3)+'deg');
+    s.setProperty('--o',o.toFixed(3));s.setProperty('--dim',dim.toFixed(3));s.setProperty('--zi',Math.round(100-a*10));
+    if(!drag)el.classList.toggle('on',a<.5);
+    s.pointerEvents=o>0?'auto':'none';
+  });
+  var k=((Math.round(pos)%n)+n)%n;
+  if(!drag&&k!==st.__k){
+    st.__k=k;
+    items.forEach(function(el,i){el.querySelectorAll('button').forEach(function(b){b.tabIndex=i===k?0:-1})});
+    var dots=document.getElementById(st.id+'_d');
+    if(dots){if(dots.children.length!==n)dots.innerHTML=Array.apply(null,Array(n)).map(function(_,i){return '<button data-act="cvgo" data-t="'+st.id+'" data-v="'+i+'" aria-label="'+(i+1)+'"></button>'}).join('');
+      Array.prototype.forEach.call(dots.children,function(b,i){b.classList.toggle('on',i===k)})}
+  }
+}
+function cvGo(st,i){
+  var n=st.querySelectorAll('.cf-it').length;if(!n)return;
+  i=((i%n)+n)%n;S.cvi[st.id]=i;cvPlace(st,i);
+}
+function cvInitAll(){
+  document.querySelectorAll('.cv').forEach(function(st){cvGeo(st);st.__k=-1;cvPlace(st,S.cvi[st.id]||0)});
+}
+var CVD=null;
+document.addEventListener('pointerdown',function(e){
+  var st=e.target&&e.target.closest?e.target.closest('.cv'):null;if(!st||e.button>0)return;
+  cvGeo(st);var p0=S.cvi[st.id]||0;
+  CVD={st:st,id:e.pointerId,x:e.clientX,y:e.clientY,pos:p0,cur:p0,lock:null,hist:[[e.timeStamp,e.clientX]]};
+});
+document.addEventListener('pointermove',function(e){
+  var dg=CVD;if(!dg||e.pointerId!==dg.id)return;
+  var dx=e.clientX-dg.x,dy=e.clientY-dg.y,g=dg.st.__g;
+  if(!dg.lock){
+    if(Math.abs(dx)>6&&Math.abs(dx)>Math.abs(dy)){dg.lock='x';dg.x=e.clientX;dx=0;dg.disp=dg.pos;dg.st.classList.add('drag');try{dg.st.setPointerCapture(e.pointerId)}catch(_){}}
+    else if(Math.abs(dy)>8){CVD=null;return}
+    else return;
+  }
+  e.preventDefault();
+  dg.cur=dg.pos-dx/(g.s1*.8);
+  dg.hist.push([e.timeStamp,e.clientX]);if(dg.hist.length>6)dg.hist.shift();
+  if(!dg.raf){var gd=dg;dg.raf=requestAnimationFrame(function stp(){
+    gd.raf=0;if(CVD!==gd)return;
+    var d=gd.cur-gd.disp;gd.disp+=d*.34;if(Math.abs(d)<.0007)gd.disp=gd.cur;
+    cvPlace(gd.st,gd.disp,true);
+    if(gd.disp!==gd.cur)gd.raf=requestAnimationFrame(stp);
+  })}
+},{passive:false});
+function cvEnd(e){
+  var g=CVD;if(!g||e.pointerId!==g.id)return;
+  CVD=null;if(g.lock!=='x')return;
+  swiped=true;setTimeout(function(){swiped=false},60);
+  var h=g.hist,v=0,gg=g.st.__g;
+  if(h.length>1){var a=h[0],b=h[h.length-1],dt=Math.max(1,b[0]-a[0]);v=(b[1]-a[1])/dt}
+  var proj=g.cur-Math.max(-1.6,Math.min(1.6,v*100/(gg.s1*.8)));
+  var base=Math.round(g.pos),target=Math.max(base-2,Math.min(base+2,Math.round(proj)));
+  if(target===Math.round(g.pos)&&Math.abs(g.cur-g.pos)>.18)target=Math.round(g.pos)+(g.cur>g.pos?1:-1);
+  g.st.classList.remove('drag');
+  var n=g.st.querySelectorAll('.cf-it').length;
+  cvPlace(g.st,target);S.cvi[g.st.id]=((target%n)+n)%n;
+}
+document.addEventListener('pointerup',cvEnd);
+document.addEventListener('pointercancel',cvEnd);
+window.addEventListener('resize',function(){clearTimeout(window.__cvR);window.__cvR=setTimeout(cvInitAll,160)});
+
 var wAcc=0,wLock=0;
 document.addEventListener('wheel',function(e){
   if(!cfStageEl(e)||Math.abs(e.deltaX)<=Math.abs(e.deltaY))return;
@@ -1614,7 +2223,8 @@ document.addEventListener('wheel',function(e){
 document.addEventListener('click',function(e){
   if(swiped){e.preventDefault();return}
   var it=e.target.closest('.cf-it');
-  if(it&&!it.classList.contains('on')){e.preventDefault();S.cf=+it.dataset.cf;cfPlace(S.cf);return}
+  if(it&&it.closest('.cv')){if(!it.classList.contains('on')){e.preventDefault();cvGo(it.closest('.cv'),+it.dataset.cf);return}}
+  else if(it&&!it.classList.contains('on')){e.preventDefault();S.cf=+it.dataset.cf;cfPlace(S.cf);return}
   var el=e.target.closest('[data-go],[data-act]');
   if(!el){if(S.menu&&!e.target.closest('.hd'))setMenu(false);return}
   var a=el.dataset;
@@ -1635,6 +2245,41 @@ document.addEventListener('click',function(e){
     case 'closem':closeModal();break;
     case 'mback':S.m.step=1;renderModal();break;
     case 'mpax':modalPax(+a.v);break;
+    case 'merch':openMerch(a.id);break;
+    case 'lb':openLb(a.id,a.i);break;
+    case 'lbclose':closeLb();break;
+    case 'lbbg':if(e.target===el||e.target.classList.contains('lbs')||e.target.id==='lbr')closeLb();break;
+    case 'lbp':lbStep(-1);break;
+    case 'lbn':lbStep(1);break;
+    case 'cvp':case 'cvn':{var cs0=document.getElementById(a.t);if(cs0)cvGo(cs0,(S.cvi[a.t]||0)+(a.act==='cvn'?1:-1))}break;
+    case 'cvgo':{var cs1=document.getElementById(a.t);if(cs1)cvGo(cs1,+a.v)}break;
+    case 'msize':mRead();S.m.size=a.v;S.m.lines=merchLines(S.m);mRefresh();break;
+    case 'mqty':mRead();S.m.qty=Math.max(1,Math.min(20,S.m.qty+(+a.v)));S.m.lines=merchLines(S.m);mRefresh();break;
+    case 'rl':{var rr=document.getElementById(a.t);if(rr)try{rr.scrollBy({left:(+a.v)*Math.max(280,rr.clientWidth*.8),behavior:'smooth'})}catch(_){rr.scrollLeft+=(+a.v)*rr.clientWidth*.8}}break;
+    case 'mcm':{mRead();var m0=S.m,old=m0.f.cm,grp={wa:1,ph:1};m0.f.cm=a.v;
+      var keep=m0.f.cts[a.v]!=null?m0.f.cts[a.v]:((grp[old]&&grp[a.v])?(m0.f.cts[old]||''):'');
+      m0.f.contact=keep;m0.f.cts[a.v]=keep;mRefresh('m_c')}break;
+    case 'mcheap':mRead();S.m.cheap=!S.m.cheap;mRefresh();break;
+    case 'cheap':openBook(a.type,a.id,true);break;
+    case 'mdate':{var m1=S.m,x1=TOUR[m1.id];mRead();m1.d=a.v;m1.unit=depPrice(x1,a.v);
+      m1.lines[2][1]=fd(a.v)+' → '+fd(addDays(a.v,x1.n))+' ('+x1.n+' '+nW(x1.n)+')';m1.lines[m1.ti][1]=fm(m1.unit*m1.pax);mRefresh()}break;
+    case 'mroom':{var m2=S.m,h2=HOT[m2.id],r2=h2.rooms[+a.v];mRead();m2.hroom=+a.v;
+      m2.lines[1][1]=L(RN[r2[0]]);m2.lines[4][1]=fm(r2[3]*m2.hn);mRefresh()}break;
+    case 'cuc':{var cs=S.cu.cs,ix=cs.indexOf(a.v);if(ix>-1){if(cs.length>1)cs.splice(ix,1)}else cs.push(a.v);
+      S.cu.cs=DK().filter(function(k){return S.cu.cs.indexOf(k)>-1});S.cu.n=Math.max(S.cu.n,S.cu.cs.length*2);S.cuMsg='';cuRender()}break;
+    case 'cun':S.cu.n=Math.max(S.cu.cs.length*2,Math.min(21,S.cu.n+(+a.v)));S.cuMsg='';cuRender();break;
+    case 'cup':S.cu.pax=Math.max(1,Math.min(12,S.cu.pax+(+a.v)));S.cuMsg='';cuRender();break;
+    case 'cuh':S.cu.hot=+a.v;S.cuMsg='';cuRender();break;
+    case 'cum':S.cu.meal=a.v;S.cuMsg='';cuRender();break;
+    case 'cut':S.cu.tr=a.v;S.cuMsg='';cuRender();break;
+    case 'cug':S.cu.gd=+a.v;S.cuMsg='';cuRender();break;
+    case 'cuac':S.cu.ac[a.v]=!S.cu.ac[a.v];S.cuMsg='';cuRender();break;
+    case 'cuo':S.cu[a.v]=S.cu[a.v]?0:1;S.cuMsg='';cuRender();break;
+    case 'cutip':S.cuTip=!S.cuTip;S.cuMsg='';cuRender(false);break;
+    case 'cuapply':{var tp=CU_T[+a.i];if(tp){Object.assign(S.cu,tp.p);S.cuMsg='';cuRender()}}break;
+    case 'cufit':cuFit();cuRender();break;
+    case 'cuask':openCustom(true);break;
+    case 'cuorder':openCustom(false);break;
     case 'revopen':openRev(S.view==='tour'||S.view==='hotel'?S.id:'');break;
     case 'revstar':{S.m.f.r=+a.v;document.querySelectorAll('.rate button').forEach(function(b){var on=+b.dataset.v<=S.m.f.r;b.classList.toggle('on',on);b.setAttribute('aria-checked',String(+b.dataset.v===S.m.f.r))})}break;
     case 'copy':copyText(buildMsg(),el);break;
@@ -1690,14 +2335,23 @@ document.addEventListener('submit',function(e){
     S.m.alt=true;S.m.step=2;renderModal();return;
   }
   if(f.id==='bk'){
-    var fd2=new FormData(f);
-    S.m.f={name:String(fd2.get('name')||'').trim(),contact:String(fd2.get('contact')||'').trim(),email:String(fd2.get('email')||'').trim(),comment:String(fd2.get('comment')||'').trim()};
+    mRead();var mf=S.m.f;mf.name=mf.name.trim();mf.contact=mf.contact.trim();mf.email=mf.email.trim();mf.comment=mf.comment.trim();mf.ci=(mf.ci||'').trim();mf.budget=String(mf.budget||'').trim();
     if(!S.m.f.name||!S.m.f.contact){S.m.err=true;renderModal();return}
     S.m.err=false;S.m.step=2;renderModal();saveLead();
   }
 });
+document.addEventListener('input',function(e){
+  var el=e.target;
+  if(el.dataset&&el.dataset.cub){S.cuB=el.value;return}
+  if(el.id==='m_ci'&&S.m){S.m.geoEdited=true;S.m.geoAuto=false;var h=document.getElementById('m_geoh');if(h)h.hidden=true}
+});
+document.addEventListener('change',function(e){
+  var el=e.target;
+  if(el.dataset&&el.dataset.cu==='date'){S.cu.date=el.value;S.cuMsg='';cuRender(false);return}
+  if(el.id==='m_co'&&S.m){S.m.geoEdited=true;S.m.geoAuto=false;var h=document.getElementById('m_geoh');if(h)h.hidden=true}
+});
 document.addEventListener('keydown',function(e){
-  if(e.key==='Escape'){if(S.m)closeModal();else if(S.menu)setMenu(false);return}
+  if(e.key==='Escape'){if(document.getElementById('lb')){closeLb();return}if(S.m)closeModal();else if(S.menu)setMenu(false);return}
   if(S.view==='home'&&!S.m&&(e.key==='ArrowLeft'||e.key==='ArrowRight')){var tg=e.target.tagName;if(tg==='INPUT'||tg==='SELECT'||tg==='TEXTAREA')return;cfMove(e.key==='ArrowRight'?1:-1)}
 });
 var rzT,rvW=window.innerWidth;window.addEventListener('resize',function(){clearTimeout(rzT);rzT=setTimeout(function(){cfLayout();if(S.view==='home'&&window.innerWidth!==rvW){rvW=window.innerWidth;var tr=$('#rvTrack');if(tr){tr.innerHTML=revCards();rvInit()}}},150)});
@@ -1752,6 +2406,7 @@ function buildDefault(){
       rooms:h.rooms.map(function(r){return {n:RN[r[0]].slice(),area:r[1],beds:BD[r[2]].slice(),price:r[3]}}),photos:[],hidden:false}}),
     tours:TOURS.map(function(x){return {id:x.id,c:x.c,cities:x.cities.slice(),main:x.main||'',n:x.n,hotels:x.hotels.slice(),meal:x.meal,type:x.type,base:x.base,peak:x.peak.slice(),flight:!!x.flight,seed:x.seed,
       dep:x.dep.slice(),inc:x.inc.slice(),exc:x.exc.slice(),places:x.places.slice(),name:x.name.slice(),desc:x.desc.slice(),photos:[],bg:'b'+(BT[x.id]||1),hidden:false,featured:FE.indexOf(x.id)>-1}}),
+    merch:MERCH0.map(function(p){return {id:p.id,art:p.art,price:p.p,sizes:p.sz?p.sz.join(', '):'',name:p.n.slice(),desc:p.d.slice(),photos:[],hidden:false}}),
     reviews:[],
     ui:{}
   };
@@ -1762,7 +2417,7 @@ function normalize(m){
   if(m.logo===null)out.logo=null;
   out.cfg=Object.assign({},d.cfg,m.cfg||{});out.cfg.rates=Object.assign({EUR:1},(m.cfg&&m.cfg.rates)||d.cfg.rates);
   out.bgView=Object.assign({},d.bgView,m.bgView||{});
-  ['bgs','cities','places','dests','hotels','tours','reviews'].forEach(function(k){if(!Array.isArray(out[k]))out[k]=d[k]});
+  ['bgs','cities','places','dests','hotels','tours','merch','reviews'].forEach(function(k){if(!Array.isArray(out[k]))out[k]=d[k]});
   if(typeof out.ui!=='object'||Array.isArray(out.ui))out.ui={};
   return out;
 }
@@ -1790,6 +2445,10 @@ function applyModel(m){
     if(o.main&&o.cities.indexOf(o.main)<0)o.main='';o.base=+x.base||0;o.n=+x.n||1;return o;
   }).filter(function(x){return x.cities.length&&x.hotels.length&&x.dep.length&&x.base>0});
   TOURS.forEach(function(x){TOUR[x.id]=x});
+  MERCH=(m.merch||[]).filter(function(p){return p&&!p.hidden&&L(p.name)&&+p.price>0}).map(function(p){
+    var sz=String(p.sizes||'').split(',').map(function(q){return q.trim()}).filter(Boolean);
+    return {id:p.id,art:p.art||'tee',p:+p.price,sz:sz.length?sz:null,n:p.name,d:p.desc||['','','',''],ph:p.photos||[]}});
+  MP={};MERCH.forEach(function(p){MP[p.id]=p});
   FEATURED=TOURS.filter(function(x){return x.featured});if(!FEATURED.length)FEATURED=TOURS.slice(0,6);
   REVIEWS={};ALLREV=(m.reviews||[]).filter(function(r){return r&&r.name&&r.text});ALLREV.forEach(function(r){if(r.target)(REVIEWS[r.target]=REVIEWS[r.target]||[]).push(r)});
   Object.keys(UI0).forEach(function(k){U[k]=UI0[k]});Object.keys(m.ui||{}).forEach(function(k){if(U[k])U[k]=m.ui[k]});
@@ -1836,7 +2495,7 @@ Object.assign(ICON,{
 var A={leads:[],lsub:null,lf:'all',inbox:[],sub:null,rmq:[],sec:'dash',edit:null,d:null,dirty:false,saving:false,errs:[],showErr:false,cdel:null,q:'',msg:''},PENDING={};
 var LN=['RU','EN','PL','KY'],MONTHS=['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек'];
 var KINDS=[['lake','Озеро'],['mountains','Горы'],['ski','Горнолыжный'],['city','Город'],['culture','Культура / история']];
-var SECS=[['dash','Обзор','home'],['company','Компания и контакты','gear'],['leads','Заявки','mail'],['tours','Туры','plane'],['hotels','Отели','bed'],['dests','Направления','pin'],['geo','Города и места','cal'],['reviews','Отзывы','star'],['bgs','Фоны','img'],['media','Логотип','gear'],['cfg','Цены и валюты','cal'],['texts','Тексты сайта','text']];
+var SECS=[['dash','Обзор','home'],['company','Компания и контакты','gear'],['leads','Заявки','mail'],['tours','Туры','plane'],['hotels','Отели','bed'],['merch','Мерч','star'],['dests','Направления','pin'],['geo','Города и места','cal'],['reviews','Отзывы','star'],['bgs','Фоны','img'],['media','Логотип','gear'],['cfg','Цены и валюты','cal'],['texts','Тексты сайта','text']];
 var BGVIEW_L=[['home_pop','Главная: «Популярные туры»'],['home_dests','Главная: «Направления»'],['home_pts','Главная: нижний блок'],['tours','Каталог туров'],['dests','Страница «Направления»'],['hotels','Страница «Отели»'],['about','О компании'],['contacts','Контакты']];
 
 function gp(o,p){return p.split('.').reduce(function(a,k){return a==null?a:a[k]},o)}
@@ -1870,7 +2529,7 @@ function delBtn(k,id,warn){
 }
 function rowActs(k,id,i,n){
   return '<div class="racts"><button type="button" class="ibtn sm" data-aa="mv" data-k="'+k+'" data-i="'+i+'" data-d="-1"'+(i===0?' disabled':'')+' aria-label="Выше" title="Выше">'+ic('up')+'</button><button type="button" class="ibtn sm" data-aa="mv" data-k="'+k+'" data-i="'+i+'" data-d="1"'+(i===n-1?' disabled':'')+' aria-label="Ниже" title="Ниже">'+ic('down')+'</button>'+
-  (k==='tours'||k==='hotels'?'<button type="button" class="ibtn sm" data-aa="dup" data-k="'+k+'" data-id="'+ae(id)+'" aria-label="Копия" title="Сделать копию">'+ic('copy')+'</button>':'')+
+  (k==='tours'||k==='hotels'||k==='merch'?'<button type="button" class="ibtn sm" data-aa="dup" data-k="'+k+'" data-id="'+ae(id)+'" aria-label="Копия" title="Сделать копию">'+ic('copy')+'</button>':'')+
   delBtn(k,id,usage(k,id))+'<button type="button" class="btn gl sm" data-aa="edit" data-k="'+k+'" data-id="'+ae(id)+'">Изменить</button></div>';
 }
 function usage(k,id){
@@ -1908,7 +2567,7 @@ function destRow(d,i,n){
   var nt=A.d.tours.filter(function(x){return x.c===d.k}).length;
   return '<div class="arow glass">'+thumb(d,d.kind,d.seed)+'<div class="ati"><b>'+ae(ru(d.name)||'Без названия')+'</b><small>Туров: '+nt+' · мест: '+d.places.length+'</small></div>'+rowActs('dests',d.k,i,n)+'</div>';
 }
-function edHead(k,title){return '<div class="ahead"><button type="button" class="back glass" data-aa="close">'+ic('chevl')+{tours:'Все туры',hotels:'Все отели',dests:'Все направления'}[k]+'</button></div><div class="ahead"><h1>'+ae(title)+'</h1></div>'}
+function edHead(k,title){return '<div class="ahead"><button type="button" class="back glass" data-aa="close">'+ic('chevl')+{tours:'Все туры',hotels:'Все отели',dests:'Все направления',merch:'Весь мерч'}[k]+'</button></div><div class="ahead"><h1>'+ae(title)+'</h1></div>'}
 function tourEd(i){
   var x=A.d.tours[i],p='tours.'+i;
   var cities=A.d.cities.filter(function(c){return c.c===x.c}).map(function(c){return [c.k,ru(c.n)]});
@@ -2017,7 +2676,7 @@ function aLeads(){
   card('Как сюда попадают заявки',(HOSTED?'<p class="anote">Каждая бронь с сайта сохраняется здесь и приходит вам на email (если включены уведомления Netlify Forms). Клиенту также предлагается написать вам в WhatsApp или Telegram. Статусы видны только в этом браузере.</p>'+(A.netErr?'<div class="warnbox">'+ic('info')+'<span>'+ae(A.netErr)+'. Проверьте переменную NETLIFY_TOKEN в настройках Netlify.</span></div>':''):'<p class="anote">Каждая заявка в первую очередь приходит вам в WhatsApp или Telegram — проверяйте мессенджер. Здесь сохраняются заявки клиентов, которые открыли сайт в Claude с правом записи. Обычные посетители по публичной ссылке сохранить заявку на сайте не могут — это ограничение платформы.</p>'+(DB?'':'<div class="warnbox">'+ic('info')+'<span>Список заявок недоступен в этом окне.</span></div>')),HOSTED?'<button type="button" class="btn gl sm" data-aa="refresh">'+ic('undo')+'Обновить</button>':'')+
   '<div class="pills">'+tb('all','Все')+tb('new','Новые')+tb('work','В работе')+tb('done','Закрытые')+'</div>'+
   '<div class="alist">'+(list.length?list.map(function(x){var dig=String(x.contact||'').replace(/\D/g,''),dt=new Date(x.at),ds=isNaN(dt)?'':dt.toLocaleString('ru-RU',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
-    return '<div class="acard glass lead st-'+(x.st||'new')+'"><div class="ach"><h2>'+ae(x.name)+'</h2><span class="lst">'+LST[x.st||'new']+'</span></div><small class="anote">'+ae(ds)+' · '+(x.type==='tour'?'Тур':x.type==='hotel'?'Отель':'Обращение')+'</small>'+
+    return '<div class="acard glass lead st-'+(x.st||'new')+'"><div class="ach"><h2>'+ae(x.name)+'</h2><span class="lst">'+LST[x.st||'new']+'</span></div><small class="anote">'+ae(ds)+' · '+(x.type==='tour'?'Тур':x.type==='custom'?'Индивидуальный тур':x.type==='merch'?'Мерч':x.type==='hotel'?'Отель':'Обращение')+'</small>'+
     (x.lines&&x.lines.length?'<div class="sum">'+x.lines.map(function(l){return '<div><span>'+ae(l[0])+':</span> '+ae(l[1])+'</div>'}).join('')+'</div>':'')+
     '<div class="sum"><div><span>Контакт:</span> '+ae(x.contact)+'</div>'+(x.email?'<div><span>Email:</span> '+ae(x.email)+'</div>':'')+(x.comment?'<div><span>Комментарий:</span> '+ae(x.comment)+'</div>':'')+'</div>'+
     '<div class="arow2">'+(dig.length>=7?'<a class="btn gl sm" href="https://wa.me/'+dig+'" target="_blank" rel="noopener">'+ic('chat')+'WhatsApp</a>':'')+(/^@?[A-Za-z][A-Za-z0-9_]{3,}$/.test(String(x.contact||'').trim())?'<a class="btn gl sm" href="https://t.me/'+ae(String(x.contact).trim().replace(/^@/,''))+'" target="_blank" rel="noopener">'+ic('tg')+'Telegram</a>':'')+
@@ -2045,10 +2704,11 @@ function errAll(){
 }
 function aMain(){
   if(A.edit){var k=A.edit.k,arr=A.d[k],idx=arr.findIndex(function(o){return (o.id||o.k)===A.edit.id});
-    if(idx>-1)return k==='tours'?tourEd(idx):k==='hotels'?hotelEd(idx):destEd(idx);A.edit=null}
+    if(idx>-1)return k==='tours'?tourEd(idx):k==='hotels'?hotelEd(idx):k==='merch'?merchEd(idx):destEd(idx);A.edit=null}
   switch(A.sec){
     case 'tours':return aList('tours','Туры','Добавить тур',tourRow);
     case 'hotels':return aList('hotels','Отели','Добавить отель',hotelRow);
+    case 'merch':return aList('merch','Мерч','Добавить товар',merchRow);
     case 'dests':return aList('dests','Направления','Добавить страну',destRow);
     case 'geo':return aGeo();case 'reviews':return aReviews();case 'bgs':return aBgs();case 'media':return aMedia();case 'cfg':return aCfg();case 'company':return aCompany();case 'leads':return aLeads();case 'texts':return aTexts();
     default:return aDash();
@@ -2085,6 +2745,7 @@ function validate(m){
     if(!x.cities.filter(function(k){return ck[k]}).length)e.push([x.id,'tours',n+'не выбран город']);
     if(!x.hotels.filter(function(k){return hk[k]&&!hk[k].hidden}).length)e.push([x.id,'tours',n+'не выбран отель (или он скрыт)']);
     if(!x.dep.length)e.push([x.id,'tours',n+'нет дат вылета']);if(!(+x.base>0))e.push([x.id,'tours',n+'не указана цена']);if(!(+x.n>0))e.push([x.id,'tours',n+'не указано число ночей'])});
+  (m.merch||[]).forEach(function(x){if(x.hidden)return;var n='Товар «'+(ru(x.name)||'без названия')+'»: ';if(!ru(x.name))e.push([x.id,'merch',n+'нет названия']);if(!(+x.price>0))e.push([x.id,'merch',n+'не указана цена'])});
   if(!m.bgs.length)e.push(['','','Нужен хотя бы один фон']);
   return e;
 }
@@ -2112,7 +2773,7 @@ function upload(input){
     dirty();renderAdmin();toast('Фото добавлено. Не забудьте опубликовать.');
   },function(){toast('Не удалось прочитать файл. Попробуйте JPG или PNG.')});
 }
-function usedPaths(m){var s={};function add(p){if(p)s[p]=1}add(m.logo);m.bgs.forEach(function(b){add(b.src)});m.tours.forEach(function(x){(x.photos||[]).forEach(add)});m.hotels.forEach(function(h){(h.photos||[]).forEach(add)});m.dests.forEach(function(d){add(d.photo)});return s}
+function usedPaths(m){var s={};function add(p){if(p)s[p]=1}add(m.logo);m.bgs.forEach(function(b){add(b.src)});m.tours.forEach(function(x){(x.photos||[]).forEach(add)});m.hotels.forEach(function(h){(h.photos||[]).forEach(add)});m.dests.forEach(function(d){add(d.photo)});(m.merch||[]).forEach(function(x){(x.photos||[]).forEach(add)});return s}
 
 /* ----- save / export ----- */
 function save(){
@@ -2190,6 +2851,7 @@ function newItem(k){
   var d0=A.d.dests[0],b0=(A.d.bgs[0]||{}).id||'';
   if(k==='tours')return {id:uid('t'),c:d0?d0.k:'',cities:[],main:'',n:7,hotels:[],meal:'BB',type:'lake',base:0,peak:[],flight:false,seed:Math.floor(Math.random()*90)+10,dep:[],inc:['hotel','meals','transfer','exc'],exc:['flight','insurance','visa','personal'],places:[],name:['','','',''],desc:['','','',''],photos:[],bg:b0,hidden:false,featured:false};
   if(k==='hotels'){var c0=A.d.cities.find(function(c){return d0&&c.c===d0.k});return {id:uid('h'),c:d0?d0.k:'',city:c0?c0.k:'',stars:4,meal:'BB',kind:'city',seed:Math.floor(Math.random()*90)+10,name:'',desc:['','','',''],sv:['wifi'],rooms:[{n:['Стандарт','Standard','Standard','Стандарт'],area:20,beds:['1 двуспальная или 2 односпальные','1 double or 2 single','1 łóżko dwuosobowe lub 2 pojedyncze','1 эки кишилик же 2 бир кишилик'],price:0}],photos:[],hidden:false}}
+  if(k==='merch')return {id:uid('m'),art:'tee',price:0,sizes:'',name:['','','',''],desc:['','','',''],photos:[],hidden:false};
   if(k==='dests')return {k:uid('d'),name:['','','',''],intro:['','','',''],season:['','','',''],places:[],kind:'mountains',seed:Math.floor(Math.random()*90)+10,bg:b0,photo:null};
   if(k==='cities')return {k:uid('c'),n:['','','',''],c:d0?d0.k:'',ll:[0,0]};
   if(k==='places')return {k:uid('p'),n:['','','','']};
@@ -2215,7 +2877,7 @@ document.addEventListener('click',function(e){
     case 'edit':A.edit={k:a.k,id:a.id};A.sec=a.k;A.showErr=false;renderAdmin(false);window.scrollTo(0,0);return;
     case 'close':A.edit=null;break;
     case 'new':{var it=newItem(a.k);if(a.k==='cities'||a.k==='places'){A.d[a.k].unshift(it)}else{A.d[a.k].push(it);A.edit={k:a.k,id:it.id||it.k}}dirty();renderAdmin(false);window.scrollTo(0,0);return}
-    case 'dup':{var arr=A.d[a.k],i0=arr.findIndex(function(o){return o.id===a.id});if(i0<0)break;var cp=clone(arr[i0]);cp.id=uid(a.k==='tours'?'t':'h');cp.hidden=true;if(a.k==='tours')cp.name=cp.name.map(function(s){return s?s+' (копия)':s});else cp.name=(cp.name||'')+' (копия)';arr.splice(i0+1,0,cp);dirty();break}
+    case 'dup':{var arr=A.d[a.k],i0=arr.findIndex(function(o){return o.id===a.id});if(i0<0)break;var cp=clone(arr[i0]);cp.id=uid(a.k==='tours'?'t':a.k==='merch'?'m':'h');cp.hidden=true;if(a.k==='tours'||a.k==='merch')cp.name=cp.name.map(function(s){return s?s+' (копия)':s});else cp.name=(cp.name||'')+' (копия)';arr.splice(i0+1,0,cp);dirty();break}
     case 'mv':{var ar=A.d[a.k],i=+a.i,j=i+(+a.d);if(j<0||j>=ar.length)return;var tmp=ar[i];ar[i]=ar[j];ar[j]=tmp;dirty();break}
     case 'askdel':A.cdel=a.k+':'+a.id;keepCdel=true;break;
     case 'nodel':break;
