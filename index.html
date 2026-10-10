@@ -626,6 +626,23 @@ body{overflow-x:clip;max-width:100%;overscroll-behavior-x:none}
 @keyframes sheetIn{from{opacity:0;transform:translate3d(0,18px,0)}to{opacity:1;transform:none}}
 @keyframes sheetOut{from{opacity:1;transform:none}to{opacity:0;transform:translate3d(0,10px,0)}}
 .ov.out .mod{animation:sheetOut .2s ease both}
+
+/* v5: smooth carousel - the page background no longer animates forever under the frosted glass,
+   only the centred card keeps its blur, side cards are cheap to move */
+.bgl{transform:scale(1.04);transition:opacity .9s cubic-bezier(.4,0,.2,1)}
+.bgl.show{transform:scale(1.04);animation:none}
+.cf-it{contain:layout paint;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform-style:flat}
+.cf-it::after{will-change:opacity;transform:translateZ(0)}
+.cf-cap{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(10,49,73,.34)}
+.cf-it.on .cf-cap{-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);background:rgba(10,49,73,.24)}
+.cf.drag .cf-it.on .cf-cap{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(10,49,73,.34)}
+@media (hover:none),(pointer:coarse),(min-width:700px){
+  .glass{-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
+}
+
+/* v5b: no blue frame / blue backing around tour cards */
+.cf-it{border:0;background:transparent;box-shadow:0 22px 44px rgba(3,14,22,.32);outline:1px solid transparent}
+.cf-img{border-radius:inherit;overflow:hidden}
 </style>
 </head>
 <body>
@@ -1130,7 +1147,7 @@ function cfPlace(pos){
 }
 function cfMeta(k){
   var l=cfList(),x=l[k];if(!x)return;
-  if(S.view==='home'&&bgZone==='hero'){clearTimeout(bgT);bgT=setTimeout(function(){bgShow(x.bg)},dg?260:60)}
+  if(S.view==='home'&&bgZone==='hero'){clearTimeout(bgT);bgT=setTimeout(function(){bgShow(x.bg)},dg?700:380)}
   var st=$('#cf');if(st)st.querySelectorAll('.cf-it').forEach(function(el,i){el.querySelectorAll('button').forEach(function(b){b.tabIndex=i===k?0:-1})});
   var th=$('#cfTh');if(th)th.innerHTML=vis(x,x.type,x.seed,1,0);
   var tx=$('#cfTx');if(tx)tx.innerHTML='<b>'+L(x.name)+'</b><small>'+esc(L(D[x.c].name))+' · '+fromLbl()+' '+fm(x.base)+'</small>';
@@ -1527,7 +1544,7 @@ document.addEventListener('pointermove',function(e){
   e.preventDefault();
   dg.cur=dg.pos-dx/(CFG_GEO.s1*.8);
   dg.hist.push([e.timeStamp,e.clientX]);if(dg.hist.length>6)dg.hist.shift();
-  cfPlace(dg.cur);
+  if(!dg.raf){var gd=dg;dg.raf=requestAnimationFrame(function(){gd.raf=0;if(dg===gd)cfPlace(gd.cur)})}
 },{passive:false});
 function dragEnd(e){
   if(!dg||e.pointerId!==dg.id)return;
