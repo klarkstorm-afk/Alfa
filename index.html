@@ -1456,7 +1456,7 @@ function renderModal(first){
     body='<p style="color:var(--text2)">'+(m.type==='rev'?t('rev_alt'):t('m_check'))+'</p><textarea id="m_msg" readonly style="min-height:170px">'+esc(msg)+'</textarea>'+
     (m.saved?'<p class="okline">'+ic('check')+t('m_saved')+'</p>':'')+
     (CFG.bookWa&&CFG.wa?'<a class="btn big full" href="https://wa.me/'+CFG.wa+'?text='+enc+'" target="_blank" rel="noopener">'+ic('chat')+t('m_wa')+'</a>':'')+
-    (CFG.bookTg&&CFG.tg?'<a class="btn gl big full" data-act="tg" href="https://t.me/'+CFG.tg+'" target="_blank" rel="noopener">'+ic('tg')+t('m_tg')+'</a><p class="note">'+t('m_tgh')+'</p>':'')+
+    (CFG.bookTg&&CFG.tg?'<a class="btn gl big full" data-act="tg" href="https://t.me/'+CFG.tg+'?text='+enc+'" target="_blank" rel="noopener">'+ic('tg')+t('m_tg')+'</a><p class="note">'+t('m_tgh')+'</p>':'')+
     ((!(CFG.bookWa&&CFG.wa)&&!(CFG.bookTg&&CFG.tg))?'<p class="note">'+esc(CFG.phone)+(CFG.email?' · '+esc(CFG.email):'')+'</p>':'')+
     '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><button class="btn gl" data-act="copy">'+t('m_copy')+'</button><button class="btn gl" data-act="mback">'+t('m_back')+'</button></div><p class="note">'+t('m_hint')+'</p>';
   }
