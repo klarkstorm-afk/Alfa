@@ -17,7 +17,7 @@
 /* Layout: frosted-glass panels floating over a flat dusk landscape (brand palette only, no gradients).
    Floating pill toolbar, 3D coverflow of tours as the hero, concentric radii everywhere (outer 30 / inner 20). */
 :root{
-  --merino:#F5EEDD;--rock:#84B3CE;--venice:#16587B;
+  --merino:#F5EEDD;--rock:#F2D08A;--venice:#16587B;
   --deep:#0F4562;--night:#0A3149;--paper:#FBF8F0;
   --text:#F5EEDD;--text2:rgba(245,238,221,.74);--text3:rgba(245,238,221,.55);
   --glass:rgba(245,238,221,.10);--glass2:rgba(245,238,221,.17);--glass3:rgba(245,238,221,.24);
@@ -608,6 +608,24 @@ body{overflow-x:clip;max-width:100%;overscroll-behavior-x:none}
 .revs.one .rv-nav{justify-content:center}
 .revs.one .rv-view{display:flex;justify-content:center}
 .revs.one .rv-track{width:auto;justify-content:center}
+
+/* v4: warm (not gold) booking sheet, smooth animation, readable accent text */
+.eyebrow,.hero h1 .pp,.cf-cap .k{text-shadow:0 1px 2px rgba(4,18,28,.65),0 0 16px rgba(4,18,28,.45)}
+.cf-cap .k{font-weight:700}
+.ov{background:rgba(16,11,8,.62)}
+.mod{position:relative;isolation:isolate;--well:rgba(24,16,11,.46);--stroke:rgba(245,238,221,.26);--stroke2:rgba(245,238,221,.5);--glass:rgba(40,28,20,.40);--glass2:rgba(50,36,26,.5);--glass3:rgba(64,46,34,.55);animation:sheetIn .42s var(--ease) both}
+.mod.glass,.mod.glass.strong{background:#1a120d;-webkit-backdrop-filter:none;backdrop-filter:none;border:1px solid rgba(245,238,221,.3);box-shadow:inset 0 1px 0 rgba(245,238,221,.2),0 30px 80px rgba(0,0,0,.5)}
+.mbg{position:absolute;inset:0;z-index:-1;border-radius:inherit;overflow:hidden;background:#1a120d;pointer-events:none}
+.mbg i{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .7s ease;filter:saturate(1.05)}
+.mbg i.on{opacity:1}
+.mbg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(34,22,14,.5) 0%,rgba(24,16,11,.72) 50%,rgba(18,12,8,.86) 100%)}
+.mod .btn.gl{background:rgba(245,238,221,.12);border-color:rgba(245,238,221,.4)}
+.mod .ibtn{background:rgba(245,238,221,.14);border-color:rgba(245,238,221,.4)}
+.mod h2{text-shadow:0 2px 14px rgba(0,0,0,.45)}
+.mod input:focus,.mod textarea:focus,.mod select:focus{border-color:var(--merino);background-color:rgba(24,16,11,.62)}
+@keyframes sheetIn{from{opacity:0;transform:translate3d(0,18px,0)}to{opacity:1;transform:none}}
+@keyframes sheetOut{from{opacity:1;transform:none}to{opacity:0;transform:translate3d(0,10px,0)}}
+.ov.out .mod{animation:sheetOut .2s ease both}
 </style>
 </head>
 <body>
@@ -1473,9 +1491,15 @@ function renderModal(first){
   }
   var animate=first||!el.firstChild;
   if(m.bgsrc===undefined){var bl=(BGS||[]).filter(function(b){return b&&b.src});m.bgsrc=bl.length?imgURL(bl[Math.floor(Math.random()*bl.length)].src):''}
-  var mbg=m.bgsrc?' style="background:linear-gradient(180deg,rgba(8,34,50,.6),rgba(8,34,50,.84)),url(\''+esc(m.bgsrc)+'\') center/cover no-repeat"':'';
-  el.innerHTML='<div class="ov'+(animate?'':' still')+'" data-act="ovl"><div class="mod glass strong"'+mbg+' role="dialog" aria-modal="true" aria-label="'+t(m.type==='rev'?'rev_form_t':'m_title')+'"><div class="mh"><h2>'+t(m.type==='rev'?'rev_form_t':'m_title')+'</h2><button class="ibtn" data-act="closem" aria-label="'+t('close')+'">'+ic('x')+'</button></div>'+body+'</div></div>';
+  el.innerHTML='<div class="ov'+(animate?'':' still')+'" data-act="ovl"><div class="mod glass strong" role="dialog" aria-modal="true" aria-label="'+t(m.type==='rev'?'rev_form_t':'m_title')+'"><div class="mbg" aria-hidden="true"><i></i></div><div class="mh"><h2>'+t(m.type==='rev'?'rev_form_t':'m_title')+'</h2><button class="ibtn" data-act="closem" aria-label="'+t('close')+'">'+ic('x')+'</button></div>'+body+'</div></div>';
   if(!animate){var ov=el.firstChild;ov.style.animation='none';ov.firstChild.style.animation='none'}
+  (function(){
+    var mi=el.querySelector('.mbg i');if(!mi||!m.bgsrc)return;
+    var url='url("'+String(m.bgsrc).replace(/"/g,'%22')+'")';
+    if(m.bgok){mi.style.transition='none';mi.style.backgroundImage=url;mi.classList.add('on');return}
+    var im=new Image(),done=function(){m.bgok=true;var cur=document.querySelector('#modal .mbg i');if(cur&&S.m===m){cur.style.backgroundImage=url;requestAnimationFrame(function(){cur.classList.add('on')})}};
+    im.onload=done;im.onerror=function(){m.bgok=true};im.src=m.bgsrc;
+  })();
   var f=el.querySelector('input,textarea');if(f&&m.step===1&&first)try{f.focus({preventScroll:true})}catch(e){}
 }
 function copyText(txt,btn){
