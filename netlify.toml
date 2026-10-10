@@ -1,0 +1,27 @@
+# Alpha Travel — Netlify settings (all files in the repository root)
+[build]
+  publish = "."
+  functions = "."
+  command = ""
+
+# the site asks for data/site.json and bg/N.jpg; until the admin saves
+# real files there, serve the copies from the root
+[[redirects]]
+  from = "/data/site.json"
+  to = "/site.json"
+  status = 200
+
+[[redirects]]
+  from = "/bg/:file"
+  to = "/:file"
+  status = 200
+
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/site.json"
+  [headers.values]
+    Cache-Control = "no-cache"
