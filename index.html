@@ -1139,11 +1139,11 @@ function cfPlace(pos){
     var o=a<=2?1:Math.max(0,1-(a-2)*1.4);
     var dim=a<=1?.38*a:Math.min(.6,.38+(a-1)*.22);
     var s=el.style;
-    s.setProperty('--x',(sg*x).toFixed(1)+'px');s.setProperty('--z',z.toFixed(1)+'px');s.setProperty('--r',(sg*r).toFixed(2)+'deg');
+    s.setProperty('--x',(sg*x).toFixed(3)+'px');s.setProperty('--z',z.toFixed(3)+'px');s.setProperty('--r',(sg*r).toFixed(3)+'deg');
     s.setProperty('--o',o.toFixed(3));s.setProperty('--dim',dim.toFixed(3));s.setProperty('--zi',Math.round(100-a*10));
-    var on=a<.5;el.classList.toggle('on',on);s.pointerEvents=o>0?'auto':'none';
+    var on=a<.5;if(!(dg&&dg.lock))el.classList.toggle('on',on);s.pointerEvents=o>0?'auto':'none';
   });
-  var k=((Math.round(pos)%n)+n)%n;if(k!==lastMeta){lastMeta=k;cfMeta(k)}
+  var k=((Math.round(pos)%n)+n)%n;if(k!==lastMeta&&!(dg&&dg.lock)){lastMeta=k;cfMeta(k)}
 }
 function cfMeta(k){
   var l=cfList(),x=l[k];if(!x)return;
@@ -1537,14 +1537,19 @@ document.addEventListener('pointermove',function(e){
   if(!dg||e.pointerId!==dg.id)return;
   var dx=e.clientX-dg.x,dy=e.clientY-dg.y;
   if(!dg.lock){
-    if(Math.abs(dx)>6&&Math.abs(dx)>Math.abs(dy)){dg.lock='x';dg.st.classList.add('drag');try{dg.st.setPointerCapture(e.pointerId)}catch(_){}}
+    if(Math.abs(dx)>6&&Math.abs(dx)>Math.abs(dy)){dg.lock='x';dg.x=e.clientX;dx=0;dg.disp=dg.pos;dg.st.classList.add('drag');try{dg.st.setPointerCapture(e.pointerId)}catch(_){}}
     else if(Math.abs(dy)>8){dg=null;return}
     else return;
   }
   e.preventDefault();
   dg.cur=dg.pos-dx/(CFG_GEO.s1*.8);
   dg.hist.push([e.timeStamp,e.clientX]);if(dg.hist.length>6)dg.hist.shift();
-  if(!dg.raf){var gd=dg;dg.raf=requestAnimationFrame(function(){gd.raf=0;if(dg===gd)cfPlace(gd.cur)})}
+  if(!dg.raf){var gd=dg;dg.raf=requestAnimationFrame(function stp(){
+    gd.raf=0;if(dg!==gd)return;
+    var d=gd.cur-gd.disp;gd.disp+=d*.34;if(Math.abs(d)<.0007)gd.disp=gd.cur;
+    cfPlace(gd.disp);
+    if(gd.disp!==gd.cur)gd.raf=requestAnimationFrame(stp);
+  })}
 },{passive:false});
 function dragEnd(e){
   if(!dg||e.pointerId!==dg.id)return;
