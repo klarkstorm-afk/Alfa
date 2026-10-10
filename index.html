@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="Alpha Travel — туры в Кыргызстан, Казахстан и Узбекистан: отели, трансферы, экскурсии.">
 <meta property="og:title" content="Alpha Travel">
 <meta property="og:description" content="Туры по Центральной Азии: Кыргызстан, Казахстан, Узбекистан.">
@@ -40,7 +40,10 @@ svg{display:block}
 :focus-visible{outline:2px solid var(--rock);outline-offset:3px}
 
 /* environment behind the glass */
-.env{position:fixed;top:0;left:0;width:100%;height:0;z-index:0;overflow:visible;background:transparent;pointer-events:none}
+.env{position:absolute;top:0;left:0;width:100%;height:0;z-index:0;overflow-x:clip;overflow-y:visible;background:transparent;pointer-events:none;will-change:transform}
+.env2{--wt:calc(env(safe-area-inset-top,0px) + 8px);--wb:calc(env(safe-area-inset-bottom,0px) + 8px);position:fixed;top:var(--wt);bottom:var(--wb);left:0;right:0;z-index:0;overflow:hidden;pointer-events:none}
+.env2 .bgl{top:calc(-160px - var(--wt))}
+.env2::after{content:"";position:absolute;inset:0;background:rgba(6,26,38,.5)}
 #app{position:relative;z-index:1}
 #modal{position:relative;z-index:100}
 .bgl{position:absolute;top:-160px;left:-2%;width:104%;height:calc(100vh + 320px);height:calc(100lvh + 320px);object-fit:cover;opacity:0;transform:scale(1.14);filter:saturate(.9);transition:opacity 1.3s cubic-bezier(.4,0,.2,1),transform 2.6s cubic-bezier(.16,1,.3,1);will-change:opacity,transform}
@@ -652,6 +655,7 @@ body{max-width:100%}
 </head>
 <body>
 <div class="env" id="env" aria-hidden="true"></div>
+<div class="env2" id="env2" aria-hidden="true"></div>
 <div id="app"></div>
 <div id="modal"></div>
 <script>
@@ -1172,6 +1176,11 @@ var bgCur=null,bgT=null,bgFlip=0;
 function bgInit(){
   var env=document.getElementById('env');if(!env)return;
   env.innerHTML='<img class="bgl" alt="" decoding="async"><img class="bgl" alt="" decoding="async">';
+  var e2=document.getElementById('env2');if(!e2)return;
+  e2.innerHTML=env.innerHTML;
+  var mirror=function(){var a=env.querySelectorAll('.bgl'),b=e2.querySelectorAll('.bgl');for(var i=0;i<a.length&&i<b.length;i++){var sr=a[i].getAttribute('src');if(sr&&b[i].getAttribute('src')!==sr)b[i].setAttribute('src',sr);if(b[i].className!==a[i].className)b[i].className=a[i].className}};
+  if('MutationObserver' in window)new MutationObserver(mirror).observe(env,{subtree:true,attributes:true,attributeFilter:['class','src']});
+  var y=-1,follow=function(){var sy=window.scrollY||0;if(sy!==y){y=sy;env.style.transform='translate3d(0,'+sy+'px,0)'}requestAnimationFrame(follow)};requestAnimationFrame(follow);
 }
 function bgPreload(){setTimeout(function(){(BGS||[]).forEach(function(b){var i=new Image();i.src=imgURL(b.src)})},1200)}
 function bgSrc(id){var b=(BGS||[]).find(function(x){return x.id===id})||(BGS||[])[0];return b?imgURL(b.src):null}
