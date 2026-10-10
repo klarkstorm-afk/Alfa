@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="description" content="Alpha Travel — туры в Кыргызстан, Казахстан и Узбекистан: отели, трансферы, экскурсии.">
 <meta property="og:title" content="Alpha Travel">
 <meta property="og:description" content="Туры по Центральной Азии: Кыргызстан, Казахстан, Узбекистан.">
@@ -597,6 +597,17 @@ html.lock,html.lock body{overflow:hidden}
 .lead .lst{font-size:12.5px;font-weight:600;padding:4px 12px;border-radius:999px;background:var(--glass2)}
 .lead.st-new .lst{background:#E0795F;color:#fff}
 .lead.st-done{opacity:.72}
+
+/* v3: no page wobble / no focus zoom, softer tour caption, centered single review */
+html{overflow-x:clip;overscroll-behavior-x:none}
+body{overflow-x:clip;max-width:100%;overscroll-behavior-x:none}
+@media (max-width:900px){select,input,textarea,input[type=date],input[type=number],input[type=text],input[type=email],input[type=password]{font-size:16px!important}}
+.cf-cap{background:rgba(10,49,73,.24);-webkit-backdrop-filter:blur(7px) saturate(130%);backdrop-filter:blur(7px) saturate(130%);border-color:rgba(245,238,221,.14);text-shadow:0 1px 10px rgba(4,18,28,.6)}
+.revs.one .blk-h{justify-content:center;text-align:center}
+.revs.one .rv-head{flex-direction:column;align-items:center;justify-content:center;gap:14px}
+.revs.one .rv-nav{justify-content:center}
+.revs.one .rv-view{display:flex;justify-content:center}
+.revs.one .rv-track{width:auto;justify-content:center}
 </style>
 </head>
 <body>
@@ -1156,7 +1167,7 @@ function revBlock(){
   var n=ALLREV.length,avg=ALLREV.reduce(function(s,r){return s+(+r.rating||0)},0)/n;
   var head='<div class="rv-head"><div class="rv-score glass"><b>'+avg.toFixed(1).replace('.',lang==='en'?'.':',')+'</b><div><span class="stars" aria-hidden="true">'+starRow(Math.round(avg))+'</span><small>'+t('rev_avg',{a:avg.toFixed(1).replace('.',lang==='en'?'.':','),n:n})+'</small></div></div>'+
     '<div class="rv-nav">'+(n>1?'<button type="button" class="ibtn" data-act="rvprev" aria-label="'+t('prev')+'">'+ic('chevl')+'</button><button type="button" class="ibtn" data-act="rvnext" aria-label="'+t('next')+'">'+ic('chevr')+'</button>':'')+'<button type="button" class="btn sm" data-act="revopen">'+ic('star')+'<span>'+t('rev_write')+'</span></button></div></div>';
-  return '<section class="revs" aria-label="'+esc(t('rev_t'))+'"><div class="blk-h"><h2>'+t('rev_t')+'</h2></div>'+head+
+  return '<section class="revs'+(n===1?' one':'')+'" aria-label="'+esc(t('rev_t'))+'"><div class="blk-h"><h2>'+t('rev_t')+'</h2></div>'+head+
     '<div class="rv-view'+(n>1?' loop':'')+'" id="rvView"><div class="rv-track" id="rvTrack">'+revCards()+'</div></div></section>';
 }
 function revCards(){
@@ -1461,7 +1472,9 @@ function renderModal(first){
     '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><button class="btn gl" data-act="copy">'+t('m_copy')+'</button><button class="btn gl" data-act="mback">'+t('m_back')+'</button></div><p class="note">'+t('m_hint')+'</p>';
   }
   var animate=first||!el.firstChild;
-  el.innerHTML='<div class="ov'+(animate?'':' still')+'" data-act="ovl"><div class="mod glass strong" role="dialog" aria-modal="true" aria-label="'+t(m.type==='rev'?'rev_form_t':'m_title')+'"><div class="mh"><h2>'+t(m.type==='rev'?'rev_form_t':'m_title')+'</h2><button class="ibtn" data-act="closem" aria-label="'+t('close')+'">'+ic('x')+'</button></div>'+body+'</div></div>';
+  if(m.bgsrc===undefined){var bl=(BGS||[]).filter(function(b){return b&&b.src});m.bgsrc=bl.length?imgURL(bl[Math.floor(Math.random()*bl.length)].src):''}
+  var mbg=m.bgsrc?' style="background:linear-gradient(180deg,rgba(8,34,50,.6),rgba(8,34,50,.84)),url(\''+esc(m.bgsrc)+'\') center/cover no-repeat"':'';
+  el.innerHTML='<div class="ov'+(animate?'':' still')+'" data-act="ovl"><div class="mod glass strong"'+mbg+' role="dialog" aria-modal="true" aria-label="'+t(m.type==='rev'?'rev_form_t':'m_title')+'"><div class="mh"><h2>'+t(m.type==='rev'?'rev_form_t':'m_title')+'</h2><button class="ibtn" data-act="closem" aria-label="'+t('close')+'">'+ic('x')+'</button></div>'+body+'</div></div>';
   if(!animate){var ov=el.firstChild;ov.style.animation='none';ov.firstChild.style.animation='none'}
   var f=el.querySelector('input,textarea');if(f&&m.step===1&&first)try{f.focus({preventScroll:true})}catch(e){}
 }
@@ -2161,8 +2174,8 @@ document.addEventListener('click',function(e){
     case 'ireject':{A.rmq.push({doc:a.doc,id:a.id});renderAdmin();inboxRemove(a.doc,a.id).then(function(){A.rmq=A.rmq.filter(function(r){return r.id!==a.id});toast('Отзыв отклонён.')},function(){A.rmq=A.rmq.filter(function(r){return r.id!==a.id});renderAdmin();toast('Не получилось отклонить. Попробуйте ещё раз.')});return}
     case 'lf':A.lf=a.v;break;
     case 'refresh':if(A.sec==='leads')leadsSub(true);else inboxSub(true);toast('Обновляю…',1200);return;
-    case 'login':{var kk=($('#akey')||{}).value||'';var er=$('#aerr');if(!kk){if(er)er.hidden=false;return}netLogin(kk).then(function(info){NETKEY=kk;CAN=true;ART=NETART;A.netinfo=info;try{sessionStorage.setItem('at_key',kk)}catch(_){}A.d=null;openAdmin()},function(){if(er){er.hidden=false;er.textContent='Неверный пароль или функция сайта не настроена.'}});return}
-    case 'logout':try{sessionStorage.removeItem('at_key')}catch(_){}NETKEY=null;CAN=false;ART=null;applyModel(M);S.preview=false;go('home');return;
+    case 'login':{var kk=($('#akey')||{}).value||'';var er=$('#aerr');if(!kk){if(er)er.hidden=false;return}netLogin(kk).then(function(info){NETKEY=kk;CAN=true;ART=NETART;A.netinfo=info;try{localStorage.setItem('at_key',kk)}catch(_){}A.d=null;openAdmin()},function(){if(er){er.hidden=false;er.textContent='Неверный пароль или функция сайта не настроена.'}});return}
+    case 'logout':try{localStorage.removeItem('at_key');sessionStorage.removeItem('at_key')}catch(_){}NETKEY=null;CAN=false;ART=null;applyModel(M);S.preview=false;go('home');return;
     case 'ldel':{var did=a.id;leadUpd(a.doc,did,function(){return null}).then(function(){toast('Заявка удалена.')},function(){toast('Не получилось удалить.')});break}
     case 'uireset':delete A.d.ui[a.v];dirty();break;
     case 'revert':var kq=A.d._q;A.d=clone(M);if(kq)A.d._q=kq;A.edit=null;A.dirty=false;A.showErr=false;A.errs=[];PENDING={};break;
@@ -2223,9 +2236,9 @@ var NETART={publish:function(files){
 }};
 function netLogin(key){return fetch('/api/login',{method:'POST',headers:{'x-admin-key':key}}).then(function(r){if(!r.ok)throw r.status;return r.json()})}
 function netInit(){
-  var k=null;try{k=sessionStorage.getItem('at_key')}catch(e){}
+  var k=null;try{k=localStorage.getItem('at_key')||sessionStorage.getItem('at_key')}catch(e){}
   if(!k)return;
-  netLogin(k).then(function(info){NETKEY=k;CAN=true;ART=NETART;A.netinfo=info;if(S.view==='admin')render();else{var f=document.getElementById('admlink');if(f)f.hidden=false}},function(){try{sessionStorage.removeItem('at_key')}catch(e){}});
+  netLogin(k).then(function(info){NETKEY=k;CAN=true;ART=NETART;A.netinfo=info;if(S.view==='admin')render();else{var f=document.getElementById('admlink');if(f)f.hidden=false}},function(code){if(code===401){try{localStorage.removeItem('at_key');sessionStorage.removeItem('at_key')}catch(e){}}});
 }
 function netForm(name,data){
   var body=new URLSearchParams();body.append('form-name',name);body.append('bot-field','');Object.keys(data).forEach(function(k){body.append(k,data[k]==null?'':String(data[k]))});
