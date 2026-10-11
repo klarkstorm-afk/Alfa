@@ -4,6 +4,13 @@
   functions = "."
   command = ""
 
+# CRM file (encrypted statuses and notes) is never served to visitors
+[[redirects]]
+  from = "/crm/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
 # the site asks for data/site.json and bg/N.jpg; until the admin saves
 # real files there, serve the copies from the root
 [[redirects]]
