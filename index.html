@@ -11,7 +11,6 @@
 <link rel="apple-touch-icon" href="/logo.png">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Alpha Travel</title>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Yeseva+One&display=swap" rel="stylesheet">
 <style>
 /* Layout: frosted-glass panels floating over a flat dusk landscape (brand palette only, no gradients).
    Floating pill toolbar, 3D coverflow of tours as the hero, concentric radii everywhere (outer 30 / inner 20). */
@@ -23,7 +22,7 @@
   --well:rgba(6,30,45,.38);--stroke:rgba(245,238,221,.24);--stroke2:rgba(245,238,221,.4);
   --r-xl:32px;--r-lg:28px;--r-md:20px;--r-sm:14px;
   --ease:cubic-bezier(.22,.8,.2,1);--spring:cubic-bezier(.34,1.3,.5,1);
-  --f-body:"Jost",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-body:"Jost","Futura","Century Gothic","Avenir Next",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --f-brand:"Yeseva One",Georgia,serif;
   color-scheme:dark;
 }
@@ -772,6 +771,49 @@ html,body{overflow-x:clip}
 .lfgrid .lf span{font-size:11px!important;letter-spacing:-.01em}
 .lfgrid .lf:not(.on){box-shadow:inset 0 3px 0 var(--c)}
 .lfgrid3 .lf{justify-content:center;padding:0 6px;font-size:13px;min-width:0;overflow:hidden}
+
+/* ===== legal / consent ===== */
+.skip{position:absolute;left:-9999px;top:8px;z-index:200;padding:10px 16px;border-radius:999px;background:var(--merino);color:var(--venice);font-weight:600;text-decoration:none}
+.skip:focus{left:12px}
+#ccb .ccb{position:fixed;z-index:95;left:12px;right:12px;bottom:calc(env(safe-area-inset-bottom,0px) + 12px);margin:0 auto;max-width:600px;max-height:calc(100dvh - 24px);overflow:auto;padding:20px;border-radius:var(--r-xl);display:flex;flex-direction:column;gap:12px;background:rgba(15,69,98,.97);box-shadow:0 18px 50px rgba(0,0,0,.35);animation:popIn .45s var(--spring) both}
+#ccb .cch{display:flex;align-items:center;justify-content:space-between;gap:10px}
+#ccb h2{font-size:1.25rem}
+#ccb p{color:var(--text2);font-size:14.5px}
+#ccb .cca{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+#ccb .cca .btn{width:100%;padding:0 10px;white-space:normal;line-height:1.15;text-align:center}
+@media (max-width:480px){#ccb .cca{grid-template-columns:1fr}}
+.ccrs{display:grid;gap:8px}
+.ccr{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;padding:12px 14px;border-radius:var(--r-md);background:var(--well);border:1px solid var(--stroke);cursor:pointer}
+.ccr .cct{display:flex;flex-direction:column;gap:3px;font-size:14px;color:var(--text2)}
+.ccr .cct b{color:var(--text);font-weight:600;font-size:15px}
+.ccr .cct small{color:var(--rock);font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+.ccr input{width:22px;height:22px;accent-color:var(--rock);flex:none;margin-top:2px;cursor:pointer}
+.ccr input:disabled{cursor:not-allowed;opacity:.7}
+.cons{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.45;color:var(--text2);padding:12px 14px;border-radius:var(--r-md);background:var(--well);border:1px solid var(--stroke);cursor:pointer}
+.cons input{width:20px;height:20px;accent-color:var(--rock);flex:none;margin:1px 0 0;cursor:pointer}
+.cons:has(input:checked){border-color:var(--stroke2);background:var(--glass2)}
+.cons a{color:var(--rock)}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.ph{display:inline;padding:0 6px;border-radius:6px;border:1px dashed var(--rock);background:rgba(242,208,138,.14);color:var(--rock);font-size:.92em}
+.lgp .crumb{margin-top:10px}
+.lgnav{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+.lgnav button,.lgnav .ilk{height:40px;padding:0 16px;border-radius:999px;border:1px solid var(--stroke);background:var(--glass);color:var(--text);font:500 14.5px var(--f-body);cursor:pointer;transition:background-color .2s}
+.lgnav button:hover{background:var(--glass2)}
+.lgnav button.on{background:var(--merino);color:var(--venice);border-color:var(--merino)}
+.lgs{margin-top:16px}
+.lgs p{color:var(--text2);margin:0 0 10px;max-width:60em}
+.lgs p:last-child{margin-bottom:0}
+.lgl{margin:0 0 10px;padding-left:1.2em;display:grid;gap:8px;color:var(--text2);max-width:60em}
+.lgl li::marker{color:var(--rock)}
+.lgt{width:100%}
+.lgt th,.lgt td{text-align:left;vertical-align:top}
+.lgt tbody th{color:var(--text2);font-weight:500;width:38%}
+.lgs .tw{margin-bottom:12px}
+.ilk{background:none;border:0;padding:0;font:inherit;color:var(--rock);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.revnote{font-size:13px;color:var(--text3);margin-top:12px;max-width:60em}
+.reqc{margin-top:20px}
+.reqc .lgt tbody th{width:40%}
+@media (min-width:761px){.fgr.f4{grid-template-columns:1.3fr .9fr 1fr 1.1fr}}
 </style>
 </head>
 <body>
@@ -1160,12 +1202,12 @@ function detect(){
   for(var i=0;i<ls.length;i++){var c=String(ls[i]||'').toLowerCase().slice(0,2);if(LI[c]!==undefined)return c;if(c==='kg')return 'ky'}
   return 'en';
 }
-function offer(k){var a=TOURS.filter(function(x){return !k||x.c===k}).sort(function(a,b){return a.base-b.base})[0];return a?{t:a,p:a.base}:{t:null,p:0}}
+function offer(k){var a=TOURS.filter(function(x){return !k||x.c===k}).sort(function(a,b){return fromP(a)-fromP(b)})[0];return a?{t:a,p:fromP(a)}:{t:null,p:0}}
 function depsMatch(x){var f=S.f;return x.dep.filter(function(d){return (!f.from||d>=f.from)&&(!f.to||d<=f.to)})}
 function minPrice(x,ds){return Math.min.apply(null,ds.map(function(d){return depPrice(x,d)}))}
 function filtered(){
   var f=S.f;
-  return TOURS.map(function(x){var ds=depsMatch(x);return {x:x,ds:ds,p:ds.length?minPrice(x,ds):x.base}}).filter(function(o){
+  return TOURS.map(function(x){var ds=depsMatch(x);return {x:x,ds:ds,p:ds.length?minPrice(x,ds):fromP(x)}}).filter(function(o){
     var x=o.x;
     if(f.c&&x.c!==f.c)return false;
     if(!o.ds.length)return false;
@@ -1198,10 +1240,11 @@ function header(){
   '<div class="rail glass" aria-label="'+t('quick')+'"><a class="ibtn" href="https://wa.me/'+CFG.wa+'" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp">'+ic('chat')+'</a><a class="ibtn" href="https://t.me/'+CFG.tg+'" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram">'+ic('tg')+'</a><button class="ibtn" data-go="contacts" aria-label="'+t('nav_contacts')+'" title="'+t('nav_contacts')+'">'+ic('phone')+'</button></div>';
 }
 function footer(){
-  return '<footer class="ft wrap"><div class="panel glass"><div class="fgr"><div><div class="fb"><img src="'+LOGO+'" alt=""><b>'+esc(CFG.name)+'</b></div><p style="margin-top:14px;max-width:26em;color:var(--text2)">'+t('a_1')+'</p></div>'+
+  return '<footer class="ft wrap"><div class="panel glass"><div class="fgr f4"><div><div class="fb"><img src="'+LOGO+'" alt=""><b>'+esc(CFG.name)+'</b></div><p style="margin-top:14px;max-width:26em;color:var(--text2)">'+t('a_1')+'</p></div>'+
   '<div><h4>'+t('menu')+'</h4><ul>'+NAV.map(function(n){return '<li><button class="lk" data-go="'+n[0]+'">'+t(n[1])+'</button></li>'}).join('')+'</ul></div>'+
-  '<div><h4>'+t('nav_contacts')+'</h4><ul><li>'+esc(CFG.phone)+'</li><li><a href="https://wa.me/'+CFG.wa+'" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="https://t.me/'+CFG.tg+'" target="_blank" rel="noopener">Telegram</a></li><li>'+esc(CFG.email)+'</li></ul></div></div>'+
-  '<div class="fine"><span>© 2026 '+esc(CFG.name)+'. '+t('rights')+'.</span><button type="button" class="lk" id="admlink" data-aa="open"'+(CAN?'':' hidden')+'>'+ic('gear')+' Админка</button><span>'+t('cur_n')+'</span>'+(CFG.legal?'<span>'+esc(CFG.legal)+'</span>':'')+'</div></div></footer>';
+  '<div><h4>'+t('nav_contacts')+'</h4><ul><li>'+esc(CFG.phone)+'</li><li><a href="https://wa.me/'+CFG.wa+'" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="https://t.me/'+CFG.tg+'" target="_blank" rel="noopener">Telegram</a></li><li>'+esc(CFG.email)+'</li></ul></div>'+ftDocs()+'</div>'+
+  '<p class="fine" style="justify-content:flex-start"><span>'+reqShort()+' · <button type="button" class="lk" data-go="legal">'+t('lg_legal')+'</button></span></p>'+
+  '<div class="fine" style="margin-top:0;border-top:0;padding-top:6px"><span>© '+new Date().getFullYear()+' '+esc(CFG.name)+'. '+t('rights')+'.</span><button type="button" class="lk" id="admlink" data-aa="open"'+(CAN?'':' hidden')+'>'+ic('gear')+' Админка</button><span>'+t('price_n')+' '+t('cur_n')+'</span>'+(CFG.legal?'<span>'+esc(CFG.legal)+'</span>':'')+'</div></div></footer>';
 }
 
 /* ===== cards ===== */
@@ -1242,7 +1285,7 @@ function cfItem(x,i,n){
   '<div class="cf-top"><button class="cf-x chipg" data-go="tour" data-id="'+x.id+'" tabindex="-1">'+ic('expand')+t('more')+'</button><span class="cf-n chipg">'+(i+1)+' / '+n+'</span></div>'+
   '<div class="cf-cap"><span class="k">'+esc(L(D[x.c].name))+' · '+x.n+' '+nW(x.n)+'</span><h3>'+L(x.name)+'</h3><div class="c">'+citiesStr(x)+'</div>'+
   '<div class="cf-more"><div><p>'+L(x.desc)+'</p><div class="coord">'+ic('pin')+'<span>'+L(CITY[mc])+(coordStr(mc)?' · '+coordStr(mc):'')+'</span></div>'+
-  '<div class="cf-buy"><div class="pr"><small>'+fromLbl()+'</small><b>'+fm(x.base)+'</b></div><button class="btn sm" data-act="book" data-type="tour" data-id="'+x.id+'" tabindex="-1">'+t('cta_book')+'</button></div></div></div></div></article>';
+  '<div class="cf-buy"><div class="pr"><small>'+fromLbl()+'</small><b>'+fm(fromP(x))+'</b></div><button class="btn sm" data-act="book" data-type="tour" data-id="'+x.id+'" tabindex="-1">'+t('cta_book')+'</button></div></div></div></div></article>';
 }
 function heroH1(){
   var o=offer(S.cfc);
@@ -1281,7 +1324,7 @@ function cfMeta(k){
   if(S.view==='home'&&bgZone==='hero'){clearTimeout(bgT);bgT=setTimeout(function(){bgShow(x.bg)},dg?700:380)}
   var st=$('#cf');if(st)st.querySelectorAll('.cf-it').forEach(function(el,i){el.querySelectorAll('button').forEach(function(b){b.tabIndex=i===k?0:-1})});
   var th=$('#cfTh');if(th){var thH=vis(x,x.type,x.seed,1,0),thT=document.createElement('div'),thK=(window.__thK=(window.__thK||0)+1);thT.innerHTML=thH;var thI=thT.querySelector('img'),thD=false,thSw=function(){if(thD||thK!==window.__thK)return;thD=true;th.replaceChildren.apply(th,Array.prototype.slice.call(thT.childNodes))};if(thI&&!thI.complete){thI.onload=thI.onerror=thSw;setTimeout(thSw,700)}else thSw()}
-  var tx=$('#cfTx');if(tx)tx.innerHTML='<b>'+L(x.name)+'</b><small>'+esc(L(D[x.c].name))+' · '+fromLbl()+' '+fm(x.base)+'</small>';
+  var tx=$('#cfTx');if(tx)tx.innerHTML='<b>'+L(x.name)+'</b><small>'+esc(L(D[x.c].name))+' · '+fromLbl()+' '+fm(fromP(x))+'</small>';
   var dots=$('#cfDots');if(dots){if(dots.children.length!==l.length)dots.innerHTML=l.map(function(_,i){return '<button data-act="cfgo" data-v="'+i+'" aria-label="'+(i+1)+'"></button>'}).join('');
     Array.prototype.forEach.call(dots.children,function(b,i){b.classList.toggle('on',i===k)})}
 }
@@ -1349,7 +1392,7 @@ function revBlock(){
   var head='<div class="rv-head"><div class="rv-score glass"><b>'+avg.toFixed(1).replace('.',lang==='en'?'.':',')+'</b><div><span class="stars" aria-hidden="true">'+starRow(Math.round(avg))+'</span><small>'+t('rev_avg',{a:avg.toFixed(1).replace('.',lang==='en'?'.':','),n:n})+'</small></div></div>'+
     '<div class="rv-nav">'+(n>1?'<button type="button" class="ibtn" data-act="rvprev" aria-label="'+t('prev')+'">'+ic('chevl')+'</button><button type="button" class="ibtn" data-act="rvnext" aria-label="'+t('next')+'">'+ic('chevr')+'</button>':'')+'<button type="button" class="btn sm" data-act="revopen">'+ic('star')+'<span>'+t('rev_write')+'</span></button></div></div>';
   return '<section class="revs'+(n===1?' one':'')+'" aria-label="'+esc(t('rev_t'))+'"><div class="blk-h"><h2>'+t('rev_t')+'</h2></div>'+head+
-    '<div class="rv-view'+(n>1?' loop':'')+'" id="rvView"><div class="rv-track" id="rvTrack">'+revCards()+'</div></div></section>';
+    '<div class="rv-view'+(n>1?' loop':'')+'" id="rvView"><div class="rv-track" id="rvTrack">'+revCards()+'</div></div><p class="revnote">'+revVerNote()+'</p></section>';
 }
 function revCards(){
   var about=function(r){var x=TOUR[r.target];if(x)return '<button type="button" class="rv-to" data-go="tour" data-id="'+x.id+'">'+ic('pin')+esc(L(x.name))+'</button>';var h=HOT[r.target];if(h)return '<button type="button" class="rv-to" data-go="hotel" data-id="'+h.id+'">'+ic('bed')+esc(h.name)+'</button>';return ''};
@@ -1403,7 +1446,7 @@ document.addEventListener('click',function(e){if(RV&&RV.moved&&e.target.closest&
 function starRow(n){var s='';for(var i=1;i<=5;i++)s+='<svg class="st'+(i<=n?' on':'')+'" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 16.8 6.6 19.7l1.1-6.1L3.2 9.4l6.1-.8z"/></svg>';return s}
 /* ===== views ===== */
 function home(){
-  var feat=FEATURED.map(function(x){return {x:x,ds:x.dep,p:x.base}});
+  var feat=FEATURED.map(function(x){return {x:x,ds:x.dep,p:fromP(x)}});
   return '<section class="hero" data-bg="hero"><div class="wrap hero-h"><p class="eyebrow">'+t('tag')+'</p><h1 id="heroH">'+heroH1()+'</h1>'+
   '<div class="tabs" role="group" style="grid-template-columns:minmax(0,.72fr) repeat('+DK().length+',minmax(0,1fr))"><span class="ind" aria-hidden="true"></span>'+[['',t('all_c')]].concat(DK().map(function(k){return [k,L(D[k].name)]})).map(function(c){return '<button class="tab'+(S.cfc===c[0]?' on':'')+'" data-act="cfc" data-v="'+c[0]+'" aria-pressed="'+(S.cfc===c[0])+'">'+esc(c[1])+'</button>'}).join('')+'</div></div>'+
   '<div class="cf" id="cf" tabindex="0" aria-roledescription="carousel" aria-label="'+t('pop')+'">'+cfStage()+'</div>'+
@@ -1439,7 +1482,7 @@ function updateResults(){
 }
 function dests(){return '<div class="wrap page"><div class="blk-h"><div><h1 class="h1">'+t('nav_dest')+'</h1><p>'+t('dest_s')+'</p></div></div><div class="grid">'+destCards()+'</div></div>'}
 function destPage(c){
-  var d=D[c],list=TOURS.filter(function(x){return x.c===c}).map(function(x){return {x:x,ds:x.dep,p:x.base}}),hs=HOTELS.filter(function(h){return h.c===c});
+  var d=D[c],list=TOURS.filter(function(x){return x.c===c}).map(function(x){return {x:x,ds:x.dep,p:fromP(x)}}),hs=HOTELS.filter(function(h){return h.c===c});
   return '<div class="wrap page"><button class="back glass" data-go="dests">'+ic('chevl')+t('nav_dest')+'</button>'+
   '<div class="dhero">'+visD(c,0)+'<div class="cf-cap"><span class="k">'+t('d_tours_n',{n:list.length})+' · '+t('from_p',{p:fm(offer(c).p)})+'</span><h1>'+esc(L(d.name))+'</h1></div></div>'+
   '<div class="two-c"><div class="pad glass"><p class="big-p" style="font-size:17px;color:var(--text)">'+L(d.intro)+'</p><h3 style="margin-top:20px">'+t('d_season')+'</h3><p style="color:var(--text2)">'+L(d.season)+'</p></div>'+
@@ -1466,7 +1509,7 @@ function reviewsHTML(id){
   return '<p style="margin-bottom:12px"><b style="font-size:1.6rem;font-weight:500">'+avg.toFixed(1)+'</b> / 5 · '+rv.length+'</p><div style="display:grid;gap:12px">'+rv.map(function(r){return '<div class="box"><b>'+esc(r.name)+'</b> <span class="star">'+stars(Math.round(r.rating))+'</span><p style="margin-top:6px">'+esc(r.text)+'</p></div>'}).join('')+'</div>';
 }
 function condHTML(){
-  return '<ul class="ul"><li><span class="y">'+ic('check')+'</span><span>'+t('cn_1',{d:POLICY.free})+'</span></li><li><span class="y">'+ic('check')+'</span><span>'+t('cn_2',{a:POLICY.half,b:POLICY.free-1})+'</span></li><li><span class="y">'+ic('info')+'</span><span>'+t('cn_3',{a:POLICY.half})+'</span></li><li><span class="y">'+ic('info')+'</span><span>'+t('cn_4')+'</span></li></ul>';
+  return '<ul class="ul"><li><span class="y">'+ic('check')+'</span><span>'+t('cn_1',{d:POLICY.free})+'</span></li><li><span class="y">'+ic('check')+'</span><span>'+t('cn_2',{a:POLICY.half,b:POLICY.free-1})+'</span></li><li><span class="y">'+ic('info')+'</span><span>'+t('cn_3',{a:POLICY.half})+'</span></li><li><span class="y">'+ic('info')+'</span><span>'+t('cn_4')+'</span></li><li><span class="y">'+ic('info')+'</span><span>'+t('cn_r')+' <button type="button" class="ilk" data-go="terms">'+t('lg_terms')+'</button> · <button type="button" class="ilk" data-go="rights">'+t('lg_rights')+'</button></span></li></ul>';
 }
 function roomsTable(h){
   return '<div class="tw"><table><thead><tr><th>'+t('room_h')+'</th><th>'+t('area')+'</th><th>'+t('beds')+'</th><th>'+t('per_n')+'</th></tr></thead><tbody>'+h.rooms.map(function(r){return '<tr><td>'+L(RN[r[0]])+'</td><td class="num">'+r[1]+' m²</td><td>'+L(BD[r[2]])+'</td><td class="num">'+fm(r[3])+'</td></tr>'}).join('')+'</tbody></table></div>';
@@ -1527,7 +1570,7 @@ function tourPage(x){
   bottomBand('tour',x.id)+'</div><aside class="dside"><div class="bcard glass" id="bcard">'+tourBook(x)+'</div></aside></div></div><div class="mbar glass strong" id="mbar">'+mbarHTML()+'</div>';
 }
 function hotelPage(h){
-  var rel=TOURS.filter(function(x){return x.hotels.indexOf(h.id)>-1}).map(function(x){return {x:x,ds:x.dep,p:x.base}});
+  var rel=TOURS.filter(function(x){return x.hotels.indexOf(h.id)>-1}).map(function(x){return {x:x,ds:x.dep,p:fromP(x)}});
   var rows=[[t('r_country'),L(CITY[h.city])+' · '+esc(L(D[h.c].name))],[t('r_cat'),'<span class="star">'+stars(h.stars)+'</span>'],[t('r_meals'),L(MEAL[h.meal])],[t('r_transfer'),h.sv.indexOf('transfer')>-1?t('tr_in'):'—']];
   return '<div class="wrap page"><button class="back glass" data-go="hotels">'+ic('chevl')+t('nav_hotels')+'</button><div class="dgrid"><div class="dmain">'+
   '<div><p class="crumb">'+ic('pin')+L(CITY[h.city])+' · '+esc(L(D[h.c].name))+'</p><h1 class="h1">'+h.name+'</h1>'+gallery(h)+'</div>'+
@@ -1550,25 +1593,25 @@ function contacts(){
   '<div class="cc glass rv" style="--i:1"><small>WhatsApp</small><a class="btn gl sm" style="align-self:start" href="https://wa.me/'+CFG.wa+'" target="_blank" rel="noopener">'+ic('chat')+'WhatsApp</a></div>'+
   '<div class="cc glass rv" style="--i:2"><small>Telegram</small><a class="btn gl sm" style="align-self:start" href="https://t.me/'+CFG.tg+'" target="_blank" rel="noopener">'+ic('tg')+'@'+esc(CFG.tg)+'</a></div>'+
   '<div class="cc glass rv" style="--i:3"><small>Email</small><b>'+esc(CFG.email)+'</b></div></div>'+
-  '<p style="margin-top:28px"><button class="btn big" data-act="book" data-type="gen">'+t('k_write')+'</button></p></div>';
+  '<section class="dsec glass reqc"><h2>'+t('lg_legal')+'</h2>'+reqTable()+'</section><p style="margin-top:28px"><button class="btn big" data-act="book" data-type="gen">'+t('k_write')+'</button></p></div>';
 }
 function view(){
   switch(S.view){
     case 'tours':return tours();case 'dests':return dests();case 'dest':return destPage(S.id);case 'hotels':return hotelsPage();
-    case 'tour':return tourPage(TOUR[S.id]);case 'hotel':return hotelPage(HOT[S.id]);case 'custom':return customPage();case 'about':return about();case 'contacts':return contacts();
+    case 'tour':return tourPage(TOUR[S.id]);case 'hotel':return hotelPage(HOT[S.id]);case 'custom':return customPage();case 'about':return about();case 'contacts':return contacts();case 'privacy':case 'cookies':case 'terms':case 'rights':case 'legal':return legalPage(S.view);
     default:return home();
   }
 }
 function render(anim){
   document.documentElement.lang=lang;
-  if(S.view==='admin'){rvStop();document.documentElement.lang='ru';$('#app').innerHTML=adminHTML();$('#modal').innerHTML='';if(bgObs){bgObs.disconnect();bgObs=null}bgShow(BGV('home_pop'));return}
-  $('#app').innerHTML=(S.preview?'<div class="pvbar glass strong"><span>Предпросмотр черновика. Посетители его не видят.</span><button type="button" class="btn sm" data-aa="open">Вернуться в админку</button></div>':'')+header()+'<main id="main" class="'+(anim?'pg ':'')+((S.view==='tour'||S.view==='hotel'||S.view==='custom')?'hasbar':'')+'">'+view()+'</main>'+footer();
+  if(S.view==='admin'){rvStop();document.documentElement.lang='ru';$('#app').innerHTML=adminHTML();$('#modal').innerHTML='';if(bgObs){bgObs.disconnect();bgObs=null}bgShow(BGV('home_pop'));ccRender();return}
+  $('#app').innerHTML='<a class="skip" href="#main" data-skip="1">'+t('skip')+'</a>'+(S.preview?'<div class="pvbar glass strong"><span>Предпросмотр черновика. Посетители его не видят.</span><button type="button" class="btn sm" data-aa="open">Вернуться в админку</button></div>':'')+header()+'<main id="main" class="'+(anim?'pg ':'')+((S.view==='tour'||S.view==='hotel'||S.view==='custom')?'hasbar':'')+'">'+view()+'</main>'+footer();
   renderModal();
   if(S.view==='tours')updateResults();
   if(S.view==='home'){cfLayout();cvInitAll();startAuto();rvInit()}else{stopAuto();rvStop()}
-  bgSync(0);bgWatch();
+  bgSync(0);bgWatch();ccRender();
 }
-function go(v,id){S.view=v;S.id=id||null;S.img=0;S.menu=false;if(v==='tour'){S.dep=null;S.pax=S.f.pax||2}if(v==='hotel'){S.hb.room=0}render(true);try{window.scrollTo({top:0,behavior:'instant'})}catch(e){try{window.scrollTo(0,0)}catch(_){}}}
+function go(v,id){try{if(LEGALV.indexOf(v)>-1)history.replaceState(null,'','#'+v);else if(LEGALV.indexOf(location.hash.slice(1))>-1)history.replaceState(null,'',location.pathname+location.search)}catch(e){}S.view=v;S.id=id||null;S.img=0;S.menu=false;if(v==='tour'){S.dep=null;S.pax=S.f.pax||2}if(v==='hotel'){S.hb.room=0}render(true);try{window.scrollTo({top:0,behavior:'instant'})}catch(e){try{window.scrollTo(0,0)}catch(_){}}}
 function setMenu(open){
   S.menu=open;var sh=$('#sheet'),b=$('.burger');
   if(sh)sh.classList.toggle('open',open);
@@ -1710,6 +1753,7 @@ function geoFetch(){
   return S.geoP;
 }
 function geoLoad(m){
+  if(!consExt()&&!m.geoAsk)return;
   geoFetch().then(function(g){
     if(!g||S.m!==m||m.geoEdited)return;
     m.f.co=g.co;if(g.ci)m.f.ci=g.ci;m.geoAuto=true;
@@ -1718,7 +1762,7 @@ function geoLoad(m){
   });
 }
 function geoBlock(m){
-  return '<div class="fld"><span class="l">'+t('m_loc')+'</span><div class="geo"><select id="m_co" name="country" aria-label="'+t('m_country')+'" autocomplete="off">'+coOpts(m.f.co)+'</select><input type="text" id="m_ci" name="city" aria-label="'+t('m_city')+'" placeholder="'+t('m_city')+'" autocomplete="off" value="'+esc(m.f.ci||'')+'"></div><small class="note" id="m_geoh"'+(m.geoAuto?'':' hidden')+'>'+t('m_geo_auto')+'</small></div>';
+  return '<div class="fld"><span class="l">'+t('m_loc')+'</span><div class="geo"><select id="m_co" name="country" aria-label="'+t('m_country')+'" autocomplete="off">'+coOpts(m.f.co)+'</select><input type="text" id="m_ci" name="city" aria-label="'+t('m_city')+'" placeholder="'+t('m_city')+'" autocomplete="off" value="'+esc(m.f.ci||'')+'"></div><small class="note" id="m_geoh"'+(m.geoAuto?'':' hidden')+'>'+t('m_geo_auto')+'</small>'+(!consExt()&&!m.geoAuto&&!m.geoAsk?'<small class="note">'+t('cs_geo_h')+' <button type="button" class="ilk" data-act="geonow">'+t('cs_geo_btn')+'</button></small>':'')+'</div>';
 }
 function mf0(){var g=S.geo||geoGuess();return {name:'',contact:'',email:'',comment:'',cm:'wa',cts:{},co:g.co||'',ci:g.ci||'',budget:''}}
 
@@ -1726,7 +1770,7 @@ function mf0(){var g=S.geo||geoGuess();return {name:'',contact:'',email:'',comme
 function mRead(){
   var m=S.m;if(!m||m.type==='rev'||m.step!==1)return;
   var g=function(i){var e=document.getElementById(i);return e?e.value:null},v;
-  if((v=g('m_n'))!==null)m.f.name=v;
+  if((v=g('m_n'))!==null)m.f.name=v;var okc=document.getElementById('m_ok');if(okc)m.f.ok=okc.checked;
   if((v=g('m_c'))!==null){m.f.contact=v;m.f.cts[m.f.cm]=v}
   if((v=g('m_e'))!==null)m.f.email=v;
   if((v=g('m_m'))!==null)m.f.comment=v;
@@ -2059,7 +2103,7 @@ function revMsg(){
 }
 function saveLead(){
   var m=S.m;if(!m||m.type==='rev'||m.saved)return;
-  if(HOSTED){netForm('booking',{type:m.type,summary:leadLines(m).map(function(l){return l[0]+': '+l[1]}).join('\n'),name:m.f.name.slice(0,80),contact:contactStr(m).slice(0,80),email:(m.f.email||'').slice(0,120),comment:(m.f.comment||'').slice(0,1500),lang:lang}).then(function(){if(S.m===m){m.saved=true;renderModal()}},function(){});return}
+  if(HOSTED){netForm('booking',{type:m.type,summary:leadLines(m).map(function(l){return l[0]+': '+l[1]}).join('\n'),name:m.f.name.slice(0,80),contact:contactStr(m).slice(0,80),email:(m.f.email||'').slice(0,120),comment:(m.f.comment||'').slice(0,1500),lang:lang,consent:consStamp()}).then(function(){if(S.m===m){m.saved=true;renderModal()}},function(){});return}
   if(!DB||!UID)return;
   var now=new Date(),it={id:uid('l'),at:now.toISOString(),type:m.type,ref:m.id||'',lines:leadLines(m).map(function(l){return [String(l[0]),String(l[1])]}),name:m.f.name.slice(0,80),contact:contactStr(m).slice(0,80),email:(m.f.email||'').slice(0,120),comment:(m.f.comment||'').slice(0,1500),lang:lang,st:'new'};
   var ref=DB.doc('leads/'+UID);
@@ -2073,7 +2117,7 @@ function revForm(m){
   '<div class="fld"><label for="r_n">'+t('rev_name')+'</label><input type="text" id="r_n" name="name" autocomplete="name" maxlength="60" value="'+esc(f.name)+'"></div>'+
   '<div class="fld"><label for="r_t">'+t('rev_about')+'</label><select id="r_t" name="about"><option value="">'+t('rev_general')+'</option>'+TOURS.map(function(x){return '<option value="'+x.id+'"'+(f.t===x.id?' selected':'')+'>'+esc(L(x.name))+'</option>'}).join('')+HOTELS.map(function(h){return '<option value="'+h.id+'"'+(f.t===h.id?' selected':'')+'>'+esc(h.name)+'</option>'}).join('')+'</select></div>'+
   '<div class="fld"><label for="r_x">'+t('rev_text')+'</label><textarea id="r_x" name="text" maxlength="1200" style="min-height:120px">'+esc(f.text)+'</textarea></div>'+
-  (m.err?'<p class="err">'+t('rev_req')+'</p>':'')+'<p class="note">'+t('rev_note')+'</p><button class="btn big full" type="submit"'+(m.sending?' disabled':'')+'>'+(m.sending?t('rev_sending'):t('m_next'))+'</button></form>';
+  consBox('r_ok','cs_rev',f.ok)+(m.err?'<p class="err">'+t(f.ok?'rev_req':'cs_need')+'</p>':'')+'<p class="note">'+t('rev_note')+' '+revVerNote()+'</p><button class="btn big full" type="submit" id="r_sub"'+(m.sending||!f.ok?' disabled':'')+'>'+(m.sending?t('rev_sending'):t('m_next'))+'</button></form>';
 }
 function buildMsg(){
   if(S.m&&S.m.type==='rev')return revMsg();
@@ -2101,7 +2145,7 @@ function renderModal(first){
     '<div class="fld"><label for="m_e">'+t('m_email')+'</label><input type="email" id="m_e" name="email" autocomplete="email" value="'+esc(m.f.email)+'"></div>'+
     geoBlock(m)+
     '<div class="fld"><label for="m_m">'+t('m_comment')+'</label><textarea id="m_m" name="comment">'+esc(m.f.comment)+'</textarea></div>'+
-    (m.err?'<p class="err">'+t('m_req')+'</p>':'')+'<button class="btn big full" type="submit">'+t('m_next')+'</button>'+(m.type!=='gen'&&m.type!=='merch'?'<button type="button" class="xlink" data-act="mcheap">'+t(m.cheap?'ch_back':'ch_btn')+'</button>':'')+'</form>';
+    consBox('m_ok','cs_form',m.f.ok)+'<p class="note">'+t(m.type==='merch'?'cs_req_m':'cs_req')+' <a href="#terms" target="_blank" rel="noopener">'+t('lg_terms')+'</a></p>'+(m.err?'<p class="err">'+t(m.f.ok?'m_req':'cs_need')+'</p>':'')+'<button class="btn big full" type="submit" id="m_sub"'+(m.f.ok?'':' disabled')+'>'+t('m_next')+'</button>'+(m.type!=='gen'&&m.type!=='merch'?'<button type="button" class="xlink" data-act="mcheap">'+t(m.cheap?'ch_back':'ch_btn')+'</button>':'')+'</form>';
   }else{
     var msg=buildMsg(),enc=encodeURIComponent(msg);
     body='<p style="color:var(--text2)">'+(m.type==='rev'?t('rev_alt'):t('m_check'))+'</p><textarea id="m_msg" readonly style="min-height:170px">'+esc(msg)+'</textarea>'+
@@ -2374,6 +2418,7 @@ document.addEventListener('change',function(e){
   if(a.h){if(a.h==='room')S.hb.room=+el.value;else S.hb.inn=el.value||S.hb.inn;refreshBook();return}
   if(a.f){var k=a.f;S.f[k]=k==='maxP'?+el.value:el.value;updateResults();return}
 });
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-skip]');if(!a)return;e.preventDefault();var m=document.getElementById('main');if(m){m.setAttribute('tabindex','-1');m.focus();m.scrollIntoView()}});
 document.addEventListener('submit',function(e){
   var f=e.target;e.preventDefault();
   if(f.id==='sf'){
@@ -2382,12 +2427,12 @@ document.addEventListener('submit',function(e){
     go('tours');return;
   }
   if(f.id==='rvf'){
-    var fr=new FormData(f);S.m.f.name=String(fr.get('name')||'').trim();S.m.f.t=String(fr.get('about')||'');S.m.f.text=String(fr.get('text')||'').trim();
-    if(!S.m.f.r||!S.m.f.name||S.m.f.text.length<3){S.m.err=true;renderModal();return}
+    var fr=new FormData(f);S.m.f.name=String(fr.get('name')||'').trim();S.m.f.t=String(fr.get('about')||'');S.m.f.text=String(fr.get('text')||'').trim();S.m.f.ok=fr.get('consent')==='yes';
+    if(!S.m.f.r||!S.m.f.name||S.m.f.text.length<3||!S.m.f.ok){S.m.err=true;renderModal();return}
     S.m.err=false;
     if(HOSTED){
       S.m.sending=true;renderModal();var fr2=S.m.f;
-      netForm('review',{name:fr2.name.slice(0,60),rating:fr2.r,target:fr2.t,text:fr2.text.slice(0,1200),lang:lang})
+      netForm('review',{name:fr2.name.slice(0,60),rating:fr2.r,target:fr2.t,text:fr2.text.slice(0,1200),lang:lang,consent:consStamp()})
         .then(function(){if(!S.m)return;S.m.sending=false;S.m.step=3;renderModal()},function(){if(!S.m)return;S.m.sending=false;S.m.alt=true;S.m.step=2;renderModal()});
       return;
     }
@@ -2403,7 +2448,7 @@ document.addEventListener('submit',function(e){
   }
   if(f.id==='bk'){
     mRead();var mf=S.m.f;mf.name=mf.name.trim();mf.contact=mf.contact.trim();mf.email=mf.email.trim();mf.comment=mf.comment.trim();mf.ci=(mf.ci||'').trim();mf.budget=String(mf.budget||'').trim();
-    if(!S.m.f.name||!S.m.f.contact){S.m.err=true;renderModal();return}
+    if(!S.m.f.name||!S.m.f.contact||!S.m.f.ok){S.m.err=true;renderModal();return}
     S.m.err=false;S.m.step=2;renderModal();saveLead();
   }
 });
@@ -2462,7 +2507,7 @@ function buildDefault(){
   var FE=['kg1','kz3','uz3','kz1','uz2','kg2'];
   return {
     v:1,
-    cfg:{name:'Alpha Travel',bookWa:true,bookTg:true,phone:CFG.phone,wa:CFG.wa,tg:CFG.tg,email:CFG.email,legal:CFG.legal,flightFrom:FLIGHT_FROM,peakPct:30,policyFree:POLICY.free,policyHalf:POLICY.half,rates:clone(RATES)},
+    cfg:{name:'Alpha Travel',bookWa:true,bookTg:true,phone:CFG.phone,wa:CFG.wa,tg:CFG.tg,email:CFG.email,legal:CFG.legal,jName:'',jAddr:'',jInn:'',jOkpo:'',jReg:'',jGuar:'',jEu:'',jPay:'',jMail:'',revVerified:false,flightFrom:FLIGHT_FROM,peakPct:30,policyFree:POLICY.free,policyHalf:POLICY.half,rates:clone(RATES)},
     logo:null,
     bgs:[1,2,3,4,5,6].map(function(i){return {id:'b'+i,src:'bg/'+i+'.jpg'}}),
     bgView:{home_pop:'b2',home_dests:'b4',home_pts:'b6',tours:'b1',dests:'b6',hotels:'b5',about:'b2',contacts:'b3'},
@@ -2491,7 +2536,7 @@ function normalize(m){
 function applyModel(m){
   var c=m.cfg;
   CFG.name=String(c.name||'Alpha Travel');CFG.bookWa=c.bookWa!==false;CFG.bookTg=c.bookTg!==false;
-  CFG.phone=c.phone||'';CFG.wa=String(c.wa||'').replace(/\D/g,'');CFG.tg=String(c.tg||'').replace(/^@/,'');CFG.email=c.email||'';CFG.legal=c.legal||'';
+  CFG.phone=c.phone||'';CFG.wa=String(c.wa||'').replace(/\D/g,'');CFG.tg=String(c.tg||'').replace(/^@/,'');CFG.email=c.email||'';CFG.legal=c.legal||'';['jName','jAddr','jInn','jOkpo','jReg','jGuar','jEu','jPay','jMail'].forEach(function(k){CFG[k]=String(c[k]||'').trim()});CFG.revVerified=!!c.revVerified;
   RATES=Object.assign({EUR:1},c.rates||{});Object.keys(RATES).forEach(function(k){RATES[k]=+RATES[k]||1});
   if(!RATES[cur])cur='EUR';
   POLICY.free=+c.policyFree||30;POLICY.half=+c.policyHalf||14;FLIGHT_FROM=+c.flightFrom||0;PEAK=1+(+c.peakPct||0)/100;
@@ -2718,9 +2763,26 @@ function aCompany(){
     '<div class="g2"><div class="af">'+fI('Номер WhatsApp для заявок','cfg.wa','str','Код страны и номер, только цифры. Например: 48501234567')+(wa?'<a class="btn gl sm" id="chkwa" style="align-self:flex-start" href="https://wa.me/'+ae(wa)+'" target="_blank" rel="noopener">'+ic('chat')+'Проверить: открыть чат</a>':'')+fB('Показывать кнопку WhatsApp в заявке','cfg.bookWa')+'</div>'+
     '<div class="af">'+fI('Telegram для заявок (имя без @)','cfg.tg','str','Логин вашего аккаунта или бота. Например: alpha_travel_kg')+(tg?'<a class="btn gl sm" id="chktg" style="align-self:flex-start" href="https://t.me/'+ae(tg)+'" target="_blank" rel="noopener">'+ic('tg')+'Проверить: открыть чат</a>':'')+fB('Показывать кнопку Telegram в заявке','cfg.bookTg')+'</div></div>')+
   card('Контакты на сайте','<p class="anote">Показываются в меню, подвале и на странице «Контакты».</p><div class="g2">'+fI('Телефон','cfg.phone')+fI('Email','cfg.email')+'</div>'+fI('Строка в подвале (реквизиты, лицензия)','cfg.legal'))+
+  aLegal()+
   card('О компании',fI('Название компании','cfg.name','str','Показывается в шапке, подвале и в тексте заявок')+uiML('Слоган (над главным заголовком)','tag')+uiML('Главный заголовок, когда выбраны все страны','hero_all',false,'На месте {p} подставится самая низкая цена тура')+uiML('Текст «О компании» (страница «О компании» и подвал)','a_1',true)+
     '<div class="g3">'+[1,2,3].map(function(i){return '<div class="room">'+uiML('Преимущество '+i+': заголовок','a_p'+i+'t')+uiML('Преимущество '+i+': текст','a_p'+i,true)+'</div>'}).join('')+'</div>'+
     '<p class="anote">Остальные надписи сайта — в разделе «Тексты сайта».</p>');
+}
+
+function aLegal(){
+  var c=A.d.cfg,need=[['jName','Полное наименование'],['jAddr','Юридический адрес'],['jInn','ИНН'],['jOkpo','Код ОКПО'],['jReg','Регистрационный номер'],['jGuar','Финансовые гарантии'],['jPay','Условия оплаты'],['jMail','Почтовый сервис']].filter(function(x){return !String(c[x[0]]||'').trim()});
+  return card('Юридические данные',
+    '<p class="anote">Показываются в подвале, на страницах «Реквизиты», «Политика конфиденциальности», «Условия бронирования» и «Права туриста». Пока поле пустое, на сайте видна жёлтая заглушка «[УКАЖИ: …]».</p>'+
+    (need.length?'<div class="warnbox">'+ic('info')+'<span>Не заполнено: '+need.map(function(x){return x[1]}).join(', ')+'.</span></div>':'')+
+    fI('Полное наименование','cfg.jName','str','Например: ОсОО «Альфа Тревел» или ИП Иванов Иван Иванович')+
+    fI('Юридический адрес','cfg.jAddr','str','Как в свидетельстве о регистрации: город, улица, дом')+
+    '<div class="g3">'+fI('ИНН','cfg.jInn')+fI('Код ОКПО','cfg.jOkpo')+fI('Регистрационный номер','cfg.jReg','str','Номер свидетельства о гос. регистрации')+'</div>'+
+    fI('Финансовые гарантии / страхование','cfg.jGuar','str','Кто защищает деньги туристов, если фирма обанкротится: страховая или банк, номер полиса, контакт')+
+    fI('Условия оплаты','cfg.jPay','str','Например: предоплата 30% при бронировании, остаток за 21 день до начала')+
+    '<div class="g2">'+fI('Почтовый сервис','cfg.jMail','str','Где хранится почта, куда приходят заявки. Например: Gmail (Google)')+fI('Представитель в ЕС (если есть)','cfg.jEu','str','Нужен по GDPR фирме вне ЕС. Пусто — строка не показывается')+'</div>'+
+    fB('Публикуем отзывы только от тех, кто ездил с нами (сверяем с бронированиями)','cfg.revVerified')+
+    '<p class="anote">Если галочка снята, на сайте честно написано, что мы не проверяем, ездил ли автор с нами. Так требует закон ЕС.</p>'+
+    '<p class="anote">Документы: <a href="#privacy" target="_blank" rel="noopener">конфиденциальность</a> · <a href="#cookies" target="_blank" rel="noopener">cookies</a> · <a href="#terms" target="_blank" rel="noopener">условия</a> · <a href="#rights" target="_blank" rel="noopener">права туриста</a> · <a href="#legal" target="_blank" rel="noopener">реквизиты</a>. Они берут данные из опубликованной версии.</p>');
 }
 var LST={new:'Новая',work:'В работе',done:'Закрыта'};
 function leadsSub(force){
@@ -3234,14 +3296,24 @@ function netForm(name,data){
 }
 function netInbox(force){
   if(!NETKEY)return;var now=Date.now();if(!force&&A.subAt&&now-A.subAt<45000)return;A.subAt=now;
-  netApi('inbox?form=review').then(function(j){
+  netAll('review').then(function(j){
     A.inbox=(j.items||[]).map(function(s){var d=s.data||{};return {id:s.id,_doc:'net',name:d.name||'',rating:+d.rating||5,target:d.target||'',text:d.text||'',date:String(s.created_at||'').slice(0,10)}});
     A.netErr=null;updInbox();
   },function(e){A.netErr=e&&e.detail||'Не удалось загрузить отзывы';updInbox()});
 }
+// все заявки, страница за страницей (Netlify отдаёт по 100 за раз)
+function netAll(form){
+  var all=[];
+  var step=function(p){return netApi('inbox?form='+form+'&page='+p).then(function(j){
+    all=all.concat(j.items||[]);
+    if(j.more&&p<1000)return step(p+1);
+    return {items:all};
+  })};
+  return step(1);
+}
 function netLeads(force){
   if(!NETKEY)return;var now=Date.now();if(!force&&A.lsubAt&&now-A.lsubAt<45000)return;A.lsubAt=now;
-  netApi('inbox?form=booking').then(function(j){
+  netAll('booking').then(function(j){
     A.leads=(j.items||[]).map(function(s){var d=s.data||{};return {id:s.id,_doc:'net',at:s.created_at,type:d.type||'tour',
       lines:String(d.summary||'').split('\n').filter(Boolean).map(function(l){var i=l.indexOf(': ');return i>0?[l.slice(0,i),l.slice(i+2)]:['',l]}),
       name:d.name||'',contact:d.contact||'',email:d.email||'',comment:d.comment||'',st:LSTAT[s.id]||'new'}});
@@ -3252,7 +3324,264 @@ function netLeads(force){
 function netDownload(name,text){
   try{var u=URL.createObjectURL(new Blob([text],{type:'application/json'})),a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(u);a.remove()},1500);return true}catch(e){return false}
 }
-window.addEventListener('hashchange',function(){if(location.hash==='#admin'&&S.view!=='admin'&&M)openAdmin()});
+window.addEventListener('hashchange',function(){if(location.hash==='#admin'&&S.view!=='admin'&&M){openAdmin();return}var h=location.hash.slice(1);if(M&&LEGALV.indexOf(h)>-1&&S.view!==h&&S.view!=='admin'){S.m=null;go(h)}});
+/* ===== Legal: consent, cookies banner, legal pages ===== */
+var LEGALV=['privacy','cookies','terms','rights','legal'];
+var LEGAL_DATE='12.10.2026';
+var LGK={privacy:'lg_privacy',cookies:'lg_cookies',terms:'lg_terms',rights:'lg_rights',legal:'lg_legal'};
+function LG(a){return typeof a==='string'?a:a[lang==='en'?1:lang==='pl'?2:0]}
+function phv(v,l){return v?esc(v):'<span class="ph">[УКАЖИ: '+l+']</span>'}
+UX({
+cs_t:['Cookies и внешние сервисы','Cookies and external services','Cookies i usługi zewnętrzne','Cookies жана тышкы кызматтар'],
+cs_txt:['Сайт хранит в браузере только необходимое: язык, валюту и ваш выбор. С вашего согласия подключим шрифты Google и определение страны по IP для формы заявки — эти сервисы получат ваш IP-адрес. Аналитику и рекламу не используем.','The site stores only what it needs in your browser: language, currency and your choice. With your consent we also load Google Fonts and detect your country by IP for the request form — these services receive your IP address. We use no analytics or advertising.','Strona zapisuje w przeglądarce tylko to, co niezbędne: język, walutę i Twój wybór. Za Twoją zgodą wczytamy czcionki Google i ustalimy kraj na podstawie IP dla formularza zgłoszenia — te usługi otrzymają Twój adres IP. Nie używamy analityki ani reklam.','Сайт браузерде керектүүсүн гана сактайт: тил, валюта жана сиздин тандооңуз. Макулдугуңуз менен Google шрифттерин жана IP боюнча өлкөнү аныктоону кошобуз — бул кызматтар IP дарегиңизди алат. Аналитика жана жарнама колдонбойбуз.'],
+cs_more:['Подробнее о cookies','More about cookies','Więcej o cookies','Cookies жөнүндө кененирээк'],
+cs_all:['Принять все','Accept all','Akceptuj wszystkie','Баарын кабыл алуу'],
+cs_none:['Отклонить все','Reject all','Odrzuć wszystkie','Баарын четке кагуу'],
+cs_cfg:['Настроить','Customize','Dostosuj','Жөндөө'],
+cs_save:['Сохранить выбор','Save choice','Zapisz wybór','Тандоону сактоо'],
+cs_set:['Настройки cookies','Cookie settings','Ustawienia cookies','Cookies жөндөөлөрү'],
+cs_nec:['Необходимые','Necessary','Niezbędne','Зарыл'],
+cs_nec_d:['Язык, валюта и ваш выбор по cookies. Без них сайт не работает.','Language, currency and your cookie choice. The site cannot work without them.','Język, waluta i Twój wybór dotyczący cookies. Bez nich strona nie działa.','Тил, валюта жана cookies боюнча тандооңуз. Аларсыз сайт иштебейт.'],
+cs_ext:['Внешние сервисы','External services','Usługi zewnętrzne','Тышкы кызматтар'],
+cs_ext_d:['Шрифты Google (fonts.googleapis.com) и определение страны и города по IP (geojs.io, ipapi.co) для формы заявки. Сервисы получают ваш IP-адрес.','Google Fonts (fonts.googleapis.com) and country and city detection by IP (geojs.io, ipapi.co) for the request form. These services receive your IP address.','Czcionki Google (fonts.googleapis.com) oraz ustalanie kraju i miasta na podstawie IP (geojs.io, ipapi.co) dla formularza zgłoszenia. Usługi otrzymują Twój adres IP.','Google шрифттери (fonts.googleapis.com) жана өтүнүч формасы үчүн IP боюнча өлкө менен шаарды аныктоо (geojs.io, ipapi.co). Бул кызматтар IP дарегиңизди алат.'],
+cs_an:['Аналитика и реклама','Analytics and advertising','Analityka i reklama','Аналитика жана жарнама'],
+cs_an_d:['Не используем.','Not used.','Nie używamy.','Колдонбойбуз.'],
+cs_always:['Всегда включены','Always on','Zawsze włączone','Ар дайым күйүк'],
+cs_saved:['Выбор сохранён','Choice saved','Wybór zapisany','Тандоо сакталды'],
+cs_form:['Я согласен(на) на обработку моих данных, в том числе на передачу сервисам за границей, чтобы {b} ответила на заявку. Подробнее — в {p}.','I agree to the processing of my data, including transfer to service providers abroad, so that {b} can reply to my request. Details in the {p}.','Wyrażam zgodę na przetwarzanie moich danych, w tym na ich przekazanie usługodawcom za granicą, aby {b} mogła odpowiedzieć na zgłoszenie. Szczegóły w {p}.','Өтүнүчкө жооп алуу үчүн {b} менин маалыматтарымды иштетишине, анын ичинде чет өлкөдөгү кызматтарга берүүсүнө макулмун. Кененирээк: {p}.'],
+cs_rev:['Я согласен(на), чтобы мой отзыв опубликовали на сайте с моим именем. Удалить его можно по просьбе в любой момент. Подробнее — в {p}.','I agree that my review may be published on the site with my name. I can ask for it to be removed at any time. Details in the {p}.','Zgadzam się na publikację mojej opinii na stronie wraz z imieniem. Mogę w każdej chwili poprosić o jej usunięcie. Szczegóły w {p}.','Пикиримдин сайтта атым менен жарыяланышына макулмун. Каалаган убакта өчүрүүнү сурансам болот. Кененирээк: {p}.'],
+lg_pp_in:['Политике конфиденциальности','Privacy Policy','Polityce prywatności','Купуялуулук саясаты'],
+cs_req:['Это запрос, а не покупка. Перед оплатой пришлём договор, итоговую цену и информацию о ваших правах.','This is a request, not a purchase. Before payment we send you the contract, the final price and information about your rights.','To zapytanie, a nie zakup. Przed płatnością prześlemy umowę, cenę końcową i informację o Twoich prawach.','Бул сатып алуу эмес, суроо-талап. Төлөөдөн мурун келишимди, акыркы бааны жана укуктарыңыз тууралуу маалыматты жиберебиз.'],
+cs_req_m:['Это запрос. До оплаты подтвердим наличие и стоимость доставки.','This is a request. Before payment we confirm availability and the delivery cost.','To zapytanie. Przed płatnością potwierdzimy dostępność i koszt dostawy.','Бул суроо-талап. Төлөөдөн мурун бар-жогун жана жеткирүү баасын ырастайбыз.'],
+cs_need:['Отметьте согласие, чтобы отправить.','Tick the consent box to send.','Zaznacz zgodę, aby wysłać.','Жөнөтүү үчүн макулдукту белгилеңиз.'],
+cs_geo_btn:['Определить по IP','Detect by IP','Ustal po IP','IP боюнча аныктоо'],
+cs_geo_h:['Автоопределение выключено в настройках cookies.','Auto-detection is off in cookie settings.','Automatyczne ustalanie jest wyłączone w ustawieniach cookies.','Автоматтык аныктоо cookies жөндөөлөрүндө өчүк.'],
+rv_ver_y:['Как проверяем отзывы: публикуем только отзывы тех, кто путешествовал с нами, — сверяем с бронированиями. Удаляем спам и оскорбления.','How we check reviews: we only publish reviews from people who travelled with us, checked against our bookings. Spam and abuse are removed.','Jak weryfikujemy opinie: publikujemy tylko opinie osób, które podróżowały z nami — sprawdzamy je z rezerwacjami. Usuwamy spam i obraźliwe treści.','Пикирлерди кантип текшеребиз: биз менен саякаттагандардын гана пикирин жарыялайбыз — брондоолор менен салыштырабыз. Спам жана кордоолор өчүрүлөт.'],
+rv_ver_n:['Как проверяем отзывы: администратор читает каждый отзыв до публикации и удаляет спам и оскорбления. Мы не проверяем, ездил ли автор с нами.','How we check reviews: an administrator reads every review before it is published and removes spam and abuse. We do not verify whether the author travelled with us.','Jak weryfikujemy opinie: administrator czyta każdą opinię przed publikacją i usuwa spam oraz obraźliwe treści. Nie sprawdzamy, czy autor podróżował z nami.','Пикирлерди кантип текшеребиз: администратор ар бир пикирди жарыялоодон мурун окуйт, спам менен кордоолорду өчүрөт. Автор биз менен саякаттаганын текшербейбиз.'],
+lg_privacy:['Политика конфиденциальности','Privacy policy','Polityka prywatności','Купуялуулук саясаты'],
+lg_cookies:['Политика cookies','Cookie policy','Polityka cookies','Cookies саясаты'],
+lg_terms:['Условия бронирования','Booking terms','Regulamin i warunki rezerwacji','Брондоо шарттары'],
+lg_rights:['Права туриста','Traveller rights','Prawa podróżnego','Туристтин укуктары'],
+lg_legal:['Реквизиты','Company details','Dane firmy','Реквизиттер'],
+lg_docs:['Документы','Documents','Dokumenty','Документтер'],
+lg_ed:['Редакция от','Version of','Wersja z dnia','Редакциясы:'],
+lg_ru:['Бул документ азырынча орус тилинде гана.','Бул документ азырынча орус тилинде гана.','Бул документ азырынча орус тилинде гана.','Бул документ азырынча орус тилинде гана.'],
+cn_r:['Подробные условия и ваши права:','Full terms and your rights:','Pełne warunki i Twoje prawa:','Толук шарттар жана укуктарыңыз:'],
+skip:['Перейти к содержанию','Skip to content','Przejdź do treści','Мазмунга өтүү'],
+price_n:['Цены итоговые: с налогами и обязательными сборами.','Prices are final, including taxes and mandatory fees.','Ceny są końcowe, z podatkami i obowiązkowymi opłatami.','Баалар акыркы: салыктар жана милдеттүү төлөмдөр менен.']
+});
+
+/* ----- consent state ----- */
+var CONS=null,CONS_V=1,CCS={open:false,set:false};
+(function(){try{var c=JSON.parse(lsGet('at_consent')||'null');if(c&&c.v===CONS_V&&Date.now()-new Date(c.at).getTime()<365*864e5)CONS=c}catch(e){}})();
+function consExt(){return !!(CONS&&CONS.ext)}
+function consSave(ext){
+  CONS={v:CONS_V,ext:!!ext,at:new Date().toISOString()};lsSet('at_consent',JSON.stringify(CONS));
+  CCS.set=false;fontsApply();ccRender();
+  if(typeof toast==='function')try{toast(t('cs_saved'))}catch(e){}
+}
+function fontsApply(){
+  var l=document.getElementById('gfonts');
+  if(consExt()){if(!l){l=document.createElement('link');l.id='gfonts';l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Yeseva+One&display=swap';document.head.appendChild(l)}}
+  else if(l)l.remove();
+}
+function ccRender(){
+  var el=document.getElementById('ccb');
+  if(!el){el=document.createElement('div');el.id='ccb';document.body.appendChild(el)}
+  var show=S.view!=='admin'&&(!CONS||CCS.set);
+  if(!show){el.innerHTML='';return}
+  var rows='';
+  if(CCS.set){
+    var row=function(id,ttl,d,on,dis,badge){return '<label class="ccr"><span class="cct"><b>'+ttl+'</b>'+(badge?'<small>'+badge+'</small>':'')+'<span>'+d+'</span></span><input type="checkbox" id="'+id+'"'+(on?' checked':'')+(dis?' disabled':'')+'></label>'};
+    rows='<div class="ccrs">'+row('cc_nec',t('cs_nec'),t('cs_nec_d'),true,true,t('cs_always'))+row('cc_ext',t('cs_ext'),t('cs_ext_d'),consExt(),false)+row('cc_an',t('cs_an'),t('cs_an_d'),false,true)+'</div>';
+  }
+  el.innerHTML='<section class="ccb glass strong" role="dialog" aria-modal="false" aria-labelledby="ccb_t"><div class="cch"><h2 id="ccb_t">'+t('cs_t')+'</h2>'+(CONS?'<button type="button" class="ibtn" data-cc="close" aria-label="'+t('close')+'">'+ic('x')+'</button>':'')+'</div>'+
+    '<p>'+t('cs_txt')+' <a href="#cookies" data-cc="doc">'+t('cs_more')+'</a></p>'+rows+
+    '<div class="cca"><button type="button" class="btn gl sm" data-cc="none">'+t('cs_none')+'</button>'+(CCS.set?'<button type="button" class="btn gl sm" data-cc="save">'+t('cs_save')+'</button>':'<button type="button" class="btn gl sm" data-cc="open">'+t('cs_cfg')+'</button>')+'<button type="button" class="btn gl sm" data-cc="all">'+t('cs_all')+'</button></div></section>';
+}
+document.addEventListener('click',function(e){
+  var b=e.target.closest&&e.target.closest('[data-cc]');if(!b)return;
+  var v=b.getAttribute('data-cc');e.preventDefault();
+  if(v==='all')consSave(true);
+  else if(v==='none')consSave(false);
+  else if(v==='save'){var x=document.getElementById('cc_ext');consSave(!!(x&&x.checked))}
+  else if(v==='open'){CCS.set=true;ccRender();var f=document.getElementById('cc_ext');if(f)f.focus()}
+  else if(v==='close'){CCS.set=false;ccRender()}
+  else if(v==='doc'){CCS.set=CCS.set&&!!CONS;S.m=null;go('cookies');ccRender()}
+});
+document.addEventListener('click',function(e){
+  var b=e.target.closest&&e.target.closest('[data-act="geonow"]');if(!b||!S.m)return;
+  e.preventDefault();mRead();S.m.geoAsk=true;S.m.geoEdited=false;b.hidden=true;geoLoad(S.m);
+});
+document.addEventListener('change',function(e){
+  var el=e.target;
+  if(el.id==='m_ok'&&S.m){S.m.f.ok=el.checked;var s=document.getElementById('m_sub');if(s)s.disabled=!el.checked}
+  if(el.id==='r_ok'&&S.m){S.m.f.ok=el.checked;var r=document.getElementById('r_sub');if(r)r.disabled=!el.checked||!!S.m.sending}
+});
+function consBox(id,key,ok){
+  var p='<a href="#privacy" target="_blank" rel="noopener">'+t('lg_pp_in')+'</a>';
+  return '<label class="cons"><input type="checkbox" id="'+id+'" name="consent" value="yes"'+(ok?' checked':'')+'><span>'+t(key,{b:esc(CFG.name),p:p})+'</span></label>';
+}
+function consStamp(){return 'privacy '+LEGAL_DATE+' · '+new Date().toISOString()}
+function revVerNote(){return t(CFG.revVerified?'rv_ver_y':'rv_ver_n')}
+function fromP(x){var td=new Date().toISOString().slice(0,10),ds=(x.dep||[]).filter(function(d){return String(d)>=td});return ds.length?minPrice(x,ds):(x.dep&&x.dep.length?minPrice(x,x.dep):x.base)}
+
+/* ----- requisites ----- */
+function reqRows(){
+  return [
+    [['Бренд','Brand','Marka'],esc(CFG.name)],
+    [['Полное наименование','Legal name','Pełna nazwa'],phv(CFG.jName,'полное наименование: ОсОО «…» или ИП ФИО')],
+    [['Юридический адрес','Registered address','Adres siedziby'],phv(CFG.jAddr,'юридический адрес в Кыргызстане')],
+    [['ИНН','Tax ID (INN)','Numer podatkowy (INN)'],phv(CFG.jInn,'ИНН')],
+    [['Код ОКПО','OKPO code','Kod OKPO'],phv(CFG.jOkpo,'код ОКПО')],
+    [['Регистрационный номер','Registration number','Numer rejestracyjny'],phv(CFG.jReg,'рег. номер, кем и когда зарегистрирована')],
+    [['Финансовые гарантии','Financial guarantee','Zabezpieczenie finansowe'],phv(CFG.jGuar,'гарантия / страхование ответственности: кто выдал, номер')]
+  ].concat(CFG.jEu?[[['Представитель в ЕС (ст. 27 GDPR)','EU representative (Art. 27 GDPR)','Przedstawiciel w UE (art. 27 RODO)'],esc(CFG.jEu)]]:[]).concat([
+    [['Телефон','Phone','Telefon'],CFG.phone?esc(CFG.phone):phv('','телефон')],
+    [['Email','Email','Email'],CFG.email?'<a href="mailto:'+esc(CFG.email)+'">'+esc(CFG.email)+'</a>':phv('','email')],
+    ['WhatsApp',CFG.wa?'<a href="https://wa.me/'+esc(CFG.wa)+'" target="_blank" rel="noopener">+'+esc(CFG.wa)+'</a>':'—'],
+    ['Telegram',CFG.tg?'<a href="https://t.me/'+esc(CFG.tg)+'" target="_blank" rel="noopener">@'+esc(CFG.tg)+'</a>':'—']
+  ]);
+}
+function reqTable(){return '<div class="tw"><table class="lgt"><tbody>'+reqRows().map(function(r){return '<tr><th scope="row">'+LG(r[0])+'</th><td>'+r[1]+'</td></tr>'}).join('')+'</tbody></table></div>'}
+function reqShort(){return [phv(CFG.jName,'наименование'),phv(CFG.jAddr,'адрес'),LG(['ИНН','INN','INN'])+' '+phv(CFG.jInn,'ИНН')].join(' · ')}
+
+/* ----- documents ----- */
+function legalDocs(){
+  var B=esc(CFG.name),N=phv(CFG.jName,'полное наименование: ОсОО «…» или ИП ФИО'),A=phv(CFG.jAddr,'юридический адрес'),INN=phv(CFG.jInn,'ИНН'),
+    G=phv(CFG.jGuar,'гарантия / страхование ответственности: кто выдал, номер, контакт'),PAY=phv(CFG.jPay,'размер предоплаты и срок доплаты'),MAIL=phv(CFG.jMail,'почтовый сервис, например Gmail (Google)'),
+    E=CFG.email?'<a href="mailto:'+esc(CFG.email)+'">'+esc(CFG.email)+'</a>':phv('','email'),PH=CFG.phone?esc(CFG.phone):phv('','телефон'),
+    F=POLICY.free,H=POLICY.half,F1=POLICY.free-1,
+    EU=CFG.jEu?esc(CFG.jEu):'',
+    lk=function(k,txt){return '<button type="button" class="ilk" data-go="'+k+'">'+txt+'</button>'},
+    ul=function(a){return '<ul class="lgl">'+a.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>'},
+    tb=function(h,rows){return '<div class="tw"><table class="lgt"><thead><tr>'+h.map(function(x){return '<th>'+x+'</th>'}).join('')+'</tr></thead><tbody>'+rows.map(function(r){return '<tr>'+r.map(function(x){return '<td>'+x+'</td>'}).join('')+'</tr>'}).join('')+'</tbody></table></div>'};
+  var REV=t(CFG.revVerified?'rv_ver_y':'rv_ver_n');
+
+  var privacy={t:t('lg_privacy'),s:[
+  [['1. Кто обрабатывает ваши данные','1. Who processes your data','1. Kto przetwarza Twoje dane'],[
+    `<p>Ответственный за ваши данные (контролёр): ${N}, ${A}, ИНН ${INN}. Сайт работает под брендом ${B}.</p><p>По вопросам о данных: ${E}, ${PH}.</p>`+(EU?`<p>Представитель в ЕС (ст. 27 GDPR): ${EU}.</p>`:''),
+    `<p>Controller of your data: ${N}, ${A}, Tax ID (INN) ${INN}. The site operates under the brand ${B}.</p><p>Data questions: ${E}, ${PH}.</p>`+(EU?`<p>EU representative (Art. 27 GDPR): ${EU}.</p>`:''),
+    `<p>Administratorem Twoich danych jest ${N}, ${A}, numer podatkowy (INN) ${INN}. Strona działa pod marką ${B}.</p><p>Kontakt w sprawie danych: ${E}, ${PH}.</p>`+(EU?`<p>Przedstawiciel w UE (art. 27 RODO): ${EU}.</p>`:'')]],
+  [['2. Какие данные мы получаем','2. What data we receive','2. Jakie dane otrzymujemy'],[
+    ul(['Заявка на тур, отель, «Свой тур» или мерч: имя, способ связи и контакт (номер или ник), email — по желанию, страна и город, комментарий, выбранные параметры поездки, бюджет — если указали.','Отзыв: имя, оценка, текст, о каком туре или отеле.','Если вы пишете нам в WhatsApp, Telegram или другой мессенджер — то, что вы туда отправили.','При оформлении поездки (не через сайт): ФИО путешественников, даты рождения, паспортные данные — для билетов, отелей, страховки и виз.','Технические данные: IP-адрес и данные браузера в журналах хостинга.'])+'<p>Мы не просим данные о здоровье и другие особые данные. Если вы сами сообщите, например, об ограничениях по здоровью или питанию — используем это только для организации поездки.</p>',
+    ul(['Request for a tour, hotel, custom tour or merch: name, contact method and contact (number or handle), email (optional), country and city, comment, chosen trip options, budget if given.','Review: name, rating, text, which tour or hotel it is about.','If you write to us on WhatsApp, Telegram or another messenger: what you send there.','When a trip is arranged (not through the site): travellers’ full names, dates of birth and passport details, needed for tickets, hotels, insurance and visas.','Technical data: IP address and browser data in hosting logs.'])+'<p>We do not ask for health data or other special categories. If you tell us, for example, about health or dietary needs, we use it only to organise your trip.</p>',
+    ul(['Zgłoszenie na wycieczkę, hotel, „Własną wycieczkę” lub gadżety: imię, sposób kontaktu i kontakt (numer lub nick), email (opcjonalnie), kraj i miasto, komentarz, wybrane parametry podróży, budżet — jeśli podano.','Opinia: imię, ocena, treść, której wycieczki lub hotelu dotyczy.','Jeśli piszesz do nas na WhatsApp, Telegram lub inny komunikator — to, co tam wysyłasz.','Przy organizacji podróży (nie przez stronę): imiona i nazwiska podróżnych, daty urodzenia, dane paszportowe — do biletów, hoteli, ubezpieczenia i wiz.','Dane techniczne: adres IP i dane przeglądarki w logach hostingu.'])+'<p>Nie prosimy o dane o zdrowiu ani inne szczególne kategorie danych. Jeśli sam je podasz, np. ograniczenia zdrowotne lub dietetyczne — wykorzystamy je wyłącznie do organizacji podróży.</p>']],
+  [['3. Зачем и на каком основании','3. Purposes and legal bases','3. Cele i podstawy prawne'],[
+    tb(['Цель','Основание'],[['Ответить на заявку и подготовить предложение','Ваш запрос — действия до заключения договора (ст. 6(1)(b) GDPR); ваше согласие (Закон КР «Об информации персонального характера»)'],['Заключить и исполнить договор на поездку','Договор (ст. 6(1)(b) GDPR)'],['Бухгалтерия и налоги','Обязанность по закону (ст. 6(1)(c) GDPR)'],['Опубликовать ваш отзыв','Согласие (ст. 6(1)(a) GDPR)'],['Шрифты Google и определение страны по IP','Согласие в настройках cookies (ст. 6(1)(a) GDPR)'],['Учёт заявок, защита от претензий','Законный интерес (ст. 6(1)(f) GDPR)']])+'<p>Рассылок и рекламы не делаем. Если появятся — только с отдельного согласия.</p>',
+    tb(['Purpose','Legal basis'],[['Reply to your request and prepare an offer','Steps taken at your request before a contract (Art. 6(1)(b) GDPR); your consent (Kyrgyz Law “On personal information”)'],['Conclude and perform the travel contract','Contract (Art. 6(1)(b) GDPR)'],['Accounting and tax','Legal obligation (Art. 6(1)(c) GDPR)'],['Publish your review','Consent (Art. 6(1)(a) GDPR)'],['Google Fonts and country detection by IP','Consent in cookie settings (Art. 6(1)(a) GDPR)'],['Keeping track of requests, defending claims','Legitimate interest (Art. 6(1)(f) GDPR)']])+'<p>We send no newsletters or advertising. If we start, it will only be with separate consent.</p>',
+    tb(['Cel','Podstawa prawna'],[['Odpowiedź na zgłoszenie i przygotowanie oferty','Działania na Twoje żądanie przed zawarciem umowy (art. 6 ust. 1 lit. b RODO); Twoja zgoda (ustawa Kirgistanu „O informacji o charakterze osobowym”)'],['Zawarcie i wykonanie umowy o podróż','Umowa (art. 6 ust. 1 lit. b RODO)'],['Księgowość i podatki','Obowiązek prawny (art. 6 ust. 1 lit. c RODO)'],['Publikacja Twojej opinii','Zgoda (art. 6 ust. 1 lit. a RODO)'],['Czcionki Google i ustalanie kraju po IP','Zgoda w ustawieniach cookies (art. 6 ust. 1 lit. a RODO)'],['Ewidencja zgłoszeń, obrona przed roszczeniami','Prawnie uzasadniony interes (art. 6 ust. 1 lit. f RODO)']])+'<p>Nie wysyłamy newsletterów ani reklam. Jeśli zaczniemy — tylko za osobną zgodą.</p>']],
+  [['4. Кому мы передаём данные','4. Who receives your data','4. Komu przekazujemy dane'],[
+    ul(['Netlify, Inc. (США) — хостинг сайта, приём форм, уведомления о заявках.','GitHub, Inc. (США) — хранение данных сайта и рабочих заметок по заявкам в зашифрованном виде.','Почта: '+MAIL+'.','Партнёры по поездке: отели, авиакомпании и перевозчики, трансфер, гиды, страховая — только то, что нужно для вашей поездки.','WhatsApp (Meta), Telegram и другие мессенджеры — если вы сами выбрали этот способ связи. У них свои правила обработки данных.','С вашего согласия: geojs.io и ipapi.co (страна по IP), Google Fonts (Google).','Государственные органы — только если этого требует закон.'])+'<p>Мы не продаём ваши данные.</p>',
+    ul(['Netlify, Inc. (USA) — site hosting, form handling, request notifications.','GitHub, Inc. (USA) — storage of site data and encrypted working notes on requests.','Email: '+MAIL+'.','Travel partners: hotels, airlines and carriers, transfers, guides, insurers — only what your trip needs.','WhatsApp (Meta), Telegram and other messengers — if you chose that contact method. They have their own data rules.','With your consent: geojs.io and ipapi.co (country by IP), Google Fonts (Google).','Public authorities — only where the law requires it.'])+'<p>We do not sell your data.</p>',
+    ul(['Netlify, Inc. (USA) — hosting strony, obsługa formularzy, powiadomienia o zgłoszeniach.','GitHub, Inc. (USA) — przechowywanie danych strony i zaszyfrowanych notatek roboczych do zgłoszeń.','Poczta: '+MAIL+'.','Partnerzy podróży: hotele, linie lotnicze i przewoźnicy, transfery, przewodnicy, ubezpieczyciele — tylko to, co potrzebne do Twojej podróży.','WhatsApp (Meta), Telegram i inne komunikatory — jeśli sam wybrałeś ten sposób kontaktu. Mają własne zasady przetwarzania danych.','Za Twoją zgodą: geojs.io i ipapi.co (kraj po IP), Google Fonts (Google).','Organy publiczne — tylko gdy wymaga tego prawo.'])+'<p>Nie sprzedajemy Twoich danych.</p>']],
+  [['5. Передача за границу','5. Transfers abroad','5. Przekazywanie za granicę'],[
+    '<p>Мы находимся в Кыргызстане, сайт работает на серверах в США, а поездки проходят в Кыргызстане, Казахстане и Узбекистане. Поэтому данные передаются за пределы ЕС и Кыргызстана. Для клиентов из ЕС передача нужна для исполнения договора (ст. 49(1)(b) GDPR) или идёт с гарантиями провайдеров — стандартными договорными условиями ЕС или EU-US Data Privacy Framework. Отмечая согласие в форме, вы соглашаетесь на такую передачу.</p>',
+    '<p>We are based in Kyrgyzstan, the site runs on servers in the USA, and trips take place in Kyrgyzstan, Kazakhstan and Uzbekistan. Data is therefore transferred outside the EU and Kyrgyzstan. For EU clients, the transfer is necessary to perform the contract (Art. 49(1)(b) GDPR) or relies on the providers’ safeguards — EU standard contractual clauses or the EU-US Data Privacy Framework. By ticking consent in the form you agree to such transfer.</p>',
+    '<p>Działamy w Kirgistanie, strona działa na serwerach w USA, a podróże odbywają się w Kirgistanie, Kazachstanie i Uzbekistanie. Dlatego dane są przekazywane poza UE i Kirgistan. W przypadku klientów z UE przekazanie jest niezbędne do wykonania umowy (art. 49 ust. 1 lit. b RODO) lub odbywa się z zabezpieczeniami dostawców — standardowymi klauzulami umownymi UE lub EU-US Data Privacy Framework. Zaznaczając zgodę w formularzu, zgadzasz się na takie przekazanie.</p>']],
+  [['6. Сколько храним','6. How long we keep data','6. Jak długo przechowujemy dane'],[
+    ul(['Заявки, которые не стали поездкой, — 12 месяцев.','Договоры и документы по поездке — сколько требует налоговое и бухгалтерское законодательство и пока возможны претензии.','Отзывы — пока отзыв опубликован или пока вы не попросите удалить.','Ваш выбор по cookies — 12 месяцев, потом спросим снова.']),
+    ul(['Requests that did not become a trip: 12 months.','Contracts and trip documents: as long as tax and accounting law requires and while claims are possible.','Reviews: while the review is published or until you ask us to remove it.','Your cookie choice: 12 months, then we ask again.']),
+    ul(['Zgłoszenia, które nie zakończyły się podróżą — 12 miesięcy.','Umowy i dokumenty podróży — tak długo, jak wymagają tego przepisy podatkowe i rachunkowe oraz dopóki możliwe są roszczenia.','Opinie — dopóki opinia jest opublikowana lub do Twojej prośby o usunięcie.','Twój wybór dotyczący cookies — 12 miesięcy, potem zapytamy ponownie.'])]],
+  [['7. Ваши права','7. Your rights','7. Twoje prawa'],[
+    '<p>Вы можете узнать, какие данные у нас есть, исправить их, удалить, ограничить обработку, получить их в удобном формате, возразить против обработки и в любой момент отозвать согласие (это не отменяет законность обработки до отзыва). Напишите на '+E+' — ответим в течение месяца.</p><p>Жалобу можно подать: в Кыргызстане — в уполномоченный орган по защите персональных данных; в ЕС — в надзорный орган своей страны, в Польше — Prezes UODO (ul. Stawki 2, 00-193 Warszawa, uodo.gov.pl).</p>',
+    '<p>You may access your data, correct it, have it erased, restrict processing, receive it in a portable format, object to processing and withdraw consent at any time (this does not affect processing before withdrawal). Write to '+E+' — we reply within one month.</p><p>You can complain to: in Kyrgyzstan, the authorised personal data protection body; in the EU, the supervisory authority of your country — in Poland, the President of UODO (ul. Stawki 2, 00-193 Warsaw, uodo.gov.pl).</p>',
+    '<p>Masz prawo dostępu do danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, przeniesienia, sprzeciwu oraz cofnięcia zgody w dowolnym momencie (nie wpływa to na zgodność z prawem przetwarzania przed cofnięciem). Napisz na '+E+' — odpowiemy w ciągu miesiąca.</p><p>Skargę możesz złożyć: w Kirgistanie — do organu ds. ochrony danych osobowych; w UE — do organu nadzorczego w swoim kraju, w Polsce — do Prezesa UODO (ul. Stawki 2, 00-193 Warszawa, uodo.gov.pl).</p>']],
+  [['8. Прочее','8. Other','8. Pozostałe'],[
+    ul(['Для заявки нужны имя и контакт — без них мы не сможем ответить. Остальное по желанию.','Мы не принимаем автоматических решений и не составляем профили.','Данные детей для семейных поездок сообщают родители или опекуны.','Если политика изменится, новая редакция появится на этой странице.']),
+    ul(['A request needs a name and contact — without them we cannot reply. Everything else is optional.','We make no automated decisions and do no profiling.','Children’s data for family trips is provided by parents or guardians.','If this policy changes, the new version will appear on this page.']),
+    ul(['Do zgłoszenia potrzebne są imię i kontakt — bez nich nie odpowiemy. Reszta jest dobrowolna.','Nie podejmujemy zautomatyzowanych decyzji i nie profilujemy.','Dane dzieci przy podróżach rodzinnych podają rodzice lub opiekunowie.','Jeśli polityka się zmieni, nowa wersja pojawi się na tej stronie.'])]]
+  ]};
+
+  var nec=[['at_lang',['Язык сайта','Site language','Język strony']],['at_cur, at_cur_set',['Валюта','Currency','Waluta']],['at_consent',['Ваш выбор по cookies (12 месяцев)','Your cookie choice (12 months)','Twój wybór dotyczący cookies (12 miesięcy)']],['at_key, at_crm, at_crm_q, at_lstat, at_draft',['Только для администраторов сайта после входа в админку','Only for site administrators after logging in','Tylko dla administratorów strony po zalogowaniu']]];
+  var cookies={t:t('lg_cookies'),s:[
+  [['Коротко','In short','W skrócie'],['<p>Сайт не ставит рекламных и аналитических cookies. Для работы он хранит немного данных в вашем браузере (localStorage) — по закону это то же самое, что cookies. Внешние сервисы подключаются только с вашего согласия.</p>','<p>The site sets no advertising or analytics cookies. To work, it stores a little data in your browser (localStorage), which the law treats the same as cookies. External services load only with your consent.</p>','<p>Strona nie stosuje reklamowych ani analitycznych plików cookies. Do działania zapisuje niewiele danych w przeglądarce (localStorage) — prawnie traktuje się to tak samo jak cookies. Usługi zewnętrzne wczytujemy tylko za Twoją zgodą.</p>']],
+  [[t('cs_nec')+' — '+t('cs_always').toLowerCase(),t('cs_nec')+' — '+t('cs_always').toLowerCase(),t('cs_nec')+' — '+t('cs_always').toLowerCase()],[
+    tb(['Название','Зачем'],nec.map(function(r){return ['<code>'+r[0]+'</code>',r[1][0]]})),
+    tb(['Name','Purpose'],nec.map(function(r){return ['<code>'+r[0]+'</code>',r[1][1]]})),
+    tb(['Nazwa','Cel'],nec.map(function(r){return ['<code>'+r[0]+'</code>',r[1][2]]}))]],
+  [[t('cs_ext')+' — только с согласия',t('cs_ext')+' — only with consent',t('cs_ext')+' — tylko za zgodą'],[
+    tb(['Сервис','Зачем','Что получает'],[['Google Fonts (fonts.googleapis.com, fonts.gstatic.com)','Фирменные шрифты сайта','IP-адрес, данные браузера'],['geojs.io, ipapi.co','Подставить страну и город в форму заявки','IP-адрес']])+'<p>Без согласия сайт показывает обычные шрифты, а страну вы выбираете сами или нажимаете «Определить по IP» в форме.</p>',
+    tb(['Service','Purpose','What it receives'],[['Google Fonts (fonts.googleapis.com, fonts.gstatic.com)','The site’s brand fonts','IP address, browser data'],['geojs.io, ipapi.co','Fill in country and city in the request form','IP address']])+'<p>Without consent the site uses standard fonts, and you choose the country yourself or press “Detect by IP” in the form.</p>',
+    tb(['Usługa','Cel','Co otrzymuje'],[['Google Fonts (fonts.googleapis.com, fonts.gstatic.com)','Firmowe czcionki strony','Adres IP, dane przeglądarki'],['geojs.io, ipapi.co','Uzupełnienie kraju i miasta w formularzu','Adres IP']])+'<p>Bez zgody strona używa standardowych czcionek, a kraj wybierasz sam lub klikasz „Ustal po IP” w formularzu.</p>']],
+  [[t('cs_an'),t('cs_an'),t('cs_an')],['<p>Не используем.</p><p>Хостинг Netlify ведёт технические журналы (IP-адрес, время запроса) для безопасности и работы сайта.</p>','<p>Not used.</p><p>The Netlify hosting keeps technical logs (IP address, request time) for security and operation of the site.</p>','<p>Nie używamy.</p><p>Hosting Netlify prowadzi logi techniczne (adres IP, czas żądania) dla bezpieczeństwa i działania strony.</p>']],
+  [['Как изменить выбор','How to change your choice','Jak zmienić wybór'],['<p>Кнопка «'+t('cs_set')+'» внизу каждой страницы. Ещё можно очистить данные сайта в настройках браузера.</p><p><button type="button" class="btn sm" data-cc="open">'+t('cs_set')+'</button></p>','<p>Use “'+t('cs_set')+'” at the bottom of every page, or clear the site data in your browser settings.</p><p><button type="button" class="btn sm" data-cc="open">'+t('cs_set')+'</button></p>','<p>Przycisk „'+t('cs_set')+'” na dole każdej strony. Możesz też wyczyścić dane strony w ustawieniach przeglądarki.</p><p><button type="button" class="btn sm" data-cc="open">'+t('cs_set')+'</button></p>']]
+  ]};
+
+  var terms={t:t('lg_terms'),s:[
+  [['1. Кто мы','1. Who we are','1. Kim jesteśmy'],[`<p>${N}, ${A}, ИНН ${INN}, бренд ${B}. Связь: ${E}, ${PH}. Все реквизиты — на странице «${lk('legal',t('lg_legal'))}».</p>`,`<p>${N}, ${A}, Tax ID (INN) ${INN}, brand ${B}. Contact: ${E}, ${PH}. Full details: ${lk('legal',t('lg_legal'))}.</p>`,`<p>${N}, ${A}, numer podatkowy (INN) ${INN}, marka ${B}. Kontakt: ${E}, ${PH}. Pełne dane: ${lk('legal',t('lg_legal'))}.</p>`]],
+  [['2. Что можно делать на сайте','2. What the site offers','2. Usługi świadczone drogą elektroniczną'],[
+    '<p>Смотреть туры и отели, собирать «Свой тур» с примерной ценой, отправлять заявки и отзывы, заказывать мерч. Это бесплатно. Нужен современный браузер с включённым JavaScript. Нельзя отправлять незаконное, оскорбительное или чужие персональные данные.</p>',
+    '<p>Browse tours and hotels, build a custom tour with an estimated price, send requests and reviews, order merch. It is free of charge. You need a modern browser with JavaScript enabled. You may not submit unlawful or abusive content or other people’s personal data.</p>',
+    '<p>Przeglądanie wycieczek i hoteli, tworzenie „Własnej wycieczki” z orientacyjną ceną, wysyłanie zgłoszeń i opinii, zamawianie gadżetów. Usługi są bezpłatne. Potrzebna jest nowoczesna przeglądarka z włączonym JavaScript. Zabronione jest przesyłanie treści bezprawnych, obraźliwych lub cudzych danych osobowych. Umowa o świadczenie tych usług zawierana jest z chwilą rozpoczęcia korzystania ze strony i rozwiązuje się z chwilą jej opuszczenia.</p>']],
+  [['3. Заявка — это ещё не договор','3. A request is not yet a contract','3. Zgłoszenie to jeszcze nie umowa'],[
+    '<ol class="lgl"><li>Вы отправляете заявку.</li><li>Мы уточняем наличие мест и итоговую цену.</li><li>До договора присылаем программу, проживание, транспорт, итоговую цену со всеми платежами, паспортно-визовые требования, условия отмены и информацию о ваших правах.</li><li>Заключаем договор письменно или по email.</li><li>Оплата: '+PAY+'.</li></ol>',
+    '<ol class="lgl"><li>You send a request.</li><li>We check availability and the final price.</li><li>Before the contract we send the itinerary, accommodation, transport, the final price with all charges, passport and visa requirements, cancellation terms and information about your rights.</li><li>We conclude the contract in writing or by email.</li><li>Payment: '+PAY+'.</li></ol>',
+    '<ol class="lgl"><li>Wysyłasz zgłoszenie.</li><li>Sprawdzamy dostępność miejsc i cenę końcową.</li><li>Przed zawarciem umowy przesyłamy program, zakwaterowanie, transport, cenę końcową ze wszystkimi opłatami, wymogi paszportowe i wizowe, warunki rezygnacji oraz informację o Twoich prawach.</li><li>Zawieramy umowę na piśmie lub mailowo.</li><li>Płatność: '+PAY+'.</li></ol>']],
+  [['4. Цены','4. Prices','4. Ceny'],[
+    ul(['Цены в евро, итоговые: с налогами и обязательными сборами. Что не входит (например, перелёт), подписано рядом с ценой.','Цены в других валютах — ориентировочные, по курсу.','«от» — самая низкая цена за человека среди ближайших доступных дат.','Цены «Своего тура» примерные — точную цену назовём в предложении.','После договора цену можно изменить, только если это прямо указано в договоре и связано с ценой топлива, налогами и сборами или курсом валют, и не позднее чем за 20 дней до начала поездки. Если рост больше 8%, вы можете отказаться без платы.']),
+    ul(['Prices are in euro and final, including taxes and mandatory fees. Anything not included (e.g. flights) is stated next to the price.','Prices in other currencies are approximate, at the exchange rate.','“From” is the lowest per-person price among the upcoming available dates.','Custom tour prices are estimates; we give the exact price in the offer.','After the contract, the price may change only if the contract expressly allows it, because of fuel costs, taxes and fees or exchange rates, and no later than 20 days before the start. If the increase exceeds 8%, you may withdraw free of charge.']),
+    ul(['Ceny są w euro i są cenami końcowymi: z podatkami i obowiązkowymi opłatami. To, czego cena nie obejmuje (np. lot), opisano przy cenie.','Ceny w innych walutach są orientacyjne, według kursu.','„od” to najniższa cena za osobę spośród najbliższych dostępnych terminów.','Ceny „Własnej wycieczki” są orientacyjne — dokładną cenę podamy w ofercie.','Po zawarciu umowy cena może się zmienić tylko, jeśli umowa wyraźnie to przewiduje, z powodu kosztów paliwa, podatków i opłat lub kursów walut, i nie później niż 20 dni przed rozpoczęciem. Przy wzroście ponad 8% możesz odstąpić bez opłat.'])]],
+  [['5. Если вы отменяете поездку','5. If you cancel','5. Jeśli rezygnujesz'],[
+    ul(['Отменить можно в любой момент до начала поездки.',`За ${F} дней и более — бесплатно.`,`За ${H}–${F1} дней — удерживаем 50% стоимости.`,`Менее чем за ${H} дней — стоимость не возвращается.`,'Невозвратные билеты и тарифы отелей — по правилам перевозчика или отеля.','Если в месте назначения случились чрезвычайные обстоятельства (опасность, стихийное бедствие и т.п.), которые существенно мешают поездке, — отмена бесплатная, вернём всё.']),
+    ul(['You may cancel at any time before the trip starts.',`${F} or more days before: free.`,`${H}–${F1} days before: we retain 50% of the price.`,`Less than ${H} days before: no refund.`,'Non-refundable tickets and hotel rates follow the carrier’s or hotel’s rules.','If unavoidable and extraordinary circumstances at the destination (danger, natural disaster, etc.) significantly affect the trip, cancellation is free and we refund everything.']),
+    ul(['Możesz zrezygnować w dowolnym momencie przed rozpoczęciem podróży.',`${F} dni lub więcej przed — bezpłatnie.`,`${H}–${F1} dni przed — potrącamy 50% ceny.`,`Mniej niż ${H} dni przed — cena nie podlega zwrotowi.`,'Bilety i taryfy hotelowe bezzwrotne — według zasad przewoźnika lub hotelu.','W razie nieuniknionych i nadzwyczajnych okoliczności w miejscu docelowym (zagrożenie, klęska żywiołowa itp.), które znacząco wpływają na podróż, rezygnacja jest bezpłatna i zwracamy całą kwotę.'])]],
+  [['6. Если меняем или отменяем мы','6. If we change or cancel','6. Jeśli my zmieniamy lub odwołujemy'],[
+    '<p>Если нам придётся существенно изменить условия, мы сразу сообщим: вы сможете согласиться или отказаться с полным возвратом. Если поездку отменяем мы, вернём всё, что вы заплатили, не позднее 14 дней.</p><p>Поездку можно передать другому человеку, сообщив нам не позднее чем за 7 дней до начала. Фактические доп. расходы (например, перевыпуск билетов) оплачиваются отдельно.</p>',
+    '<p>If we have to change essential terms significantly, we tell you at once: you may accept or withdraw with a full refund. If we cancel the trip, we refund everything you paid within 14 days.</p><p>You may transfer the trip to another person by telling us at least 7 days before the start. Actual additional costs (e.g. reissuing tickets) are paid separately.</p>',
+    '<p>Jeśli będziemy musieli znacząco zmienić istotne warunki, poinformujemy od razu: możesz się zgodzić albo odstąpić z pełnym zwrotem. Jeśli to my odwołamy podróż, zwrócimy wszystkie wpłaty w ciągu 14 dni.</p><p>Możesz przenieść podróż na inną osobę, informując nas najpóźniej 7 dni przed rozpoczęciem. Rzeczywiste dodatkowe koszty (np. ponowne wystawienie biletów) są płatne osobno.</p>']],
+  [['7. Документы, визы, страховка','7. Documents, visas, insurance','7. Dokumenty, wizy, ubezpieczenie'],[
+    '<p>Мы расскажем о паспортных и визовых требованиях. Решение о визе и въезде принимают консульство и пограничная служба — мы его не гарантируем. Вы отвечаете за действующий паспорт и документы. Рекомендуем медицинскую страховку, можем её оформить.</p>',
+    '<p>We tell you about passport and visa requirements. Visa and entry decisions are made by consulates and border authorities — we cannot guarantee them. You are responsible for a valid passport and documents. We recommend medical insurance and can arrange it.</p>',
+    '<p>Informujemy o wymogach paszportowych i wizowych. O wizie i wjeździe decydują konsulat i straż graniczna — nie możemy tego zagwarantować. Odpowiadasz za ważny paszport i dokumenty. Zalecamy ubezpieczenie medyczne i możemy je zapewnić.</p>']],
+  [['8. В поездке и претензии','8. During the trip and complaints','8. W trakcie podróży i reklamacje'],[
+    '<p>Если что-то не так, сразу сообщите нам по '+PH+' или в WhatsApp — поможем на месте. Претензию можно направить на '+E+', по телефону или по адресу компании. Отвечаем в течение 14 дней.</p><p>Споры решаем переговорами, затем — в суде по законодательству Кыргызской Республики. Клиенты из ЕС сохраняют защиту, которую дают обязательные нормы права потребителей их страны; в Польше можно обратиться к районному или городскому потребительскому омбудсмену (rzecznik konsumentów) или в Торговую инспекцию.</p>',
+    '<p>If something is wrong, tell us at once at '+PH+' or on WhatsApp — we will help on the spot. Complaints can be sent to '+E+', by phone or to the company address. We reply within 14 days.</p><p>Disputes are settled by negotiation, then in court under the law of the Kyrgyz Republic. Clients from the EU keep the protection of the mandatory consumer law of their country; in Poland you may contact a district or municipal consumer ombudsman (rzecznik konsumentów) or the Trade Inspection.</p>',
+    '<p>Jeśli coś jest nie tak, zgłoś to od razu pod numerem '+PH+' lub na WhatsApp — pomożemy na miejscu. Reklamację można złożyć na '+E+', telefonicznie lub na adres firmy. Odpowiadamy w ciągu 14 dni.</p><p>Spory rozwiązujemy polubownie, a następnie przed sądem według prawa Republiki Kirgiskiej. Klienci z UE zachowują ochronę wynikającą z bezwzględnie obowiązujących przepisów konsumenckich swojego kraju; w Polsce możesz zwrócić się do powiatowego lub miejskiego rzecznika konsumentów albo do Inspekcji Handlowej.</p>']],
+  [['9. Мерч','9. Merch','9. Gadżety'],[
+    '<p>Заказ — через заявку. Договор заключается, когда мы подтвердим наличие, цену и стоимость доставки. Покупатель-потребитель из ЕС может отказаться от покупки в течение 14 дней со дня получения без объяснения причин: деньги вернём в течение 14 дней после получения товара, обратную пересылку оплачивает покупатель. Если товар с браком — заменим, исправим, снизим цену или вернём деньги. Права по законам о защите прав потребителей сохраняются.</p>',
+    '<p>Orders are placed by request. The contract is concluded when we confirm availability, price and delivery cost. A consumer buyer from the EU may withdraw within 14 days of receipt without giving reasons: we refund within 14 days of getting the item back; return shipping is paid by the buyer. If an item is faulty, we replace, repair, reduce the price or refund. Statutory consumer rights are not affected.</p>',
+    '<p>Zamówienie składa się przez zgłoszenie. Umowa zostaje zawarta, gdy potwierdzimy dostępność, cenę i koszt dostawy. Konsument z UE może odstąpić od umowy w ciągu 14 dni od otrzymania towaru bez podania przyczyny: zwrot pieniędzy nastąpi w ciągu 14 dni od otrzymania towaru z powrotem, koszt odesłania ponosi kupujący. Jeśli towar jest niezgodny z umową — wymienimy, naprawimy, obniżymy cenę lub zwrócimy pieniądze. Ustawowe prawa konsumenta pozostają bez zmian.</p>']],
+  [['10. Отзывы','10. Reviews','10. Opinie'],[
+    '<p>'+REV+' Мы не платим за отзывы и не публикуем выдуманные.</p>','<p>'+REV+' We do not pay for reviews or publish invented ones.</p>','<p>'+REV+' Nie płacimy za opinie i nie publikujemy zmyślonych.</p>']],
+  [['11. Изменения условий','11. Changes to these terms','11. Zmiany regulaminu'],[
+    '<p>Новые условия не меняют уже заключённые договоры. Актуальная редакция всегда на этой странице.</p>','<p>New terms do not change contracts already concluded. The current version is always on this page.</p>','<p>Nowe warunki nie zmieniają już zawartych umów. Aktualna wersja jest zawsze na tej stronie.</p>']]
+  ]};
+
+  var rights={t:t('lg_rights'),s:[
+  [['Пакетный тур','Package travel','Impreza turystyczna'],[
+    '<p>Если в поездку входят несколько услуг — например, перелёт, отель и трансфер, — это пакетный тур. Для путешественников из ЕС действуют правила Директивы (ЕС) 2015/2302 о пакетных турах, и мы соблюдаем их для всех клиентов. '+B+' отвечает за надлежащее исполнение всего тура. Перед заключением договора вы получите официальный формуляр информации.</p>',
+    '<p>If your trip combines several services — for example a flight, hotel and transfer — it is a package. For travellers from the EU, the rules of the Package Travel Directive (EU) 2015/2302 apply, and we follow them for all clients. '+B+' is responsible for the proper performance of the whole package. You receive the official standard information form before the contract.</p>',
+    '<p>Jeśli podróż łączy kilka usług — np. lot, hotel i transfer — jest to impreza turystyczna. Wobec podróżnych z UE stosuje się przepisy dyrektywy (UE) 2015/2302 w sprawie imprez turystycznych, a my przestrzegamy ich wobec wszystkich klientów. '+B+' odpowiada za należyte wykonanie całej imprezy. Przed zawarciem umowy otrzymasz oficjalny formularz informacyjny.</p>']],
+  [['Ваши основные права','Your key rights','Twoje najważniejsze prawa'],[
+    ul(['До договора вы получаете всю важную информацию о поездке.','Хотя бы одна компания отвечает за исполнение всех услуг тура.','У вас есть номер для экстренной связи.','Тур можно передать другому человеку, сообщив не позднее чем за 7 дней (возможны доп. расходы).','Цена может вырасти только при росте конкретных расходов (топливо, налоги, курс), если это есть в договоре, и не позднее чем за 20 дней до начала. Рост больше 8% — право отказаться. Если эти расходы снизились, цена тоже снижается.','Можно отказаться без платы с полным возвратом, если существенно изменились важные условия. Если тур отменили мы — полный возврат и при необходимости компенсация.','Можно отказаться без платы при чрезвычайных обстоятельствах в месте назначения, например при серьёзной угрозе безопасности.','Можно отказаться в любой момент до начала, заплатив разумную плату за отмену.','Если в поездке важные услуги нельзя выполнить, вам предложат замену без доплаты. Если услуги выполнены не по договору и мы это не исправили — можно отказаться от тура, получить снижение цены и/или компенсацию.','Если вы в трудной ситуации в поездке, мы обязаны помочь.','Если организатор станет неплатёжеспособным, ваши деньги вернут, а если в туре есть перевозка — обеспечат возвращение домой.']),
+    ul(['You receive all essential information about the trip before the contract.','At least one trader is liable for the proper performance of all services in the package.','You are given an emergency contact number.','You may transfer the package to another person with notice of at least 7 days (additional costs may apply).','The price may rise only if specific costs rise (fuel, taxes, exchange rates), if the contract allows it, and no later than 20 days before the start. Above 8% you may withdraw. If those costs fall, the price falls too.','You may withdraw without a fee and get a full refund if essential elements change significantly. If we cancel, you get a full refund and compensation where appropriate.','You may withdraw without a fee in extraordinary circumstances at the destination, such as serious security problems.','You may withdraw at any time before the start for an appropriate termination fee.','If important services cannot be provided during the trip, you are offered suitable alternatives at no extra cost. If services are not performed as agreed and we do not remedy it, you may terminate, get a price reduction and/or compensation.','If you are in difficulty during the trip, we must provide assistance.','If the organiser becomes insolvent, your payments are refunded, and if transport is included, your repatriation is secured.']),
+    ul(['Przed zawarciem umowy otrzymujesz wszystkie istotne informacje o podróży.','Co najmniej jeden przedsiębiorca odpowiada za należyte wykonanie wszystkich usług w imprezie.','Otrzymujesz numer telefonu alarmowego.','Możesz przenieść imprezę na inną osobę, powiadamiając nas co najmniej 7 dni przed rozpoczęciem (mogą wystąpić dodatkowe koszty).','Cena może wzrosnąć tylko przy wzroście konkretnych kosztów (paliwo, podatki, kursy walut), jeśli umowa to przewiduje, i nie później niż 20 dni przed rozpoczęciem. Przy wzroście ponad 8% możesz odstąpić. Jeśli te koszty spadną, cena też spada.','Możesz odstąpić bez opłat z pełnym zwrotem, jeśli istotne warunki znacząco się zmienią. Jeśli to my odwołamy imprezę — pełny zwrot i w razie potrzeby odszkodowanie.','Możesz odstąpić bez opłat w razie nadzwyczajnych okoliczności w miejscu docelowym, np. poważnego zagrożenia bezpieczeństwa.','Możesz odstąpić w dowolnym momencie przed rozpoczęciem za odpowiednią opłatą.','Jeśli w trakcie podróży ważnych usług nie można wykonać, otrzymasz odpowiednie zastępstwo bez dopłaty. Jeśli usługi nie są wykonywane zgodnie z umową, a my tego nie naprawimy — możesz rozwiązać umowę, uzyskać obniżkę ceny i/lub odszkodowanie.','Jeśli znajdziesz się w trudnej sytuacji w trakcie podróży, mamy obowiązek udzielić pomocy.','W razie niewypłacalności organizatora wpłaty zostaną zwrócone, a jeśli impreza obejmuje transport — zapewniony zostanie powrót do domu.'])]],
+  [['Защита от неплатёжеспособности','Insolvency protection','Zabezpieczenie na wypadek niewypłacalności'],[
+    '<p>'+G+'</p><p>Экстренная связь в поездке: '+PH+'.</p>','<p>'+G+'</p><p>Emergency contact during the trip: '+PH+'.</p>','<p>'+G+'</p><p>Kontakt alarmowy w trakcie podróży: '+PH+'.</p>']],
+  [['Подробнее','More','Więcej'],[
+    '<p>Условия отмены и порядок бронирования — в разделе «'+lk('terms',t('lg_terms'))+'». Для клиентов из Кыргызстана также действуют законы КР «О защите прав потребителей» и о туризме.</p>',
+    '<p>Cancellation terms and the booking process: '+lk('terms',t('lg_terms'))+'. For clients from Kyrgyzstan, Kyrgyz consumer protection and tourism laws also apply.</p>',
+    '<p>Warunki rezygnacji i proces rezerwacji: '+lk('terms',t('lg_terms'))+'. Wobec klientów z Kirgistanu stosuje się także kirgiskie przepisy o ochronie konsumentów i o turystyce.</p>']]
+  ]};
+
+  var legal={t:t('lg_legal'),s:[
+  [[t('lg_legal'),t('lg_legal'),t('lg_legal')],reqTable()],
+  [[t('lg_docs'),t('lg_docs'),t('lg_docs')],'<div class="lgnav in">'+['privacy','cookies','terms','rights'].map(function(k){return lk(k,t(LGK[k]))}).join('')+'</div>']
+  ]};
+  return {privacy:privacy,cookies:cookies,terms:terms,rights:rights,legal:legal};
+}
+function legalPage(k){
+  var d=legalDocs()[k]||legalDocs().privacy;
+  return '<div class="wrap page lgp"><h1 class="h1">'+LG(d.t)+'</h1><p class="crumb">'+t('lg_ed')+' '+LEGAL_DATE+'</p>'+
+  (lang==='ky'?'<p class="note">'+t('lg_ru')+'</p>':'')+
+  '<nav class="lgnav" aria-label="'+t('lg_docs')+'">'+LEGALV.map(function(v){return '<button type="button" class="'+(v===k?'on':'')+'" data-go="'+v+'"'+(v===k?' aria-current="page"':'')+'>'+t(LGK[v])+'</button>'}).join('')+'</nav>'+
+  d.s.map(function(s){return '<section class="dsec glass lgs"><h2>'+LG(s[0])+'</h2>'+LG(s[1])+'</section>'}).join('')+'</div>';
+}
+function ftDocs(){
+  return '<div><h4>'+t('lg_docs')+'</h4><ul>'+LEGALV.map(function(v){return '<li><button class="lk" data-go="'+v+'">'+t(LGK[v])+'</button></li>'}).join('')+'<li><button type="button" class="lk" data-cc="open">'+t('cs_set')+'</button></li></ul></div>';
+}
+
 /* ===== init ===== */
 (function(){
   bgInit();
@@ -3267,7 +3596,7 @@ window.addEventListener('hashchange',function(){if(location.hash==='#admin'&&S.v
   loadData().then(function(data){
     M=normalize(data);applyModel(M);
     if(!RATES[cur])cur='EUR';
-    if(location.hash==='#admin'){openAdmin()}else render();
+    fontsApply();if(location.hash==='#admin'){openAdmin()}else{var h0=location.hash.slice(1);if(LEGALV.indexOf(h0)>-1)S.view=h0;render()}
     bgPreload();
   });
 })();
@@ -3277,10 +3606,10 @@ window.addEventListener('hashchange',function(){if(location.hash==='#admin'&&S.v
 
 <!-- Netlify Forms: hidden copies so Netlify detects the forms at deploy -->
 <form name="booking" data-netlify="true" netlify-honeypot="bot-field" hidden>
-  <input name="bot-field"><input name="type"><textarea name="summary"></textarea><input name="name"><input name="contact"><input name="email"><textarea name="comment"></textarea><input name="lang">
+  <input name="bot-field"><input name="type"><textarea name="summary"></textarea><input name="name"><input name="contact"><input name="email"><textarea name="comment"></textarea><input name="lang"><input name="consent">
 </form>
 <form name="review" data-netlify="true" netlify-honeypot="bot-field" hidden>
-  <input name="bot-field"><input name="name"><input name="rating"><input name="target"><textarea name="text"></textarea><input name="lang">
+  <input name="bot-field"><input name="name"><input name="rating"><input name="target"><textarea name="text"></textarea><input name="lang"><input name="consent">
 </form>
 </body>
 </html>
